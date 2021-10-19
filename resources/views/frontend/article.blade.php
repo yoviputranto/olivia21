@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <div class="article-cards mt-5" data-aos="fade-up">
+            <div class="article-cards mt-5" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row">
                     @foreach ($articles as $article)
                         <div class="col-12 col-lg-4 py-3">

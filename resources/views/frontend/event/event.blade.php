@@ -86,7 +86,7 @@
                     <h1>Webinar</h1>
                 </a>
             </div>
-            <div class="webinar-cards mt-5">
+            <div class="webinar-cards mt-5" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row slider-webinar">
                     @foreach ($webinars as $webinar)
                         <div class="col-12 col-lg-3 py-3">
@@ -184,7 +184,7 @@
                     <h1>Workshop</h1>
                 </a>
             </div>
-            <div class="webinar-cards mt-5">
+            <div class="webinar-cards mt-5" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row slider-webinar">
                     @for ($i = 0; $i < 5; $i++)
                         <div class="col-12 col-lg-3 py-3">
@@ -229,7 +229,7 @@
                     <h1>Kursus</h1>
                 </a>
             </div>
-            <div class="webinar-cards mt-5">
+            <div class="webinar-cards mt-5" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row slider-webinar">
                     @php
                         $kursus = [
@@ -272,7 +272,7 @@
                     @endphp
                     @for ($i = 0; $i < 5; $i++)
                         <div class="col-12 col-lg-3 py-3">
-                            <div class="card mx-auto" style="width: 280px;">
+                            <div class="card mx-auto scale-up" style="width: 280px;">
                                 <img src="{{ url('images/kursus/' . $kursus[$i]['gambar']) }}" class="card-img-top">
                                 <div class="card-body">
                                     <ul class="card-info card-webinar-info">
