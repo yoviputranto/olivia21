@@ -58,6 +58,7 @@
                             </li>
                             <li><a class="dropdown-item text-black" href="{{ url('/profil/infografis') }}">Infografis</a></li>
                             <li><a class="dropdown-item text-black" href="{{ url('/profil/struktur') }}">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item text-black" href="{{ url('/profil/kontak') }}">Kontak</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

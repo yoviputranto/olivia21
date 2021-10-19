@@ -69,6 +69,7 @@ Route::get('/profil/sejarah',[FrontendController::class,'sejarah'])->name('sejar
 Route::view('/profil/tugas-dan-fungsi','frontend.profil.tugas-fungsi')->name('tugas');
 Route::view('/profil/infografis','frontend.profil.infografis')->name('infografis');
 Route::view('/profil/struktur','frontend.profil.struktur')->name('struktur');
+Route::view('/profil/kontak','frontend.profil.contact')->name('kontak');
 Route::get('/event',[FrontendController::class,'event'])->name('event');
 Route::get('/event/{id}',[FrontendController::class,'detailevent'])->name('detailevent');
 Route::get('/program/webinar',[FrontendController::class,'webinar'])->name('webinar');
