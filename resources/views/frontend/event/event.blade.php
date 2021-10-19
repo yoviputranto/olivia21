@@ -238,37 +238,42 @@
                                 'tanggal' => 'Kamis, 21 Oktober 2021',
                                 'organizer' => 'Jakselnet Course',
                                 'biaya' => 'Rp50.000,-',
+                                'gambar' => '1.png',
                             ],
                             [
                                 'judul' => 'Pelatihan Back End Developer',
                                 'tanggal' => 'Senin, 25 Oktober 2021',
                                 'organizer' => 'Jakbarnet Course',
                                 'biaya' => 'Rp60.000,-',
+                                'gambar' => '2.png',
                             ],
                             [
                                 'judul' => 'Guitar Lesson',
                                 'tanggal' => 'Selasa, 26 Oktober 2021',
                                 'organizer' => 'Musicist',
                                 'biaya' => 'Rp75.000,-',
+                                'gambar' => '3.png',
                             ],
                             [
                                 'judul' => 'Pelatihan Front End Developer',
                                 'tanggal' => 'Senin, 1 November 2021',
                                 'organizer' => 'Frontliner',
                                 'biaya' => 'Rp60.000,-',
+                                'gambar' => '4.png',
                             ],
                             [
                                 'judul' => 'Pelatihan Data Analyst',
                                 'tanggal' => 'Senin, 1 November 2021',
                                 'organizer' => 'Solusi Terang',
                                 'biaya' => 'Rp80.000,-',
+                                'gambar' => '5.png',
                             ],
                         ]
                     @endphp
                     @for ($i = 0; $i < 5; $i++)
                         <div class="col-12 col-lg-3 py-3">
                             <div class="card mx-auto" style="width: 280px;">
-                                <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
+                                <img src="{{ url('images/kursus/' . $kursus[$i]['gambar']) }}" class="card-img-top">
                                 <div class="card-body">
                                     <ul class="card-info card-webinar-info">
                                         <li class="list-unstyled">
