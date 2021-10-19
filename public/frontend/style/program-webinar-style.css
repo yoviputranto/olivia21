@@ -13,6 +13,14 @@ body {
     background-size: contain;
 }
 
+hr {
+    position: relative;
+    border: none;
+    height: 12px;
+    background: #424874;
+    border-top: 4px solid #424874;
+}
+
 /* Navigation Bar */
 
 .navbar {
@@ -348,6 +356,29 @@ img {
     letter-spacing: 0em;
     text-align: left;
     margin: 5px 0 0 0;
+}
+
+.card-webinar-info {
+    padding-left: 0rem;
+}
+
+.btn-webinar-price {
+    color: #747dab;
+    background-color: transparent !important;
+}
+
+.btn-webinar-price:hover {
+    color: #424874;
+}
+
+.btn-webinar-action {
+    color: white;
+    background-color: #747dab !important;
+}
+
+.btn-webinar-action:hover {
+    color: #424874;
+    background-color: #747dab !important;
 }
 
 .prev-arrow-webinar {

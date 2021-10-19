@@ -93,7 +93,7 @@
                             <div class="card mx-auto" style="width: 280px;">
                                 <img src="{{ Storage::url($webinar->gambar) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <ul class="card-info">
+                                    <ul class="card-info card-webinar-info">
                                         <li class="list-unstyled">
                                             <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
                                             <p class="d-inline">{{ $webinar->judul }}</p>
@@ -109,9 +109,9 @@
                                             <p class="d-inline">{{ $webinar->getCategory->name }}</p>
                                         </li>
                                     </ul>
-                                    <div class="card-act d-flex justify-content-center mt-3">
-                                        <a href="{{ route('detailevent', $webinar->id) }}"
-                                            class="btn btn-primary-none">Gratis/Beli</a>
+                                    <div class="card-act d-flex justify-content-between mt-3">
+                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
+                                        <a href="{{ route('detailevent', $webinar->id) }}" class="btn btn-primary-none btn-webinar-action">Gratis/Beli</a>
                                     </div>
                                 </div>
                             </div>
@@ -141,78 +141,34 @@
                             </div>
                         </div>
                     </div> --}}
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
+                    @for ($i = 0; $i < 3; $i++)
+                        <div class="col-12 col-lg-3 py-3">
+                            <div class="card mx-auto" style="width: 280px;">
+                                <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
+                                <div class="card-body">
+                                    <ul class="card-info card-webinar-info">
+                                        <li class="list-unstyled">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
+                                            <p class="d-inline">Judul</p>
+                                        </li>
+                                        <li class="list-unstyled mt-2">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                            <p class="d-inline">Tanggal</p>
+                                        </li>
+                                        <li class="list-unstyled mt-2">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
+                                            <p class="d-inline">Event</p>
+                                        </li>
+                                    </ul>
+                                    <hr widt>
+                                    <div class="card-act d-flex justify-content-between mt-3">
+                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
+                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endfor
                 </div>
             </div>
         </div>
@@ -230,102 +186,34 @@
             </div>
             <div class="webinar-cards mt-5">
                 <div class="row slider-webinar">
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
+                    @for ($i = 0; $i < 5; $i++)
+                        <div class="col-12 col-lg-3 py-3">
+                            <div class="card mx-auto" style="width: 280px;">
+                                <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
+                                <div class="card-body">
+                                    <ul class="card-info card-webinar-info">
+                                        <li class="list-unstyled">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
+                                            <p class="d-inline">Judul</p>
+                                        </li>
+                                        <li class="list-unstyled mt-2">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                            <p class="d-inline">Tanggal</p>
+                                        </li>
+                                        <li class="list-unstyled mt-2">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
+                                            <p class="d-inline">Event</p>
+                                        </li>
+                                    </ul>
+                                    <hr widt>
+                                    <div class="card-act d-flex justify-content-between mt-3">
+                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
+                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endfor
                 </div>
             </div>
         </div>
@@ -343,102 +231,68 @@
             </div>
             <div class="webinar-cards mt-5">
                 <div class="row slider-webinar">
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
+                    @php
+                        $kursus = [
+                            [
+                                'judul' => 'Pelatihan UI/UX Designer',
+                                'tanggal' => 'Kamis, 21 Oktober 2021',
+                                'organizer' => 'Jakselnet Course',
+                                'biaya' => 'Rp50.000,-',
+                            ],
+                            [
+                                'judul' => 'Pelatihan Back End Developer',
+                                'tanggal' => 'Senin, 25 Oktober 2021',
+                                'organizer' => 'Jakbarnet Course',
+                                'biaya' => 'Rp60.000,-',
+                            ],
+                            [
+                                'judul' => 'Guitar Lesson',
+                                'tanggal' => 'Selasa, 26 Oktober 2021',
+                                'organizer' => 'Musicist',
+                                'biaya' => 'Rp75.000,-',
+                            ],
+                            [
+                                'judul' => 'Pelatihan Front End Developer',
+                                'tanggal' => 'Senin, 1 November 2021',
+                                'organizer' => 'Frontliner',
+                                'biaya' => 'Rp60.000,-',
+                            ],
+                            [
+                                'judul' => 'Pelatihan Data Analyst',
+                                'tanggal' => 'Senin, 1 November 2021',
+                                'organizer' => 'Solusi Terang',
+                                'biaya' => 'Rp80.000,-',
+                            ],
+                        ]
+                    @endphp
+                    @for ($i = 0; $i < 5; $i++)
+                        <div class="col-12 col-lg-3 py-3">
+                            <div class="card mx-auto" style="width: 280px;">
+                                <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
+                                <div class="card-body">
+                                    <ul class="card-info card-webinar-info">
+                                        <li class="list-unstyled">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
+                                            <p class="d-inline">{{$kursus[$i]['judul']}}</p>
+                                        </li>
+                                        <li class="list-unstyled mt-2">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                            <p class="d-inline">{{$kursus[$i]['tanggal']}}</p>
+                                        </li>
+                                        <li class="list-unstyled mt-2">
+                                            <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
+                                            <p class="d-inline">{{$kursus[$i]['organizer']}}</p>
+                                        </li>
+                                    </ul>
+                                    <hr widt>
+                                    <div class="card-act d-flex justify-content-between mt-3">
+                                        <a href="#" class="btn btn-webinar-price">{{$kursus[$i]['biaya']}}</a>
+                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="#" class="btn btn-primary-none">Gratis/Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endfor
                 </div>
             </div>
         </div>
