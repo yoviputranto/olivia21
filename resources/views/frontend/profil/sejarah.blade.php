@@ -100,17 +100,24 @@
                         Pembentukan Sekolah Vokasi Institut Pertanian Bogor, maka dibentuk Sekolah Vokasi Institut Pertanian
                         Bogor. Berdasarkan SK Dekan Sekolah Vokasi IPB Nomor: 4036/IT3.53/KP/2020 dibentuk empat Divisi
                         yaitu:
-                        1. Divisi Teknik Produksi, terdiri atas enam prodi. (Teknologi Industri Benih, Teknologi Produksi
-                        dan Manajemen Perikanan Budidaya, Teknologi dan Manajemen Ternak, Teknologi dan Manajemen
-                        Produksi Perkebunan, Teknologi Produksi dan Pengembangan Masyarakat Pertanian, Paramedik
-                        Veteriner)
-                        2. Divisi Sistem Manajemen dan Rekayasa Terapan terdiri dari atas lima prodi. (Manajemen
-                        Industri, Akuntansi, Supervisor Jaminan Mutu Pangan, Manajemen Industri Jasa Makanan dan Gizi).
-                        3. Divisi Ekosistem, Lingkungan, dan Komunikasi Terapan, terdiri atas tiga prodi 4 prodi (Teknik dan
-                        Manajemen LIngkungan, KOmunikasi, Ekowisata, Analisis Kimia) 4. Divisi Teknik Digital Terapan,
-                        terdiri
-                        atas dua prodi (Manajemen informatika dan Teknik Komputer)
                     </p>
+                    <ol>
+                        <li>
+                            Divisi Teknik Produksi, terdiri atas enam prodi. (Teknologi Industri Benih, Teknologi Produksi
+                            dan Manajemen Perikanan Budidaya, Teknologi dan Manajemen Ternak, Teknologi dan Manajemen
+                            Produksi Perkebunan, Teknologi Produksi dan Pengembangan Masyarakat Pertanian, Paramedik
+                            Veteriner).
+                        </li>
+                        <li>
+                            Divisi Sistem Manajemen dan Rekayasa Terapan terdiri dari atas lima prodi. (Manajemen
+                            Industri, Akuntansi, Supervisor Jaminan Mutu Pangan, Manajemen Industri Jasa Makanan dan Gizi).
+                        </li>
+                        <li>
+                            Divisi Ekosistem, Lingkungan, dan Komunikasi Terapan, terdiri atas tiga prodi 4 prodi (Teknik dan
+                            Manajemen LIngkungan, KOmunikasi, Ekowisata, Analisis Kimia) 4. Divisi Teknik Digital Terapan,
+                            terdiri atas dua prodi (Manajemen informatika dan Teknik Komputer)
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
