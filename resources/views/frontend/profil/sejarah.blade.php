@@ -113,9 +113,12 @@
                             Industri, Akuntansi, Supervisor Jaminan Mutu Pangan, Manajemen Industri Jasa Makanan dan Gizi).
                         </li>
                         <li>
-                            Divisi Ekosistem, Lingkungan, dan Komunikasi Terapan, terdiri atas tiga prodi 4 prodi (Teknik dan
-                            Manajemen LIngkungan, KOmunikasi, Ekowisata, Analisis Kimia) 4. Divisi Teknik Digital Terapan,
-                            terdiri atas dua prodi (Manajemen informatika dan Teknik Komputer)
+                            Divisi Ekosistem, Lingkungan, dan Komunikasi Terapan, terdiri atas tiga prodi 4 prodi (Teknik
+                            dan Manajemen LIngkungan, KOmunikasi, Ekowisata, Analisis Kimia).
+                        </li>
+                        <li>
+                            Divisi Teknik Digital Terapan,
+                            terdiri atas dua prodi (Manajemen informatika dan Teknik Komputer).
                         </li>
                     </ol>
                 </div>
