@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <main class="content">
-        <div class="container">
+    <main class="content dashboard-wrapper">
+        <div class="container dashboard-card">
             <section class="rounded bg-white py-4 px-4">
                 <h2 class="fw-bold">Welcome, Abdul Baris!</h2>
                 <p>Siap jangkau 1.000.000.000 anak muda yang dapat berpartisipasi dalam event yang kamu adakan</p>

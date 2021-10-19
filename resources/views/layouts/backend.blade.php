@@ -15,7 +15,7 @@
 
 <body>
 
-    <header class="navbar navbar-expand-lg navbar-dark bg-purple py-3">
+    <header class="sticky-top navbar navbar-expand-lg navbar-dark bg-purple py-3">
         <div class="container-fluid">
             <a href="{{ url('user/dashboard') }}" class="navbar-brand">
                 <img class="img-fluid" src="{{ url('frontend/assets/ic/logo-horizontal.png') }}" alt="logo"
