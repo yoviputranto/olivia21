@@ -52,12 +52,12 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item text-black" href="{{ url('/profil/sejarah') }}">Sejarah</a>
                             </li>
-                            <li><a class="dropdown-item text-black" href="#">Tugas &amp; Fungsi</a></li>
+                            <li><a class="dropdown-item text-black" href="{{ url('/profil/tugas-dan-fungsi') }}">Tugas &amp; Fungsi</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item text-black" href="#">Infografis</a></li>
-                            <li><a class="dropdown-item text-black" href="#">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item text-black" href="{{ url('/profil/infografis') }}">Infografis</a></li>
+                            <li><a class="dropdown-item text-black" href="{{ url('/profil/struktur') }}">Struktur Organisasi</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
