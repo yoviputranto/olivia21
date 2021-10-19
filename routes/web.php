@@ -79,3 +79,4 @@ Route::get('/search',[FrontendController::class,'search'])->name('search');
 Route::get('/user/dashboard',function(){
     return view('user.index');
 })->name('user.dashboard');
+Route::view('/user/upload-event', 'user.upload');

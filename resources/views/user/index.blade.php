@@ -7,7 +7,8 @@
             <section class="rounded bg-white py-4 px-4">
                 <h2 class="fw-bold">Welcome, Abdul Baris!</h2>
                 <p>Siap jangkau 1.000.000.000 anak muda yang dapat berpartisipasi dalam event yang kamu adakan</p>
-                <a href="" class="btn bg-purple px-4" style="font-size:small;letter-spacing:2px">UPLOAD EVENT SEKARANG</a>
+                <a href="{{ url('user/upload-event') }}" class="btn bg-purple px-4"
+                    style="font-size:small;letter-spacing:2px">UPLOAD EVENT SEKARANG</a>
             </section>
             <section class="my-4">
                 <h3><i class="fas fa-chart-bar text-purple me-2"></i> Overview</h3>
