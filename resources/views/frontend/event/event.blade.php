@@ -90,7 +90,7 @@
                 <div class="row slider-webinar">
                     @foreach ($webinars as $webinar)
                         <div class="col-12 col-lg-3 py-3">
-                            <div class="card mx-auto" style="width: 280px;">
+                            <div class="card mx-auto scale-up" style="width: 280px;">
                                 <img src="{{ Storage::url($webinar->gambar) }}" class="card-img-top">
                                 <div class="card-body">
                                     <ul class="card-info card-webinar-info">
@@ -143,7 +143,7 @@
                     </div> --}}
                     @for ($i = 0; $i < 3; $i++)
                         <div class="col-12 col-lg-3 py-3">
-                            <div class="card mx-auto" style="width: 280px;">
+                            <div class="card mx-auto scale-up" style="width: 280px;">
                                 <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
                                 <div class="card-body">
                                     <ul class="card-info card-webinar-info">
@@ -188,7 +188,7 @@
                 <div class="row slider-webinar">
                     @for ($i = 0; $i < 5; $i++)
                         <div class="col-12 col-lg-3 py-3">
-                            <div class="card mx-auto" style="width: 280px;">
+                            <div class="card mx-auto scale-up" style="width: 280px;">
                                 <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
                                 <div class="card-body">
                                     <ul class="card-info card-webinar-info">
