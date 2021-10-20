@@ -815,52 +815,60 @@
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="card scale-up">
                                 <div class="card-img d-flex justify-content-center py-4">
-                                    <img src="{{ url('frontend/assets/profile/profile-1.jpeg') }}"
+                                    <img src="{{ url('frontend/assets/profile/profile-rine.jpeg') }}"
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et nostrud exercitation ullac.”</p>
-                                    <h5 class="card-title">- yung</h5>
+                                    <p class="card-text">Edumind sangat bermanfaat untuk saya, apalagi pada saat pandemi saat ini sehingga saya bisa lebih mengexplore dan menambah pengetahuan dengan mengikuti kelas kelas kursus maupun webinar, workshop yang ada di edumind tanpa ribet. Selain itu, disini juga ada fitur diskusi yang sering saya gunakan juga untuk bertanya mengenai topik yang ingin saya mengerti.”</p>
+                                    <h5 class="card-title">- Rine</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="card scale-up">
                                 <div class="card-img d-flex justify-content-center py-4">
-                                    <img src="{{ url('frontend/assets/profile/profile-1.jpeg') }}"
+                                    <img src="{{ url('frontend/assets/profile/profile-abdiel.jpeg') }}"
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et nostrud exercitation ullac.”</p>
-                                    <h5 class="card-title">- Bram</h5>
+                                    <p class="card-text">“Menurut saya edumind menjadi tempat yang cocok untuk belajar banyak hal terutama pada masa pandemi ini. Bagi saya masa pandemi tidak menghambat saya untuk mencoba menggali informasi yang ingin saya dapatkan. Selain itu, edumind juga cocok untuk berdiskusi atau menanyakan hal yang saya kurang pahami. Terima kasih edumind.”</p>
+                                    <h5 class="card-title">- Abdiel</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="card scale-up">
                                 <div class="card-img d-flex justify-content-center py-4">
-                                    <img src="{{ url('frontend/assets/profile/profile-1.jpeg') }}"
+                                    <img src="{{ url('frontend/assets/profile/profile-sade.png') }}"
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et nostrud exercitation ullac.”</p>
-                                    <h5 class="card-title">- yung Bram</h5>
+                                    <p class="card-text">“SIAPAPUN MAKASIH BANGET YG UDAH CIPTAIN EDUMIND, Bermanfaat bgt buat aku yang pengen sharing atau pengetahuan diluar kampus. Teman-temannya juga asik banget, materi dari webinar yang disediakan  cukup fresh dan insightful. Tutornya juga menjelaskan dengan mudah sehingga bagi mereka yang belum pernah sama sekali tau bisa memahami alur dari materi.”</p>
+                                    <h5 class="card-title">- Sade</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="card scale-up">
                                 <div class="card-img d-flex justify-content-center py-4">
-                                    <img src="{{ url('frontend/assets/profile/profile-1.jpeg') }}"
+                                    <img src="{{ url('frontend/assets/profile/profile-ade.jpg') }}"
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et nostrud exercitation ullac.”</p>
-                                    <h5 class="card-title">- Bram yung</h5>
+                                    <p class="card-text">“Dulu aku suka bingung cari tempat kursus online yang sesuai sama aku tapi semenjak ada EBUMIND aku udah nggak bingung lagi, karena EBUMIND nyediain apa yang aku butuhin. Terima kasih EBUMIND.”</p>
+                                    <h5 class="card-title">- Ade</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide d-flex justify-content-center">
+                            <div class="card scale-up">
+                                <div class="card-img d-flex justify-content-center py-4">
+                                    <img src="{{ url('frontend/assets/profile/profile-ridhal.jpeg') }}"
+                                        class="img-fluid" alt="Photo-profile">
+                                </div>
+                                <div class="card-body text-center p-4">
+                                    <p class="card-text">“Edumind sangat bermanfaat untuk saya yang suka mengikuti acara webinar dengan tema informasi teknologi.”</p>
+                                    <h5 class="card-title">- Ridhal</h5>
                                 </div>
                             </div>
                         </div>
