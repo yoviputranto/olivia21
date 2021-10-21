@@ -38,103 +38,220 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i title="" class="fa fa-bars" aria-hidden="true"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'beranda' ? 'active' : '' }}"
-                            aria-current="page" href="{{ url('/') }}">Beranda</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Profile
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-black" href="{{ url('/profil/sejarah') }}">Sejarah</a>
-                            </li>
-                            <li><a class="dropdown-item text-black" href="{{ url('/profil/tugas-dan-fungsi') }}">Tugas &amp; Fungsi</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-black" href="{{ url('/profil/infografis') }}">Infografis</a></li>
-                            <li><a class="dropdown-item text-black" href="{{ url('/profil/struktur') }}">Struktur Organisasi</a></li>
-                            <li><a class="dropdown-item text-black" href="{{ url('/profil/kontak') }}">Kontak</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'event' ? 'active' : '' }}"
-                            href="{{ url('/event') }}">Event</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link {{ Route::currentRouteName() == 'timeline' ? 'active' : '' }} dropdown-toggle"
-                            href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Diskusi
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-black" href="{{ url('/diskusi') }}">Timeline</a></li>
-                            <li><a class="dropdown-item text-black" href="#">Jawaban</a></li>
-                            <li><a class="dropdown-item text-black" href="#">Pertanyaan</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-black" href="#">Pertanyaan saya</a></li>
-                            <li><a class="dropdown-item text-black" href="#">Jawaban saya</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'article' ? 'active' : '' }}"
-                            href="{{ url('/artikel') }}">Artikel</a>
-                    </li>
-                    @if (Auth::user())
+            @if (!Auth::user())
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'beranda' ? 'active' : '' }}"
+                                aria-current="page" href="{{ url('/') }}">Beranda</a>
+                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="img-fluid m-0"
-                                    src="{{ asset('frontend') }}/assets/ic/logged-in-profile.png" alt=""
-                                    width="30px">
+                                Profile
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item text-black" href="#">Profile</a></li>
-                                <li><a class="dropdown-item text-black" href="{{ route('beranda') }}">Dashboard</a>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ url('/profil/sejarah') }}">Sejarah</a>
                                 </li>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ url('/profil/tugas-dan-fungsi') }}">Tugas
+                                        &amp; Fungsi</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li>
-                                    <form action="{{ route('logout') }}" method="post">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item text-black">Logout</button>
-                                    </form>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ url('/profil/infografis') }}">Infografis</a></li>
+                                <li><a class="dropdown-item text-black" href="{{ url('/profil/struktur') }}">Struktur
+                                        Organisasi</a></li>
+                                <li><a class="dropdown-item text-black" href="{{ url('/profil/kontak') }}">Kontak</a>
                                 </li>
                             </ul>
                         </li>
-                    @else
-                        <li class="nav-item log-in">
-                            <a class="nav-link text-center text-black fw-bold" href="{{ route('login') }}">Masuk</a>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'event' ? 'active' : '' }}"
+                                href="{{ url('/event') }}">Event</a>
                         </li>
-                    @endif
-                </ul>
-                <div class="box-container">
-                    <table class="element-container">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <form action="{{ route('search') }}" method="GET">
-                                        <input type="text" name="search" placeholder="Cari.." class="search">
-                                    </form>
-                                </td>
-                                <td>
-                                    <a href="#">
-                                        <img class="search-img"
-                                            src="{{ url('frontend/assets/ic/search-white.png') }}" width="14px"
-                                            alt="search">
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link {{ Route::currentRouteName() == 'timeline' ? 'active' : '' }} dropdown-toggle"
+                                href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Diskusi
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-black" href="{{ url('/diskusi') }}">Timeline</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'article' ? 'active' : '' }}"
+                                href="{{ url('/artikel') }}">Artikel</a>
+                        </li>
+                        @if (Auth::user())
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img class="img-fluid m-0"
+                                        src="{{ asset('frontend') }}/assets/ic/logged-in-profile.png" alt=""
+                                        width="30px">
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item text-black" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item text-black"
+                                            href="{{ route('beranda') }}">Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item text-black">Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item log-in">
+                                <a class="nav-link text-center text-black fw-bold"
+                                    href="{{ route('login') }}">Masuk</a>
+                            </li>
+                        @endif
+                    </ul>
+                    <div class="box-container">
+                        <table class="element-container">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <form action="{{ route('search') }}" method="GET">
+                                            <input type="text" name="search" placeholder="Cari.."
+                                                class="search">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <img class="search-img"
+                                                src="{{ url('frontend/assets/ic/search-white.png') }}" width="14px"
+                                                alt="search">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+            @elseif (Auth::user())
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'beranda' ? 'active' : '' }}"
+                                aria-current="page" href="{{ url('/') }}">Beranda</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ url('/profil/sejarah') }}">Sejarah</a>
+                                </li>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ url('/profil/tugas-dan-fungsi') }}">Tugas
+                                        &amp; Fungsi</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ url('/profil/infografis') }}">Infografis</a></li>
+                                <li><a class="dropdown-item text-black" href="{{ url('/profil/struktur') }}">Struktur
+                                        Organisasi</a></li>
+                                <li><a class="dropdown-item text-black" href="{{ url('/profil/kontak') }}">Kontak</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'event' ? 'active' : '' }}"
+                                href="{{ url('/event') }}">Event</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link {{ Route::currentRouteName() == 'timeline' ? 'active' : '' }} dropdown-toggle"
+                                href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Diskusi
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-black" href="{{ url('/diskusi') }}">Timeline</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="#">Jawaban</a></li>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ route('pertanyaan.index') }}">Pertanyaan</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ route('pertanyaan-saya.index') }}">Pertanyaan saya</a></li>
+                                <li><a class="dropdown-item text-black" href="#">Jawaban saya</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::currentRouteName() == 'article' ? 'active' : '' }}"
+                                href="{{ url('/artikel') }}">Artikel</a>
+                        </li>
+                        @if (Auth::user())
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img class="img-fluid m-0"
+                                        src="{{ asset('frontend') }}/assets/ic/logged-in-profile.png" alt=""
+                                        width="30px">
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item text-black" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item text-black"
+                                            href="{{ route('beranda') }}">Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item text-black">Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item log-in">
+                                <a class="nav-link text-center text-black fw-bold"
+                                    href="{{ route('login') }}">Masuk</a>
+                            </li>
+                        @endif
+                    </ul>
+                    <div class="box-container">
+                        <table class="element-container">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <form action="{{ route('search') }}" method="GET">
+                                            <input type="text" name="search" placeholder="Cari.."
+                                                class="search">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <img class="search-img"
+                                                src="{{ url('frontend/assets/ic/search-white.png') }}" width="14px"
+                                                alt="search">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            @endif
         </div>
     </nav>
     <!-- End of Navigation Bar -->
@@ -227,14 +344,12 @@
     </a>
 
     <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
     <!-- FontAwesome JS -->
     <script src="https://kit.fontawesome.com/b3b03a4327.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
         integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -100,12 +100,11 @@
                             alt="illustration" width="500px">
                     </div>
                     <div class="col-12 col-lg-6 text-what">
-                        <h4>What</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur.</p>
+                        <h4>Apa itu Edumind?</h4>
+                        <p>Edumind adalah sebuah situs yang menampung berbagai macam event menarik seperti webinar,
+                            workshop, dan kursus. Selain itu, Edumind juga menyediakan ruang untuk berdiskusi dalam suatu
+                            topik dari pertanyaan yang ada. Edumind merupakan situs untuk pengembangan diri melalui
+                            pengetahuan-pengetahuan yang dibagikan dari satu orang ke orang lainnya.</p>
                     </div>
                 </div>
             </div>
@@ -333,7 +332,8 @@
                                         </li>
                                         <li class="list-unstyled mt-2">
                                             <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}>
-                                                <p class="      d-inline">Event</p>
+                                                                                <p class="              d-inline">Event
+                                            </p>
                                         </li>
                                     </ul>
                                     <div class="card-act d-flex justify-content-center mt-3">
@@ -381,6 +381,23 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{-- <div class="col-12 col-lg-4 py-3">
+                            <div class="card mx-auto scale-up" style="width: 20rem;">
+                                <img src="{{ url('frontend/assets/illustration/no-photo.png') }}" class="card-img-top"
+                                    alt="illustration">
+                                <div class="card-body">
+                                    <p class="card-date">31 Agustus 2021, Admin</p>
+                                    <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Mauris
+                                        ut enim in massa
+                                        fringilla </h5>
+                                    <div class="card-act d-flex justify-content-between mt-3">
+                                        <a href="#" class="btn btn-primary">Selengkapnya</a>
+                                        <h5 class="card-date">Kategori</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
                         {{-- <div class="col-12 col-lg-4 py-3">
                             <div class="card mx-auto scale-up" style="width: 20rem;">
                                 <img src="{{ url('frontend/assets/illustration/no-photo.png') }}" class="card-img-top"
@@ -540,24 +557,23 @@
                             alt="illustration" width="500px">
                     </div>
                     <div class="col-12 col-lg-6 text-what">
-                        <h4>What</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur.</p>
+                        <h4>Apa itu Edumind?</h4>
+                        <p>Edumind adalah sebuah situs yang menampung berbagai macam event menarik seperti webinar,
+                            workshop, dan kursus. Selain itu, Edumind juga menyediakan ruang untuk berdiskusi dalam suatu
+                            topik dari pertanyaan yang ada. Edumind merupakan situs untuk pengembangan diri melalui
+                            pengetahuan-pengetahuan yang dibagikan dari satu orang ke orang lainnya.</p>
                     </div>
                 </div>
             </div>
             <div class="container mt-5 scale-up" data-aos="fade-up">
                 <div class="row">
                     <div class="col-12 col-lg-6 text-why">
-                        <h4>Why</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur.</p>
+                        <h4>Mengapa Harus Edumind?</h4>
+                        <p>Edumind menyediakan beberapa fitur yang bermanfaat seperti event, diskusi dan artikel yang
+                            berfungsi sebagai penyampaian informasi atau pengetahuan serta menjadi ruang diskusi untuk
+                            bertukar pikiran. Pengguna dapat mengikuti event yang sesuai informasi yang ingin didapat, lalu
+                            bertanya di ruang diskusi untuk bertukar pikiran serta mengakses artikel untuk melihat informasi
+                            yang selalu mengikuti perkembangan zaman.</p>
                     </div>
                     <div class="col-12 col-lg-6 px-5 pt-5">
                         <img class="img-fluid" src="{{ url('frontend/assets/illustration/ill-3.png') }}"
@@ -584,9 +600,8 @@
                                     class="card-img-top m-0 p-4" alt="illustration" width="200px">
                                 <div class="card-body">
                                     <h5 class="card-title">Forum Diskusi</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do
-                                        eiusmod </p>
+                                    <p class="card-text">Tempat untuk berdiskusi dan bertukar pikiran untuk suatu
+                                        topik tertentu.</p>
                                     <div class="float-end">
                                         <!-- Button trigger modal -->
                                         <a type="button" class="btn" data-bs-toggle="modal"
@@ -620,9 +635,8 @@
                                     class="card-img-top m-0 p-4" alt="illustration" width="200px">
                                 <div class="card-body">
                                     <h5 class="card-title">Webinar</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do
-                                        eiusmod </p>
+                                    <p class="card-text">Menyediakan webinar dengan topik-topik yang menarik tentang
+                                        isu terkini</p>
                                     <div class="float-end">
                                         <!-- Button trigger modal -->
                                         <a type="button" class="btn" data-bs-toggle="modal"
@@ -656,9 +670,8 @@
                                     class="card-img-top m-0 p-4" alt="illustration" width="200px">
                                 <div class="card-body">
                                     <h5 class="card-title">Workshop</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do
-                                        eiusmod </p>
+                                    <p class="card-text">Menyediakan pelatihan untuk menambah pengetahuan dalam suatu
+                                        bidang</p>
                                     <div class="float-end">
                                         <!-- Button trigger modal -->
                                         <a type="button" class="btn" data-bs-toggle="modal"
@@ -692,9 +705,8 @@
                                     class="card-img-top m-0 p-4" alt="illustration" width="200px">
                                 <div class="card-body">
                                     <h5 class="card-title">Kursus</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do
-                                        eiusmod </p>
+                                    <p class="card-text">Menyediakan kursus untuk menggali potensi diri dan menambah
+                                        pengalaman</p>
                                     <div class="float-end">
                                         <!-- Button trigger modal -->
                                         <a type="button" class="btn" data-bs-toggle="modal"
@@ -819,7 +831,11 @@
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">Edumind sangat bermanfaat untuk saya, apalagi pada saat pandemi saat ini sehingga saya bisa lebih mengexplore dan menambah pengetahuan dengan mengikuti kelas kelas kursus maupun webinar, workshop yang ada di edumind tanpa ribet. Selain itu, disini juga ada fitur diskusi yang sering saya gunakan juga untuk bertanya mengenai topik yang ingin saya mengerti.”</p>
+                                    <p class="card-text">Edumind sangat bermanfaat untuk saya, apalagi pada saat
+                                        pandemi saat ini sehingga saya bisa lebih mengexplore dan menambah pengetahuan
+                                        dengan mengikuti kelas kelas kursus maupun webinar, workshop yang ada di edumind
+                                        tanpa ribet. Selain itu, disini juga ada fitur diskusi yang sering saya gunakan juga
+                                        untuk bertanya mengenai topik yang ingin saya mengerti.”</p>
                                     <h5 class="card-title">- Rine</h5>
                                 </div>
                             </div>
@@ -831,7 +847,11 @@
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“Menurut saya edumind menjadi tempat yang cocok untuk belajar banyak hal terutama pada masa pandemi ini. Bagi saya masa pandemi tidak menghambat saya untuk mencoba menggali informasi yang ingin saya dapatkan. Selain itu, edumind juga cocok untuk berdiskusi atau menanyakan hal yang saya kurang pahami. Terima kasih edumind.”</p>
+                                    <p class="card-text">“Menurut saya edumind menjadi tempat yang cocok untuk belajar
+                                        banyak hal terutama pada masa pandemi ini. Bagi saya masa pandemi tidak menghambat
+                                        saya untuk mencoba menggali informasi yang ingin saya dapatkan. Selain itu, edumind
+                                        juga cocok untuk berdiskusi atau menanyakan hal yang saya kurang pahami. Terima
+                                        kasih edumind.”</p>
                                     <h5 class="card-title">- Abdiel</h5>
                                 </div>
                             </div>
@@ -843,7 +863,11 @@
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“SIAPAPUN MAKASIH BANGET YG UDAH CIPTAIN EDUMIND, Bermanfaat bgt buat aku yang pengen sharing atau pengetahuan diluar kampus. Teman-temannya juga asik banget, materi dari webinar yang disediakan  cukup fresh dan insightful. Tutornya juga menjelaskan dengan mudah sehingga bagi mereka yang belum pernah sama sekali tau bisa memahami alur dari materi.”</p>
+                                    <p class="card-text">“SIAPAPUN MAKASIH BANGET YG UDAH CIPTAIN EDUMIND, Bermanfaat
+                                        bgt buat aku yang pengen sharing atau pengetahuan diluar kampus. Teman-temannya juga
+                                        asik banget, materi dari webinar yang disediakan cukup fresh dan insightful.
+                                        Tutornya juga menjelaskan dengan mudah sehingga bagi mereka yang belum pernah sama
+                                        sekali tau bisa memahami alur dari materi.”</p>
                                     <h5 class="card-title">- Sade</h5>
                                 </div>
                             </div>
@@ -855,7 +879,9 @@
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“Dulu aku suka bingung cari tempat kursus online yang sesuai sama aku tapi semenjak ada EBUMIND aku udah nggak bingung lagi, karena EBUMIND nyediain apa yang aku butuhin. Terima kasih EBUMIND.”</p>
+                                    <p class="card-text">“Dulu aku suka bingung cari tempat kursus online yang sesuai
+                                        sama aku tapi semenjak ada EBUMIND aku udah nggak bingung lagi, karena EBUMIND
+                                        nyediain apa yang aku butuhin. Terima kasih EBUMIND.”</p>
                                     <h5 class="card-title">- Ade</h5>
                                 </div>
                             </div>
@@ -867,7 +893,8 @@
                                         class="img-fluid" alt="Photo-profile">
                                 </div>
                                 <div class="card-body text-center p-4">
-                                    <p class="card-text">“Edumind sangat bermanfaat untuk saya yang suka mengikuti acara webinar dengan tema informasi teknologi.”</p>
+                                    <p class="card-text">“Edumind sangat bermanfaat untuk saya yang suka mengikuti
+                                        acara webinar dengan tema informasi teknologi.”</p>
                                     <h5 class="card-title">- Ridhal</h5>
                                 </div>
                             </div>
@@ -886,7 +913,25 @@
                 </div>
                 <div class="article-cards mt-5">
                     <div class="row slider">
-                        <div class="col-12 col-lg-4 py-3">
+                        @foreach ($articles as $article)
+                            <div class="col-12 col-lg-4 py-3">
+                                <div class="card mx-auto scale-up" style="width: 20rem;">
+                                    <img src="{{ Storage::url($article->image) }}" class="card-img-top"
+                                        alt="illustration">
+                                    <div class="card-body">
+                                        <p class="card-date">{{ $article->created_at }}, {{ $article->author }}
+                                        </p>
+                                        <h5 class="card-title">{{ $article->title }}</h5>
+                                        <div class="card-act d-flex justify-content-between mt-3">
+                                            <a href="{{ route('detailarticle', $article->slug) }}"
+                                                class="btn btn-primary">Selengkapnya</a>
+                                            <h5 class="card-date">{{ $article->getCategory->name }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="col-12 col-lg-4 py-3">
                             <div class="card mx-auto scale-up" style="width: 20rem;">
                                 <img src="{{ url('frontend/assets/illustration/no-photo.png') }}" class="card-img-top"
                                     alt="illustration">
@@ -936,24 +981,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-4 py-3">
-                            <div class="card mx-auto scale-up" style="width: 20rem;">
-                                <img src="{{ url('frontend/assets/illustration/no-photo.png') }}" class="card-img-top"
-                                    alt="illustration">
-                                <div class="card-body">
-                                    <p class="card-date">31 Agustus 2021, Admin</p>
-                                    <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Mauris
-                                        ut enim in massa
-                                        fringilla </h5>
-                                    <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-primary">Selengkapnya</a>
-                                        <h5 class="card-date">Kategori</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

@@ -14,14 +14,14 @@
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
-                                                                                <div class="d-flex align-items-center justify-content-md-end">
-                                                                                    <div class="pr-1 mb-3 mb-xl-0">
-                                                                                        <a href="{{ route('category-articles.create') }}"
-                                                                                            class="btn btn-primary mb-4">Edit</a>
-                                                                                    </div>
+                                                                                    <div class="d-flex align-items-center justify-content-md-end">
+                                                                                        <div class="pr-1 mb-3 mb-xl-0">
+                                                                                            <a href="{{ route('category-articles.create') }}"
+                                                                                                class="btn btn-primary mb-4">Edit</a>
+                                                                                        </div>
 
-                                                                                </div>
-                                                                            </div> -->
+                                                                                    </div>
+                                                                                </div> -->
                     </div>
                     <div class="row mt-4">
                         <div class="col-lg-12 grid-margin stretch-card">
@@ -51,11 +51,11 @@
                                                 placeholder="Isi artikel"
                                                 value="{{ $articles->body }}">{!! old('isi', $articles->body ?? '') !!}</textarea>
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="name">Author</label>
                                             <input type="text" class="form-control" name="author"
                                                 placeholder="Author artikel" value="{{ $articles->author }}">
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group">
                                             <label for="name">Status</label>
                                             <select class="form-control" name="status">

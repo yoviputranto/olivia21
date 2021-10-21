@@ -61,12 +61,12 @@
                                         <div class="form-group">
                                             <label for=name>Link Zoom</label>
                                             <input type="text" class="form-control" name="link_zoom"
-                                                placeholder="Link Zoom" required>
+                                                placeholder="Link Zoom">
                                         </div>
                                         <div class="form-group">
                                             <label for="name">Link Event</label>
                                             <input type="text" class="form-control" name="link_event"
-                                                placeholder="Link Event" required>
+                                                placeholder="Link Event">
                                         </div>
                                         <div class="form-group">
                                             <label for="name">Event Organizer</label>

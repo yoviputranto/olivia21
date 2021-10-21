@@ -45,6 +45,7 @@ class EventController extends Controller
     {
         $data = $request->all();
         $data['judul'] = Str::title($request->judul);
+        $data['slug'] = Str::slug($request->judul);
         $data['gambar'] = $request->file('gambar')->store(
             'assets/gallery',
             'public'
@@ -90,6 +91,7 @@ class EventController extends Controller
     {
         $data = $request->all();
         $data['judul'] = Str::title($request->judul);
+        $data['slug'] = Str::slug($request->judul);
         if ($request->hasFile('gambar')) {
             $data['gambar'] = $request->file('gambar')->store(
                 'assets/gallery',

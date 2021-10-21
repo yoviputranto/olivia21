@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="col-12 col-lg-4 mt-4">
+                    {{-- <div class="col-12 col-lg-4 mt-4">
                         <div class="card mx-auto scale-up" style="width: 20rem;">
                             <img src="{{ url('frontend/assets/illustration/no-photo.png') }}" class="card-img-top"
                                 alt="...">
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

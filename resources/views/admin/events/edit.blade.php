@@ -63,12 +63,12 @@
                                         <div class="form-group">
                                             <label for=name>Link Zoom</label>
                                             <input type="text" class="form-control" name="link_zoom"
-                                                placeholder="Link Zoom" value="{{ $event->link_zoom }}" required>
+                                                placeholder="Link Zoom" value="{{ $event->link_zoom }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="name">Link Event</label>
                                             <input type="text" class="form-control" name="link_event"
-                                                placeholder="Link Event" value="{{ $event->link_event }}" required>
+                                                placeholder="Link Event" value="{{ $event->link_event }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="name">Event Organizer</label>

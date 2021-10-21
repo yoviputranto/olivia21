@@ -13,6 +13,9 @@ use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\Admin\KomentarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\User\TimelineController;
+use App\Http\Controllers\User\UserPertanyaanController;
+use App\Http\Controllers\User\UserPertanyaanSayaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,6 +58,10 @@ Route::prefix('admin')
         Route::resource('jawab-komentar', JawabKomentarController::class);
     });
 
+// Users
+Route::resource('pertanyaan', UserPertanyaanController::class);
+Route::resource('pertanyaan-saya', UserPertanyaanSayaController::class);
+Route::resource('timeline', TimelineController::class);
 
     Route::get('auth/google/redirect', [LoginController::class,'redirectToGoogle'])->name('login.google');
     Route::get('auth/google/callback', [LoginController::class,'handleGoogleCallback']);

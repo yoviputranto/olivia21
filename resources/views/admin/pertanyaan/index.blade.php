@@ -45,7 +45,7 @@
                                             @foreach ($pertanyaans as $pertanyaan)
                                                 <tr>
                                                     <td>{{ $no++ }}</td>
-                                                    <td>{{ Auth::user()->name }}</td>
+                                                    <td>{{ $pertanyaan->getUser->name }}</td>
                                                     <td>{{ $pertanyaan->getCategory->name }}</td>
                                                     <td>{!! $pertanyaan->pertanyaan !!}</td>
                                                     <td>12</td>

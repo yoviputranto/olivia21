@@ -196,36 +196,19 @@
                             <h4 class="d-inline">Kategori Artikel</h4>
                         </div>
                         <div class="article-list mt-4">
-                            <div class="row article-item my-3">
-                                <div class="col-6 article-img">
-                                    <img class="img-fluid pt-3" src="{{ url('frontend/assets/ic/blank.png') }}"
-                                        alt="article-img" width="140px">
+                            @foreach ($articles as $article)
+                                <div class="row article-item my-3">
+                                    <div class="col-6 article-img">
+                                        <img class="img-fluid pt-3" src="{{ Storage::url($article->image) }}"
+                                            alt="article-img" width="140px">
+                                    </div>
+                                    <div class="col-6">
+                                        <p>{{ $article->created_at }}, {{ $article->author }}</p>
+                                        <h4>{{ Str::words($article->title, 5, '') }}</h4>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <p>31 Agustus 2021, Admin</p>
-                                    <h4>Judul artikel yang panjang lebih dari 2 baris</h4>
-                                </div>
-                            </div>
-                            <div class="row article-item my-3">
-                                <div class="col-6 article-img">
-                                    <img class="img-fluid pt-3" src="{{ url('frontend/assets/ic/blank.png') }}"
-                                        alt="article-img" width="140px">
-                                </div>
-                                <div class="col-6">
-                                    <p>31 Agustus 2021, Admin</p>
-                                    <h4>Judul artikel yang panjang lebih dari 2 baris</h4>
-                                </div>
-                            </div>
-                            <div class="row article-item my-3">
-                                <div class="col-6 article-img">
-                                    <img class="img-fluid pt-3" src="{{ url('frontend/assets/ic/blank.png') }}"
-                                        alt="article-img" width="140px">
-                                </div>
-                                <div class="col-6">
-                                    <p>31 Agustus 2021, Admin</p>
-                                    <h4>Judul artikel yang panjang lebih dari 2 baris</h4>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,8 @@ class FrontendController extends Controller
 
     public function detailarticle($slug){
         $article = Article::where('slug',$slug)->firstOrFail();
-        return view('frontend.detailarticle', compact('article'));
+        $articles = Article::orderByDesc('created_at')->get();
+        return view('frontend.detailarticle', compact(['article','articles']));
     }
 
     public function sejarah(){
@@ -29,7 +30,9 @@ class FrontendController extends Controller
 
     public function event(){
         $webinars = Event::where('id_jenis',1)->get();
-        return view('frontend.event.event',compact('webinars'));
+        $workshops = Event::where('id_jenis',2)->get();
+        $kursuss = Event::where('id_jenis',3)->get();
+        return view('frontend.event.event',compact(['webinars','workshops','kursuss']));
     }
 
     public function detailevent($id){

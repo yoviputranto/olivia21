@@ -96,7 +96,7 @@
                                     <ul class="card-info card-webinar-info">
                                         <li class="list-unstyled">
                                             <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                            <p class="d-inline">{{ $webinar->judul }}</p>
+                                            <p class="d-inline"> {{ Str::words($webinar->judul, 3, '') }}</p>
                                         </li>
                                         <li class="list-unstyled mt-2">
                                             <img class="d-inline"
@@ -109,9 +109,11 @@
                                             <p class="d-inline">{{ $webinar->getCategory->name }}</p>
                                         </li>
                                     </ul>
+                                    <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
                                         <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
-                                        <a href="{{ route('detailevent', $webinar->id) }}" class="btn btn-primary-none btn-webinar-action">Gratis/Beli</a>
+                                        <a href="{{ route('detailevent', $webinar->id) }}"
+                                            class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -136,39 +138,38 @@
                                     </li>
                                 </ul>
                                 <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="{{ route('detailevent') }}" class="btn btn-primary-none">Gratis/Beli</a>
+                                    <a href="{{ route('detailevent') }}" class="btn btn-primary-none">Detail</a>
                                 </div>
                             </div>
                         </div>
                     </div> --}}
-                    @for ($i = 0; $i < 3; $i++)
-                        <div class="col-12 col-lg-3 py-3">
-                            <div class="card mx-auto scale-up" style="width: 280px;">
-                                <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <ul class="card-info card-webinar-info">
-                                        <li class="list-unstyled">
-                                            <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                            <p class="d-inline">Judul</p>
-                                        </li>
-                                        <li class="list-unstyled mt-2">
-                                            <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                            <p class="d-inline">Tanggal</p>
-                                        </li>
-                                        <li class="list-unstyled mt-2">
-                                            <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                            <p class="d-inline">Event</p>
-                                        </li>
-                                    </ul>
-                                    <hr widt>
-                                    <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
-                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
-                                    </div>
+
+                    <div class="col-12 col-lg-3 py-3">
+                        <div class="card mx-auto scale-up" style="width: 280px;">
+                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
+                            <div class="card-body">
+                                <ul class="card-info card-webinar-info">
+                                    <li class="list-unstyled">
+                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
+                                        <p class="d-inline">Judul</p>
+                                    </li>
+                                    <li class="list-unstyled mt-2">
+                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                        <p class="d-inline">Tanggal</p>
+                                    </li>
+                                    <li class="list-unstyled mt-2">
+                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
+                                        <p class="d-inline">Event</p>
+                                    </li>
+                                </ul>
+                                <hr widt>
+                                <div class="card-act d-flex justify-content-between mt-3">
+                                    <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
+                                    <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,23 +187,25 @@
             </div>
             <div class="webinar-cards mt-5" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row slider-webinar">
-                    @for ($i = 0; $i < 5; $i++)
+                    @foreach ($workshops as $workshop)
                         <div class="col-12 col-lg-3 py-3">
                             <div class="card mx-auto scale-up" style="width: 280px;">
-                                <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
+                                <img src="{{ Storage::url($workshop->gambar) }}" class="card-img-top">
                                 <div class="card-body">
                                     <ul class="card-info card-webinar-info">
                                         <li class="list-unstyled">
                                             <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                            <p class="d-inline">Judul</p>
+                                            <p class="d-inline">{{ Str::words($workshop->judul, 3, '') }}</p>
                                         </li>
                                         <li class="list-unstyled mt-2">
-                                            <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                            <p class="d-inline">Tanggal</p>
+                                            <img class="d-inline"
+                                                src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                            <p class="d-inline">{{ $workshop->tanggal }}</p>
                                         </li>
                                         <li class="list-unstyled mt-2">
-                                            <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                            <p class="d-inline">Event</p>
+                                            <img class="d-inline"
+                                                src="{{ url('frontend/assets/ic/category.png') }}">
+                                            <p class="d-inline">{{ $workshop->getCategory->name }}</p>
                                         </li>
                                     </ul>
                                     <hr widt>
@@ -213,7 +216,9 @@
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
+
+
                 </div>
             </div>
         </div>
@@ -231,73 +236,36 @@
             </div>
             <div class="webinar-cards mt-5" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row slider-webinar">
-                    @php
-                        $kursus = [
-                            [
-                                'judul' => 'Pelatihan UI/UX Designer',
-                                'tanggal' => 'Kamis, 21 Oktober 2021',
-                                'organizer' => 'Jakselnet Course',
-                                'biaya' => 'Rp50.000,-',
-                                'gambar' => '1.png',
-                            ],
-                            [
-                                'judul' => 'Pelatihan Back End Developer',
-                                'tanggal' => 'Senin, 25 Oktober 2021',
-                                'organizer' => 'Jakbarnet Course',
-                                'biaya' => 'Rp60.000,-',
-                                'gambar' => '2.png',
-                            ],
-                            [
-                                'judul' => 'Guitar Lesson',
-                                'tanggal' => 'Selasa, 26 Oktober 2021',
-                                'organizer' => 'Musicist',
-                                'biaya' => 'Rp75.000,-',
-                                'gambar' => '3.png',
-                            ],
-                            [
-                                'judul' => 'Pelatihan Front End Developer',
-                                'tanggal' => 'Senin, 1 November 2021',
-                                'organizer' => 'Frontliner',
-                                'biaya' => 'Rp60.000,-',
-                                'gambar' => '4.png',
-                            ],
-                            [
-                                'judul' => 'Pelatihan Data Analyst',
-                                'tanggal' => 'Senin, 1 November 2021',
-                                'organizer' => 'Solusi Terang',
-                                'biaya' => 'Rp80.000,-',
-                                'gambar' => '5.png',
-                            ],
-                        ]
-                    @endphp
-                    @for ($i = 0; $i < 5; $i++)
+                    @foreach ($kursuss as $kursus)
                         <div class="col-12 col-lg-3 py-3">
                             <div class="card mx-auto scale-up" style="width: 280px;">
-                                <img src="{{ url('images/kursus/' . $kursus[$i]['gambar']) }}" class="card-img-top">
+                                <img src="{{ Storage::url($kursus->gambar) }}" class="card-img-top">
                                 <div class="card-body">
                                     <ul class="card-info card-webinar-info">
                                         <li class="list-unstyled">
                                             <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                            <p class="d-inline">{{$kursus[$i]['judul']}}</p>
+                                            <p class="d-inline">{{ Str::words($kursus->judul, 3, '') }}</p>
                                         </li>
                                         <li class="list-unstyled mt-2">
-                                            <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                            <p class="d-inline">{{$kursus[$i]['tanggal']}}</p>
+                                            <img class="d-inline"
+                                                src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                            <p class="d-inline">{{ $kursus->tanggal }}</p>
                                         </li>
                                         <li class="list-unstyled mt-2">
-                                            <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                            <p class="d-inline">{{$kursus[$i]['organizer']}}</p>
+                                            <img class="d-inline"
+                                                src="{{ url('frontend/assets/ic/category.png') }}">
+                                            <p class="d-inline">{{ $kursus->getCategory->name }}</p>
                                         </li>
                                     </ul>
                                     <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">{{$kursus[$i]['biaya']}}</a>
+                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
                                         <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -50,8 +50,8 @@
                 <h1>Struktur Organisasi</h1>
             </div>
             <div class="infografis-body d-flex">
-                <img class="img-fluid mx-auto my-5" src="./assets/img/bagan.png" alt="Bagan Struktur Organisasi"
-                    width="900px">
+                <img class="img-fluid mx-auto my-5" src="{{ asset('frontend') }}/assets/img/bagan.png"
+                    alt="Bagan Struktur Organisasi" width="900px">
             </div>
         </div>
     </section>

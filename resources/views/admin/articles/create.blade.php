@@ -14,14 +14,14 @@
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
-                                                    <div class="d-flex align-items-center justify-content-md-end">
-                                                        <div class="pr-1 mb-3 mb-xl-0">
-                                                            <a href="{{ route('category-articles.create') }}" class="btn btn-primary mb-4">Tambah
-                                                                Kategori</a>
-                                                        </div>
+                                                        <div class="d-flex align-items-center justify-content-md-end">
+                                                            <div class="pr-1 mb-3 mb-xl-0">
+                                                                <a href="{{ route('category-articles.create') }}" class="btn btn-primary mb-4">Tambah
+                                                                    Kategori</a>
+                                                            </div>
 
-                                                    </div>
-                                                </div> -->
+                                                        </div>
+                                                    </div> -->
                     </div>
                     <div class="row mt-4">
                         <div class="col-lg-12 grid-margin stretch-card">
@@ -49,11 +49,11 @@
                                             <textarea class="form-control" name="body" id="summernote"
                                                 placeholder="Isi artikel" value="{{ old('body') }}" required></textarea>
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="name">Author</label>
                                             <input type="text" class="form-control" name="author"
                                                 placeholder="Author artikel" value="{{ old('author') }}" required>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group">
                                             <label for="name">Status</label>
                                             <select class="form-control" name="status" required>

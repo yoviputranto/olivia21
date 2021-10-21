@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card mt-4">
+                    {{-- <div class="card mt-4">
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="https://images.unsplash.com/photo-1633983482450-bfb7b566fe6a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     @foreach ($events as $event)
                         <div class="card mt-4">
                             <div class="row no-gutters">

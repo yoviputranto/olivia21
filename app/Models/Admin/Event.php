@@ -12,7 +12,7 @@ class Event extends Model
     protected $primaryKey   = 'id';
     protected $table        = 'events';
     protected $fillable     = [
-        'judul', 'gambar', 'deskripsi', 'waktu', 'tanggal', 'registrasi', 'deadline', 'link_zoom', 'link_event', 'event_organizer', 'email', 'instagram', 'whatsapp', 'benefit', 'eligible', 'status', 'id_jenis', 'id_category','harga'
+        'judul', 'gambar', 'deskripsi', 'waktu', 'tanggal', 'registrasi', 'deadline', 'link_zoom', 'link_event', 'event_organizer', 'email', 'instagram', 'whatsapp', 'benefit', 'eligible', 'status', 'id_jenis', 'id_category','harga','slug'
     ];
 
     public function getJenis()
@@ -28,7 +28,7 @@ class Event extends Model
     public function getTanggalAttribute()
     {
         return Carbon::parse($this->attributes['tanggal'])
-            ->translatedFormat('l, d F Y');
+            ->translatedFormat('l, d M Y');
     }
 
     public function getRegistrasiAttribute()
@@ -41,5 +41,11 @@ class Event extends Model
     {
         return Carbon::parse($this->attributes['deadline'])
             ->translatedFormat('d F Y');
+    }
+
+    public function getWaktuAttribute()
+    {
+        return Carbon::parse($this->attributes['waktu'])
+            ->translatedFormat('H:i');
     }
 }

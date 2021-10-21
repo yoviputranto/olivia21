@@ -18,6 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        //mengambil semua data yang ada di table article
         $articles = Article::all();
         return view('admin.articles.index', compact('articles'));
     }
@@ -45,7 +46,7 @@ class ArticleController extends Controller
         $data['name'] = Str::title($request->name);
         $data['slug'] = Str::slug($request->title);
         $data['title'] = Str::title($request->title);
-        $data['author'] = Str::title($request->author);
+        $data['author'] = Str::title(auth()->user()->name);
         $data['image'] = $request->file('image')->store(
             'assets/gallery',
             'public'
@@ -93,7 +94,7 @@ class ArticleController extends Controller
         $data['name'] = Str::title($request->name);
         $data['slug'] = Str::slug($request->title);
         $data['title'] = Str::title($request->title);
-        $data['author'] = Str::title($request->author);
+        $data['author'] = Str::title($request->auth()->user()->name());
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store(
                 'assets/gallery',
@@ -102,7 +103,7 @@ class ArticleController extends Controller
         }
 
         $articles->update($data);
-        return Redirect::route('article.index');
+        return Redirect::route('articles.index');
     }
 
     /**

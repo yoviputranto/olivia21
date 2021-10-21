@@ -52,7 +52,7 @@
             <div class="infografis-body">
                 <div class="row">
                     <div class="col-12 col-lg-4 img-col">
-                        <img src="./assets/illustration/ill-14.png" width="260px">
+                        <img src="{{ asset('frontend') }}/assets/illustration/ill-14.png" width="260px">
                     </div>
                     <div class="col-12 col-lg-8 text-col">
                         <p>
@@ -90,13 +90,13 @@
                         </ul>
                     </div>
                     <div class="col-12 col-lg-4 img-col-alt">
-                        <img src="./assets/illustration/ill-15.png" width="300px">
+                        <img src="{{ asset('frontend') }}/assets/illustration/ill-15.png" width="300px">
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-12 col-lg-4 img-col">
-                        <img src="./assets/illustration/ill-16.png" width="260px">
+                        <img src="{{ asset('frontend') }}/assets/illustration/ill-16.png" width="260px">
                     </div>
                     <div class="col-12 col-lg-8 text-col">
                         <p>

@@ -9,7 +9,7 @@
 
 body {
   height: 100vh;
-  background: url(../assets/bg/Background-01.jpg);
+  background: #fff;
   background-repeat: repeat-x;
   background-size: contain;
 }
@@ -37,7 +37,7 @@ body {
   font-size: 26px;
   
   font-weight: 600;
-  text-align: left;
+  
   color: #424874;
 }
 
@@ -59,7 +59,7 @@ body {
   font-size: 14px;
   
   font-weight: 600;
-  text-align: left;
+  
   color: #424874;
 }
 
@@ -69,8 +69,8 @@ body {
   
   font-weight: 500;
   line-height: 27px;
-  letter-spacing: 0em;
-  text-align: left;
+
+  
   color: #747DAB;
 }
 
@@ -80,8 +80,8 @@ body {
   
   font-weight: 500;
   line-height: 27px;
-  letter-spacing: 0em;
-  text-align: left;
+
+  
   color: #747DAB;
 }
 
@@ -91,8 +91,8 @@ body {
   
   font-weight: 500;
   line-height: 27px;
-  letter-spacing: 0em;
-  text-align: left;
+
+  
   color: #747DAB;
 }
 

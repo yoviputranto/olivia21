@@ -51,7 +51,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class=" text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/instagram.png') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/instagram-svg.svg') }}"
                                     width="100px">
                                 <h5>Instagram</h5>
                                 <p>@edumind.idn</p>
@@ -61,7 +61,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class=" text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/facebook.png') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/facebook-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Facebook</h5>
                                 <p>@edumind.idn</p>
@@ -71,7 +71,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class=" text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/web.png') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/web-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Situs</h5>
                                 <p>@edumind.idn</p>
@@ -81,7 +81,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class=" text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/phone.png') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/phone-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Telefon</h5>
                                 <p>089632101841</p>
@@ -91,7 +91,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class=" text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/whatsapp.png') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/whatsapp-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Whatsapp</h5>
                                 <p>089632101841</p>
@@ -101,7 +101,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class="text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/email.png') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/email-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Email</h5>
                                 <p>edumindindonesia <br> @gmail.com</p>
@@ -111,7 +111,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class="text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/telegram.png') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/telegram-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Telegram</h5>
                                 <p>@edumind.idn</p>
@@ -122,7 +122,7 @@
                         <a href="" class=" text-decoration-none">
                             <div class="contact-item text-center">
                                 <img class="my-2"
-                                    src="{{ url('frontend/assets/ic/instagram.png') }}" width="100px">
+                                    src="{{ url('frontend/assets/ic/instagram-purple-svg.svg') }}" width="100px">
                                 <h5>Instagram</h5>
                                 <p>@edumind.idn</p>
                             </div>
