@@ -1,27 +1,25 @@
-@extends('frontend.layouts.master')
+<?php $__env->startPush('stylePlus'); ?>
+    <link rel="stylesheet" href="<?php echo e(url('frontend/style/disscussion-timeline-style.css')); ?>">
+<?php $__env->stopPush(); ?>
 
-@push('stylePlus')
-    <link rel="stylesheet" href="{{ url('frontend/style/disscussion-timeline-style.css') }}">
-@endpush
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!-- Header -->
     <section class="header">
-        <img class="vector-above img-fluid" src="{{ url('frontend/assets/bg/vector-1.png') }}" alt="" width="600px">
-        <img class="vector-below img-fluid d-none d-lg-block" src="{{ url('frontend/assets/bg/vector-2.png') }}" alt=""
+        <img class="vector-above img-fluid" src="<?php echo e(url('frontend/assets/bg/vector-1.png')); ?>" alt="" width="600px">
+        <img class="vector-below img-fluid d-none d-lg-block" src="<?php echo e(url('frontend/assets/bg/vector-2.png')); ?>" alt=""
             width="600px">
         <div class="container">
             <div class="row">
                 <div class="header-text col-6 d-flex align-items-center">
                     <div class="text">
-                        <img class="img-fluid mb-5 ms-1" src="{{ url('frontend/assets/ic/edumind-header-alt.png') }}"
+                        <img class="img-fluid mb-5 ms-1" src="<?php echo e(url('frontend/assets/ic/edumind-header-alt.png')); ?>"
                             alt="logo" width="460px">
                         <h4>Pertanyaan Saya</h4>
                     </div>
                 </div>
                 <div class="header-img col-6 d-none d-lg-flex align-self-end">
-                    <img class="img-fluid ms-auto" src="{{ url('frontend/assets/illustration/ill-8.png') }}" alt=""
+                    <img class="img-fluid ms-auto" src="<?php echo e(url('frontend/assets/illustration/ill-8.png')); ?>" alt=""
                         width="500px">
                 </div>
             </div>
@@ -54,9 +52,9 @@
                             <!-- article-comment-box -->
                             <div class="article-comment-box mb-5">
                                 <h5 class="py-1">Ajukan Pertanyaan</h5>
-                                <form action="{{ route('pertanyaan-saya.store') }}" method="post"
+                                <form action="<?php echo e(route('pertanyaan-saya.store')); ?>" method="post"
                                     enctype="multipart/form-data">
-                                    @csrf
+                                    <?php echo csrf_field(); ?>
                                     <div class="form-floating">
                                         <textarea class="form-control" id="floatingTextarea" name="pertanyaan"></textarea>
                                         <label for="floatingTextarea">Nanyanya yg sopan ya adick-adick</label>
@@ -71,17 +69,17 @@
                                                                                                                                                                                 </div> -->
                                             <div class="input-group my-3">
                                                 <select class="btn-dropdown custom-select py-1 px-3" name="category_id">
-                                                    @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}" id="category">
-                                                            {{ $category->name }}</option>
-                                                    @endforeach
+                                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <option value="<?php echo e($category->id); ?>" id="category">
+                                                            <?php echo e($category->name); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <button type="submit" class="btn p-1 ms-auto">
                                                 Tanyakan <span><img class="m-0"
-                                                        src="{{ url('frontend/assets/ic/send.png') }}"
+                                                        src="<?php echo e(url('frontend/assets/ic/send.png')); ?>"
                                                         width="20px"></span>
                                             </button>
                                         </div>
@@ -92,18 +90,18 @@
                             <div class="article-heading mx-auto text-center mb-5">
                                 <h2>Pertanyaan Saya</h2>
                             </div>
-                            @php
+                            <?php
                                 $no = 1;
-                            @endphp
-                            @if (Auth::user() && Auth::user()->name)
-                                @foreach ($pertanyaans as $pertanyaan)
+                            ?>
+                            <?php if(Auth::user() && Auth::user()->name): ?>
+                                <?php $__currentLoopData = $pertanyaans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pertanyaan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="article-comment-display mt-5 mb-3">
                                         <div class="comment-info d-flex justify-content-between">
                                             <div class="d-inline-flex">
-                                                <img src="{{ url('frontend/assets/ic/person-comment.png') }}"
+                                                <img src="<?php echo e(url('frontend/assets/ic/person-comment.png')); ?>"
                                                     alt="profile-img" width="48px">
                                                 <div class="d-block">
-                                                    <span class="d-block fw-bold">{{ $pertanyaan->getUser->name }}</span>
+                                                    <span class="d-block fw-bold"><?php echo e($pertanyaan->getUser->name); ?></span>
                                                     <span class="d-block">Waktu komentar (Mis: 20 jam yang lalu, 1
                                                         hari
                                                         yang
@@ -111,19 +109,19 @@
                                                         dst)</span>
                                                 </div>
                                             </div>
-                                            <form action="{{ route('pertanyaan-saya.destroy', $pertanyaan->id) }}"
+                                            <form action="<?php echo e(route('pertanyaan-saya.destroy', $pertanyaan->id)); ?>"
                                                 method="post">
-                                                @csrf
-                                                @method('delete')
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('delete'); ?>
                                                 <button type="submit" style="background:none;border:none;">
                                                     <img class=""
-                                                        src="{{ url('frontend/assets/ic/delete-svg.svg') }}"
+                                                        src="<?php echo e(url('frontend/assets/ic/delete-svg.svg')); ?>"
                                                         alt="report-img" width="24px">
                                             </form>
                                             </button>
                                         </div>
                                         <div class="comment-text">
-                                            <span class="d-block fw-bold my-3">{{ $pertanyaan->pertanyaan }}</span>
+                                            <span class="d-block fw-bold my-3"><?php echo e($pertanyaan->pertanyaan); ?></span>
                                         </div>
                                         <div class="like-comment mt-3 d-flex">
                                             <div class="like d-inline align-self-center">
@@ -132,19 +130,19 @@
                                             Jawaban
                                           </a>
                                           <img class="me-0"
-                                          src="{{ url('frontend/assets/ic/answer-svg.svg') }}" width="20px">
+                                          src="<?php echo e(url('frontend/assets/ic/answer-svg.svg')); ?>" width="20px">
                                           <div class="comment d-inline mx-3 align-self-center">
-                                            <span>{{ $pertanyaan->getCategory->name }}</span>
+                                            <span><?php echo e($pertanyaan->getCategory->name); ?></span>
                                         </div>
                                             <div class="collapse" id="collapseExample">
                                                 <div class="container">
-                                                    @foreach ($jawabans as $jawaban)
-                                                        @if ($pertanyaan->id == $jawaban->getPertanyaan->id)
+                                                    <?php $__currentLoopData = $jawabans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jawaban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if($pertanyaan->id == $jawaban->getPertanyaan->id): ?>
                                                             <div class="d-inline-flex mt-5">
-                                                                <img src="{{ url('frontend/assets/ic/person-comment.png') }}"
+                                                                <img src="<?php echo e(url('frontend/assets/ic/person-comment.png')); ?>"
                                                                     alt="profile-img" width="48px">
                                                                 <div class="d-block">
-                                                                    <span class="d-block fw-bold">{{ $jawaban->getUser->name }}</span>
+                                                                    <span class="d-block fw-bold"><?php echo e($jawaban->getUser->name); ?></span>
                                                                     <span class="d-block">Waktu komentar (Mis: 20 jam yang lalu, 1
                                                                         hari
                                                                         yang
@@ -153,19 +151,20 @@
                                                                 </div>
                                                             </div>
                                                             <div class="comment-text mt-0">
-                                                                <span class="d-block fw-bold my-3">{{ $jawaban->jawaban }}</span>
+                                                                <span class="d-block fw-bold my-3"><?php echo e($jawaban->jawaban); ?></span>
                                                             </div>
-                                                        @endif
-                                                    @endforeach
+                                                        <?php endif; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
-                                @endif
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
                                 <div class="mt-3">
-                                    {!! $pertanyaans->links() !!}
+                                    <?php echo $pertanyaans->links(); ?>
+
                                 </div>
                         </div>
                     </div>
@@ -175,7 +174,7 @@
                 <div class="col-12 col-lg-3 sidebar d-none d-lg-block mt-4">
                     <div class="article-category-alt mb-4">
                         <div class="article-heading d-flex justify-content-center">
-                            <img src="{{ url('frontend/assets/ic/category-svg.svg') }}" class="d-inline"
+                            <img src="<?php echo e(url('frontend/assets/ic/category-svg.svg')); ?>" class="d-inline"
                                 width="18px">
                             <h4 class="d-inline pt-1">Topik</h4>
                         </div>
@@ -192,7 +191,7 @@
 
                     <div class="article-category mb-4 d-none">
                         <div class="article-heading">
-                            <img src="{{ url('frontend/assets/ic/category-article.png') }}" class="d-inline"
+                            <img src="<?php echo e(url('frontend/assets/ic/category-article.png')); ?>" class="d-inline"
                                 width="18px">
                             <h4 class="d-inline">Kategori Artikel</h4>
                         </div>
@@ -208,12 +207,12 @@
                     </div>
                     <div class="article-newest mb-4 d-none">
                         <div class="article-heading">
-                            <img src="{{ url('frontend/assets/ic/article.png') }}" class="d-inline" width="18px">
+                            <img src="<?php echo e(url('frontend/assets/ic/article.png')); ?>" class="d-inline" width="18px">
                             <h4 class="d-inline">Artikel Terkini</h4>
                         </div>
                         <div class="article-list">
                             <div class="article-card p-3">
-                                <img class="img-fluid mx-0 mb-2" src="{{ url('frontend/assets/ic/blank.png') }}" alt="">
+                                <img class="img-fluid mx-0 mb-2" src="<?php echo e(url('frontend/assets/ic/blank.png')); ?>" alt="">
                                 <p>31 Agustus 2021, Admin</p>
                                 <h4>Judul artikel yang panjang lebih dari 2 baris</h4>
                                 <div class="card-act d-flex justify-content-between mt-3 px-0 pb-3">
@@ -222,7 +221,7 @@
                                 </div>
                             </div>
                             <div class="article-card p-3">
-                                <img class="img-fluid mx-0 mb-2" src="{{ url('frontend/assets/ic/blank.png') }}" alt="">
+                                <img class="img-fluid mx-0 mb-2" src="<?php echo e(url('frontend/assets/ic/blank.png')); ?>" alt="">
                                 <p>31 Agustus 2021, Admin</p>
                                 <h4>Judul artikel yang panjang lebih dari 2 baris</h4>
                                 <div class="card-act d-flex justify-content-between mt-3 px-0 pb-3">
@@ -231,7 +230,7 @@
                                 </div>
                             </div>
                             <div class="article-card p-3">
-                                <img class="img-fluid mx-0 mb-2" src="{{ url('frontend/assets/ic/blank.png') }}" alt="">
+                                <img class="img-fluid mx-0 mb-2" src="<?php echo e(url('frontend/assets/ic/blank.png')); ?>" alt="">
                                 <p>31 Agustus 2021, Admin</p>
                                 <h4>Judul artikel yang panjang lebih dari 2 baris</h4>
                                 <div class="card-act d-flex justify-content-between mt-3 px-0 pb-3">
@@ -255,4 +254,6 @@
         })
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/arsyandipratama/laravel8/olivia21/resources/views/user/diskusi/PertanyaanUser/index.blade.php ENDPATH**/ ?>

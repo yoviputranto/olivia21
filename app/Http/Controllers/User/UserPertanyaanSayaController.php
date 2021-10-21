@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\ArticleCategory;
+use App\Models\Admin\Jawaban;
 use App\Models\Admin\Pertanyaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,9 +20,10 @@ class UserPertanyaanSayaController extends Controller
      */
     public function index()
     {
-        $pertanyaans    = Pertanyaan::where('user_id', Auth::user()->id)->get();
+        $pertanyaans    = Pertanyaan::where('user_id', Auth::user()->id)->paginate(3);
         $categories     = ArticleCategory::all();
-        return view('user.diskusi.PertanyaanUser.index', compact('pertanyaans', 'categories'));
+        $jawabans       = Jawaban::all();
+        return view('user.diskusi.PertanyaanUser.index', compact('pertanyaans', 'categories', 'jawabans'));
     }
 
     /**

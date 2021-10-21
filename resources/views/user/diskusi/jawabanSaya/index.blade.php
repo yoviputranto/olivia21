@@ -50,15 +50,14 @@
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
                         <div class="article-comment mt-4" data-aos="fade-up">
-                            @foreach ($pertanyaans as $pertanyaan)
                             <div class="article-comment-display mt-3 scale-up">
                                 <div class="comment-info d-flex justify-content-between">
                                     <div class="d-inline-flex">
                                         <img src="{{ url('frontend/assets/ic/person-comment.png') }}" alt="profile-img"
                                             width="48px">
                                         <div class="d-block">
-                                            <span class="d-block fw-bold">{{ $pertanyaan->getUser->name }}</span>
-                                            <span class="d-block">{{ $pertanyaan->created_at }} yang lalu.</span>
+                                            <span class="d-block fw-bold">asdasd</span>
+                                            <span class="d-block"> yang lalu.</span>
                                         </div>
                                     </div>
                                     <a href="">
@@ -68,7 +67,7 @@
                                 </div>
                                 <div class="comment-text">
                                     <p>
-                                        {{ $pertanyaan->pertanyaan }}
+                                        asdasdsaasd
                                     </p>
                                 </div>
                                 <div class="like-comment mt-3 d-flex">
@@ -92,10 +91,9 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
 
                             <div class="mt-3">
-                                {!! $pertanyaans->links() !!}
+                                {{-- {!! $pertanyaans->links() !!} --}}
                             </div>
                         </div>
                     </div>

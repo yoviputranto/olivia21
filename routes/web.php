@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\Admin\KomentarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\user\JawabanSayaController;
 use App\Http\Controllers\User\TimelineController;
 use App\Http\Controllers\User\UserPertanyaanController;
 use App\Http\Controllers\User\UserPertanyaanSayaController;
@@ -62,6 +63,7 @@ Route::prefix('admin')
 Route::resource('pertanyaan', UserPertanyaanController::class);
 Route::resource('pertanyaan-saya', UserPertanyaanSayaController::class);
 Route::resource('timeline', TimelineController::class);
+Route::resource('jawaban-saya', JawabanSayaController::class);
 
     Route::get('auth/google/redirect', [LoginController::class,'redirectToGoogle'])->name('login.google');
     Route::get('auth/google/callback', [LoginController::class,'handleGoogleCallback']);

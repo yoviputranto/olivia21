@@ -1,5 +1,4 @@
-@extends('admin.layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container-scroller">
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
@@ -34,28 +33,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @php
+                                            <?php
                                                 $no = 1;
-                                            @endphp
-                                            @foreach ($jawabans as $jawaban)
+                                            ?>
+                                            <?php $__currentLoopData = $jawabans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jawaban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
-                                                    <td>{{ $no++ }}</td>
-                                                    <td>{{ $jawaban->getUser->name }}</td>
-                                                    <td>{{ $jawaban->getPertanyaan->pertanyaan }}</td>
-                                                    <td>{{ $jawaban->jawaban }}</td>
-                                                    <td>{{ $jawaban->created_at }}</td>
+                                                    <td><?php echo e($no++); ?></td>
+                                                    <td><?php echo e($jawaban->getUser->name); ?></td>
+                                                    <td><?php echo e($jawaban->getPertanyaan->pertanyaan); ?></td>
+                                                    <td><?php echo e($jawaban->jawaban); ?></td>
+                                                    <td><?php echo e($jawaban->created_at); ?></td>
                                                     <td>
-                                                        <form action="{{ route('jawaban.destroy', $jawaban->id) }}"
+                                                        <form action="<?php echo e(route('jawaban.destroy', $jawaban->id)); ?>"
                                                             method="post">
-                                                            @csrf
-                                                            @method('delete')
+                                                            <?php echo csrf_field(); ?>
+                                                            <?php echo method_field('delete'); ?>
 
                                                             <button type="submit"
                                                                 class="btn btn-danger btn-sm">Delete</button>
                                                         </form>
                                                     </td>
                                                 <tr>
-                                            @endforeach
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -74,4 +73,6 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/arsyandipratama/laravel8/olivia21/resources/views/admin/jawaban/index.blade.php ENDPATH**/ ?>

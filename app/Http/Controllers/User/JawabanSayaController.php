@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Pertanyaan;
 use Illuminate\Http\Request;
 
-class TimelineController extends Controller
+class JawabanSayaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        $pertanyaans    = Pertanyaan::paginate(5);
-        return view('user.diskusi.timeline.index', compact('pertanyaans'));
+        return view('user.diskusi.jawabanSaya.index');
     }
 
     /**

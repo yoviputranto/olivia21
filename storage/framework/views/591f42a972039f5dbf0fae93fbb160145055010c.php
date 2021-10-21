@@ -9,9 +9,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url('frontend/style/style.css') }}">
+    <link rel="stylesheet" href="<?php echo e(url('frontend/style/style.css')); ?>">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    @stack('stylePlus')
+    <?php echo $__env->yieldPushContent('stylePlus'); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
         integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,19 +31,19 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img class="img-fluid" src="{{ url('frontend/assets/ic/logo-horizontal.png') }}" alt="logo"
+                <img class="img-fluid" src="<?php echo e(url('frontend/assets/ic/logo-horizontal.png')); ?>" alt="logo"
                     width="120px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i title="" class="fa fa-bars" aria-hidden="true"></i>
             </button>
-            @if (!Auth::user())
+            <?php if(!Auth::user()): ?>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'beranda' ? 'active' : '' }}"
-                                aria-current="page" href="{{ url('/') }}">Beranda</a>
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'beranda' ? 'active' : ''); ?>"
+                                aria-current="page" href="<?php echo e(url('/')); ?>">Beranda</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -52,78 +52,78 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ url('/profil/sejarah') }}">Sejarah</a>
+                                        href="<?php echo e(url('/profil/sejarah')); ?>">Sejarah</a>
                                 </li>
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ url('/profil/tugas-dan-fungsi') }}">Tugas
+                                        href="<?php echo e(url('/profil/tugas-dan-fungsi')); ?>">Tugas
                                         &amp; Fungsi</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ url('/profil/infografis') }}">Infografis</a></li>
-                                <li><a class="dropdown-item text-black" href="{{ url('/profil/struktur') }}">Struktur
+                                        href="<?php echo e(url('/profil/infografis')); ?>">Infografis</a></li>
+                                <li><a class="dropdown-item text-black" href="<?php echo e(url('/profil/struktur')); ?>">Struktur
                                         Organisasi</a></li>
-                                <li><a class="dropdown-item text-black" href="{{ url('/profil/kontak') }}">Kontak</a>
+                                <li><a class="dropdown-item text-black" href="<?php echo e(url('/profil/kontak')); ?>">Kontak</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'event' ? 'active' : '' }}"
-                                href="{{ url('/event') }}">Event</a>
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'event' ? 'active' : ''); ?>"
+                                href="<?php echo e(url('/event')); ?>">Event</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link {{ Route::currentRouteName() == 'timeline' ? 'active' : '' }} dropdown-toggle"
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'timeline' ? 'active' : ''); ?> dropdown-toggle"
                                 href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Diskusi
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item text-black" href="{{ route('timeline.index') }}">Timeline</a>
+                                <li><a class="dropdown-item text-black" href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'article' ? 'active' : '' }}"
-                                href="{{ url('/artikel') }}">Artikel</a>
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'article' ? 'active' : ''); ?>"
+                                href="<?php echo e(url('/artikel')); ?>">Artikel</a>
                         </li>
-                        @if (Auth::user())
+                        <?php if(Auth::user()): ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <img class="img-fluid m-0"
-                                        src="{{ asset('frontend') }}/assets/ic/logged-in-profile.png" alt=""
+                                        src="<?php echo e(asset('frontend')); ?>/assets/ic/logged-in-profile.png" alt=""
                                         width="30px">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item text-black" href="#">Profile</a></li>
                                     <li><a class="dropdown-item text-black"
-                                            href="{{ route('beranda') }}">Dashboard</a>
+                                            href="<?php echo e(route('beranda')); ?>">Dashboard</a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <form action="{{ route('logout') }}" method="post">
-                                            @csrf
+                                        <form action="<?php echo e(route('logout')); ?>" method="post">
+                                            <?php echo csrf_field(); ?>
                                             <button type="submit" class="dropdown-item text-black">Logout</button>
                                         </form>
                                     </li>
                                 </ul>
                             </li>
-                        @else
+                        <?php else: ?>
                             <li class="nav-item log-in">
                                 <a class="nav-link text-center text-black fw-bold"
-                                    href="{{ route('login') }}">Masuk</a>
+                                    href="<?php echo e(route('login')); ?>">Masuk</a>
                             </li>
-                        @endif
+                        <?php endif; ?>
                     </ul>
                     <div class="box-container">
                         <table class="element-container">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <form action="{{ route('search') }}" method="GET">
+                                        <form action="<?php echo e(route('search')); ?>" method="GET">
                                             <input type="text" name="search" placeholder="Cari.."
                                                 class="search">
                                         </form>
@@ -131,7 +131,7 @@
                                     <td>
                                         <a href="#">
                                             <img class="search-img"
-                                                src="{{ url('frontend/assets/ic/search-white.png') }}" width="14px"
+                                                src="<?php echo e(url('frontend/assets/ic/search-white.png')); ?>" width="14px"
                                                 alt="search">
                                         </a>
                                     </td>
@@ -140,12 +140,12 @@
                         </table>
                     </div>
                 </div>
-            @elseif (Auth::user())
+            <?php elseif(Auth::user()): ?>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'beranda' ? 'active' : '' }}"
-                                aria-current="page" href="{{ url('/') }}">Beranda</a>
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'beranda' ? 'active' : ''); ?>"
+                                aria-current="page" href="<?php echo e(url('/')); ?>">Beranda</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -154,87 +154,87 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ url('/profil/sejarah') }}">Sejarah</a>
+                                        href="<?php echo e(url('/profil/sejarah')); ?>">Sejarah</a>
                                 </li>
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ url('/profil/tugas-dan-fungsi') }}">Tugas
+                                        href="<?php echo e(url('/profil/tugas-dan-fungsi')); ?>">Tugas
                                         &amp; Fungsi</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ url('/profil/infografis') }}">Infografis</a></li>
-                                <li><a class="dropdown-item text-black" href="{{ url('/profil/struktur') }}">Struktur
+                                        href="<?php echo e(url('/profil/infografis')); ?>">Infografis</a></li>
+                                <li><a class="dropdown-item text-black" href="<?php echo e(url('/profil/struktur')); ?>">Struktur
                                         Organisasi</a></li>
-                                <li><a class="dropdown-item text-black" href="{{ url('/profil/kontak') }}">Kontak</a>
+                                <li><a class="dropdown-item text-black" href="<?php echo e(url('/profil/kontak')); ?>">Kontak</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'event' ? 'active' : '' }}"
-                                href="{{ url('/event') }}">Event</a>
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'event' ? 'active' : ''); ?>"
+                                href="<?php echo e(url('/event')); ?>">Event</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link {{ Route::currentRouteName() == 'timeline' ? 'active' : '' }} dropdown-toggle"
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'timeline' ? 'active' : ''); ?> dropdown-toggle"
                                 href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Diskusi
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item text-black" href="{{ route('timeline.index') }}">Timeline</a>
+                                <li><a class="dropdown-item text-black" href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
                                 </li>
                                 <li><a class="dropdown-item text-black" href="#">Jawaban</a></li>
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ route('pertanyaan.index') }}">Pertanyaan</a></li>
+                                        href="<?php echo e(route('pertanyaan.index')); ?>">Pertanyaan</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ route('pertanyaan-saya.index') }}">Pertanyaan saya</a></li>
-                                <li><a class="dropdown-item text-black" href="{{ route('jawaban-saya.index') }}">Jawaban saya</a></li>
+                                        href="<?php echo e(route('pertanyaan-saya.index')); ?>">Pertanyaan saya</a></li>
+                                <li><a class="dropdown-item text-black" href="<?php echo e(route('jawaban-saya.index')); ?>">Jawaban saya</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'article' ? 'active' : '' }}"
-                                href="{{ url('/artikel') }}">Artikel</a>
+                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'article' ? 'active' : ''); ?>"
+                                href="<?php echo e(url('/artikel')); ?>">Artikel</a>
                         </li>
-                        @if (Auth::user())
+                        <?php if(Auth::user()): ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <img class="img-fluid m-0"
-                                        src="{{ asset('frontend') }}/assets/ic/logged-in-profile.png" alt=""
+                                        src="<?php echo e(asset('frontend')); ?>/assets/ic/logged-in-profile.png" alt=""
                                         width="30px">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item text-black" href="#">Profile</a></li>
                                     <li><a class="dropdown-item text-black"
-                                            href="{{ route('beranda') }}">Dashboard</a>
+                                            href="<?php echo e(route('beranda')); ?>">Dashboard</a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <form action="{{ route('logout') }}" method="post">
-                                            @csrf
+                                        <form action="<?php echo e(route('logout')); ?>" method="post">
+                                            <?php echo csrf_field(); ?>
                                             <button type="submit" class="dropdown-item text-black">Logout</button>
                                         </form>
                                     </li>
                                 </ul>
                             </li>
-                        @else
+                        <?php else: ?>
                             <li class="nav-item log-in">
                                 <a class="nav-link text-center text-black fw-bold"
-                                    href="{{ route('login') }}">Masuk</a>
+                                    href="<?php echo e(route('login')); ?>">Masuk</a>
                             </li>
-                        @endif
+                        <?php endif; ?>
                     </ul>
                     <div class="box-container">
                         <table class="element-container">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <form action="{{ route('search') }}" method="GET">
+                                        <form action="<?php echo e(route('search')); ?>" method="GET">
                                             <input type="text" name="search" placeholder="Cari.."
                                                 class="search">
                                         </form>
@@ -242,7 +242,7 @@
                                     <td>
                                         <a href="#">
                                             <img class="search-img"
-                                                src="{{ url('frontend/assets/ic/search-white.png') }}" width="14px"
+                                                src="<?php echo e(url('frontend/assets/ic/search-white.png')); ?>" width="14px"
                                                 alt="search">
                                         </a>
                                     </td>
@@ -251,13 +251,13 @@
                         </table>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
     </nav>
     <!-- End of Navigation Bar -->
 
 
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
 
 
@@ -278,19 +278,19 @@
                     <h4>Kontak</h4>
                     <div class="contact-list text-white">
                         <div class="contact-item">
-                            <img src="{{ url('frontend/assets/ic/phone.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/phone.png')); ?>">
                             <a href="#">089632101841</a>
                         </div>
                         <div class="contact-item">
-                            <img src="{{ url('frontend/assets/ic/whatsapp.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/whatsapp.png')); ?>">
                             <a href="#">089632101841</a>
                         </div>
                         <div class="contact-item">
-                            <img src="{{ url('frontend/assets/ic/telegram.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/telegram.png')); ?>">
                             <a href="#">089632101841</a>
                         </div>
                         <div class="contact-item">
-                            <img src="{{ url('frontend/assets/ic/email.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/email.png')); ?>">
                             <a href="#">edumindindonedia@gmail.com</a>
                         </div>
                     </div>
@@ -299,19 +299,19 @@
                     <h4>Media Sosial</h4>
                     <div class="social-list text-white">
                         <div class="social-item">
-                            <img src="{{ url('frontend/assets/ic/instagram.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/instagram.png')); ?>">
                             <a href="#">instagram</a>
                         </div>
                         <div class="social-item">
-                            <img src="{{ url('frontend/assets/ic/facebook.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/facebook.png')); ?>">
                             <a href="#">facebook</a>
                         </div>
                         <div class="social-item">
-                            <img src="{{ url('frontend/assets/ic/twitter.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/twitter.png')); ?>">
                             <a href="#">twitter</a>
                         </div>
                         <div class="social-item">
-                            <img src="{{ url('frontend/assets/ic/web.png') }}">
+                            <img src="<?php echo e(url('frontend/assets/ic/web.png')); ?>">
                             <a href="#">web</a>
                         </div>
                     </div>
@@ -323,7 +323,7 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <img src="{{ url('frontend/assets/ic/logo-vertical.png') }}" alt="EduMind-Logo" width="120px">
+                    <img src="<?php echo e(url('frontend/assets/ic/logo-vertical.png')); ?>" alt="EduMind-Logo" width="120px">
                 </div>
             </div>
         </div>
@@ -360,8 +360,9 @@
         AOS.init();
     </script>
 
-    @stack('jsPlus')
+    <?php echo $__env->yieldPushContent('jsPlus'); ?>
 
 </body>
 
 </html>
+<?php /**PATH /Users/arsyandipratama/laravel8/olivia21/resources/views/frontend/layouts/master.blade.php ENDPATH**/ ?>
