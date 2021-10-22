@@ -57,7 +57,8 @@
                                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                         <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
                                     </div>
-                                    <a class="text-decoration-none" href="#">Lupa Password?</a>
+                                    <a class="text-decoration-none" href="<?php echo e(route('password.request')); ?>">Lupa
+                                        Password?</a>
                                 </div>
                                 <div class="action-btn text-center">
                                     <button type="submit" class="btn btn-login">

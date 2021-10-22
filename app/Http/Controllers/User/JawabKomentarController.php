@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Jawaban;
+use App\Models\User\JawabKomentar;
 use Illuminate\Http\Request;
 
-class JawabanSayaController extends Controller
+class JawabKomentarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class JawabanSayaController extends Controller
      */
     public function index()
     {
-        $jawabans   = Jawaban::all();
-        return view('user.diskusi.jawabanSaya.index', compact('jawabans'));
+        $jawabKomentar  = JawabKomentar::all();
+        return view('user.diskusi.PertanyaanUser.index', compact('jawabKomentar'));
     }
 
     /**
@@ -37,7 +37,10 @@ class JawabanSayaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data   = $request->all();
+        $data['jawaban_id'] = 1;
+        JawabKomentar::create($data);
+        return redirect()->route('jawab-komentar.index');
     }
 
     /**

@@ -126,6 +126,7 @@
                                         <div class="like-comment mt-3 d-flex">
                                             <div class="like d-inline align-self-center">
                                                 <span>7</span>
+
                                         <a style="text-decoration: none;color: #000;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                             Jawaban
                                           </a>
@@ -133,8 +134,9 @@
                                           src="<?php echo e(url('frontend/assets/ic/answer-svg.svg')); ?>" width="20px">
                                           <div class="comment d-inline mx-3 align-self-center">
                                             <span><?php echo e($pertanyaan->getCategory->name); ?></span>
-                                        </div>
+                                          </div>
                                             <div class="collapse" id="collapseExample">
+
                                                 <div class="container">
                                                     <?php $__currentLoopData = $jawabans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jawaban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                         <?php if($pertanyaan->id == $jawaban->getPertanyaan->id): ?>
@@ -152,6 +154,44 @@
                                                             </div>
                                                             <div class="comment-text mt-0">
                                                                 <span class="d-block fw-bold my-3"><?php echo e($jawaban->jawaban); ?></span>
+                                                                <button style="background:none;border:none;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?php echo e($jawaban->id); ?>" aria-expanded="false" aria-controls="collapseExample">
+                                                                    Reply
+                                                                </button>
+
+                                                                <div class="collapse" id="collapseExample<?php echo e($jawaban->id); ?>">
+                                                                    <div class="article-comment-box mb-5">
+                                                                        <h5 class="py-1">Ajukan Pertanyaan</h5>
+                                                                        <form action="<?php echo e(route('jawab-komentar.store')); ?>" method="post"
+                                                                            enctype="multipart/form-data">
+                                                                            <?php echo csrf_field(); ?>
+                                                                            <input type="hidden" name="jawaban_id" value="<?php echo e($jawaban->id); ?>">
+                                                                            <div class="form-floating">
+                                                                                <textarea class="form-control" id="floatingTextarea" name="pertanyaan"></textarea>
+                                                                                <label for="floatingTextarea">Nanyanya yg sopan ya adick-adick</label>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="d-flex">
+                                                                                    <!-- <div class="input-group my-3 me-2">
+                                                                                                                                                                                                                            <select class="btn-dropdown custom-select py-1 px-3">
+                                                                                                                                                                                                                                <option value="1" id="public">Public</option>
+                                                                                                                                                                                                                                <option value="2" id="private">Private</option>
+                                                                                                                                                                                                                            </select>
+                                                                                                                                                                                                                        </div> -->
+                                                                                    <div class="input-group my-3">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <button type="submit" class="btn p-1 ms-auto">
+                                                                                        Jawab <span><img class="m-0"
+                                                                                                src="<?php echo e(url('frontend/assets/ic/send.png')); ?>"
+                                                                                                width="20px"></span>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet inventore harum totam quia dolorem architecto accusamus adipisci omnis vitae, autem ab similique unde error voluptates nostrum sequi ut assumenda obcaecati.</p>
+                                                                  </div>
                                                             </div>
                                                         <?php endif; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

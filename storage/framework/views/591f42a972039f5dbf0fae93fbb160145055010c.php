@@ -19,7 +19,7 @@
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>EduMind - Webinar Program</title>
+    <title>Edumind <?php echo $__env->yieldContent('title'); ?></title>
 
 </head>
 
@@ -79,7 +79,8 @@
                                 Diskusi
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item text-black" href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
+                                <li><a class="dropdown-item text-black"
+                                        href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
                                 </li>
                             </ul>
                         </li>
@@ -96,9 +97,8 @@
                                         width="30px">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-black" href="#">Profile</a></li>
                                     <li><a class="dropdown-item text-black"
-                                            href="<?php echo e(route('beranda')); ?>">Dashboard</a>
+                                            href="<?php echo e(route('user.index')); ?>">Dashboard</a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -181,7 +181,8 @@
                                 Diskusi
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item text-black" href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
+                                <li><a class="dropdown-item text-black"
+                                        href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
                                 </li>
                                 <li><a class="dropdown-item text-black" href="#">Jawaban</a></li>
                                 <li><a class="dropdown-item text-black"
@@ -191,7 +192,8 @@
                                 </li>
                                 <li><a class="dropdown-item text-black"
                                         href="<?php echo e(route('pertanyaan-saya.index')); ?>">Pertanyaan saya</a></li>
-                                <li><a class="dropdown-item text-black" href="<?php echo e(route('jawaban-saya.index')); ?>">Jawaban saya</a></li>
+                                <li><a class="dropdown-item text-black"
+                                        href="<?php echo e(route('jawaban-saya.index')); ?>">Jawaban saya</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -207,9 +209,8 @@
                                         width="30px">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-black" href="#">Profile</a></li>
                                     <li><a class="dropdown-item text-black"
-                                            href="<?php echo e(route('beranda')); ?>">Dashboard</a>
+                                            href="<?php echo e(route('user.index')); ?>">Dashboard</a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -344,7 +345,8 @@
     </a>
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
@@ -359,6 +361,8 @@
     <script>
         AOS.init();
     </script>
+
+
 
     <?php echo $__env->yieldPushContent('jsPlus'); ?>
 

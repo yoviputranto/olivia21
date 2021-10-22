@@ -48,14 +48,16 @@
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
                         <div class="article-comment mt-4" data-aos="fade-up">
+                            <?php $__currentLoopData = $jawabans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jawaban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(Auth::user() && Auth::user()->name): ?>
                             <div class="article-comment-display mt-3 scale-up">
                                 <div class="comment-info d-flex justify-content-between">
                                     <div class="d-inline-flex">
                                         <img src="<?php echo e(url('frontend/assets/ic/person-comment.png')); ?>" alt="profile-img"
                                             width="48px">
                                         <div class="d-block">
-                                            <span class="d-block fw-bold">asdasd</span>
-                                            <span class="d-block"> yang lalu.</span>
+                                            <span class="d-block fw-bold"><?php echo e($jawaban->getUser->name); ?></span>
+                                            <span class="d-block"><?php echo e($jawaban->created_at); ?></span>
                                         </div>
                                     </div>
                                     <a href="">
@@ -65,7 +67,8 @@
                                 </div>
                                 <div class="comment-text">
                                     <p>
-                                        asdasdsaasd
+                                        <?php echo e($jawaban->jawaban); ?>
+
                                     </p>
                                 </div>
                                 <div class="like-comment mt-3 d-flex">
@@ -89,6 +92,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             <div class="mt-3">
                                 

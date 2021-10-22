@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Jawaban;
 use App\Models\Admin\Pertanyaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TimelineController extends Controller
 {
@@ -16,7 +18,8 @@ class TimelineController extends Controller
     public function index()
     {
         $pertanyaans    = Pertanyaan::orderBy('id', 'DESC')->paginate(5);
-        return view('user.diskusi.timeline.index', compact('pertanyaans'));
+        $jawabans       = Jawaban::all();
+        return view('user.diskusi.timeline.index', compact('pertanyaans', 'jawabans'));
     }
 
     /**
@@ -37,7 +40,11 @@ class TimelineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data   = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        // $data['pertanyaan_id'] = 1;
+        Jawaban::create($data);
+        return redirect()->route('timeline.index');
     }
 
     /**

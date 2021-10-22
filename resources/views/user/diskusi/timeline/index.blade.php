@@ -104,12 +104,13 @@
                                     <div class="collapse" id="collapseExample{{ $pertanyaan->id }}">
                                         <div class="article-comment-box mt-5">
                                             <h5 class="py-1">Komentari</h5>
-                                            <form action="{{ route('pertanyaan-saya.store') }}" method="post"
+                                            <form action="{{ route('timeline.store') }}" method="post"
                                                 enctype="multipart/form-data">
                                                 @csrf
+                                                <input type="hidden" name="pertanyaan_id" value="{{ $pertanyaan->id }}">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" id="floatingTextarea"
-                                                        name="pertanyaan"></textarea>
+                                                    <textarea class="form-control"  id="floatingTextarea"
+                                                        name="jawaban"></textarea>
                                                     <label for="floatingTextarea">Punten ini mah, tolong jempol nya lebih
                                                         sopan dikit hehe
                                                         🙏</label>
@@ -139,12 +140,14 @@
                                                 </div>
                                             </form>
                                         </div>
+                                        @foreach ($jawabans as $jawaban)
+                                        @if ($jawaban->getPertanyaan->id == $pertanyaan->id)
                                         <div class="container">
                                             <div class="d-inline-flex mt-5">
                                                 <img src="{{ url('frontend/assets/ic/person-comment.png') }}"
                                                     alt="profile-img" width="48px">
                                                 <div class="d-block">
-                                                    <span class="d-block fw-bold">sadasd</span>
+                                                    <span class="d-block fw-bold">{{ $jawaban->getUser->name }}</span>
                                                     <span class="d-block">Waktu komentar (Mis: 20 jam yang lalu, 1
                                                         hari
                                                         yang
@@ -153,9 +156,11 @@
                                                 </div>
                                             </div>
                                             <div class="comment-text mt-0">
-                                                <span class="d-block fw-bold my-3">lakakaka </span>
+                                                <span class="d-block fw-bold my-3">{{ $jawaban->jawaban }}</span>
                                             </div>
                                         </div>
+                                        @endif
+                                        @endforeach
                                     </div>
                                 </div>
                             @endforeach

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\ArticleCategory;
 use App\Models\Admin\Jawaban;
 use App\Models\Admin\Pertanyaan;
+use App\Models\User\JawabKomentar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
