@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="{{ url('frontend/style/logged-in-style.css') }}">
 @endpush
 
+
+
+
 @section('content')
 
 
@@ -22,7 +25,7 @@
                             <p>Edumind adalah sebuah situs yang berisi kumpulan event online seperti webinar, workshop,
                                 ataupun kursus
                                 dan juga terdapat ruang untuk diskusi.</p>
-                            <button type="button" class="btn text-white fw-bold">Daftar Akun</button>
+                            {{-- <button type="button" class="btn text-white fw-bold">Daftar Akun</button> --}}
                         </div>
                     </div>
                     <div class="header-img col-12 col-lg-6 d-none d-lg-flex align-items-end">
@@ -120,7 +123,36 @@
                 </div>
                 <div class="event-cards mt-5">
                     <div class="row slider">
-                        <div class="col-12 col-lg-3 py-3">
+                        @foreach ($popEvent as $event)
+                            <div class="col-12 col-lg-3 py-3">
+                                <div class="card mx-auto scale-up" style="width: 280px;">
+                                    <img src="{{ Storage::url($event->gambar) }}" class="card-img-top">
+                                    <div class="card-body">
+                                        <ul class="card-info">
+                                            <li class="list-unstyled">
+                                                <img class="d-inline"
+                                                    src="{{ url('frontend/assets/ic/title.png') }}">
+                                                <p class="d-inline">{{ Str::words($event->judul, 3, '') }}</p>
+                                            </li>
+                                            <li class="list-unstyled mt-2">
+                                                <img class="d-inline"
+                                                    src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                                <p class="d-inline">{{ $event->tanggal }}</p>
+                                            </li>
+                                            <li class="list-unstyled mt-2">
+                                                <img class="d-inline"
+                                                    src="{{ url('frontend/assets/ic/category.png') }}">
+                                                <p class="d-inline">{{ $event->getCategory->name }}</p>
+                                            </li>
+                                        </ul>
+                                        <div class="card-act d-flex justify-content-center mt-3">
+                                            <a href="#" class="btn btn-primary">Gratis/Beli</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="col-12 col-lg-3 py-3">
                             <div class="card mx-auto scale-up" style="width: 280px;">
                                 <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
                                 <div class="card-body">
@@ -223,7 +255,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -238,7 +270,36 @@
                 </div>
                 <div class="event-cards mt-5">
                     <div class="row slider">
-                        <div class="col-12 col-lg-3 py-3">
+                        @foreach ($rekomEvent as $event)
+                            <div class="col-12 col-lg-3 py-3">
+                                <div class="card mx-auto scale-up" style="width: 280px;">
+                                    <img src="{{ Storage::url($event->gambar) }}" class="card-img-top">
+                                    <div class="card-body">
+                                        <ul class="card-info">
+                                            <li class="list-unstyled">
+                                                <img class="d-inline"
+                                                    src="{{ url('frontend/assets/ic/title.png') }}">
+                                                <p class="d-inline">{{ Str::words($event->judul, 3, '') }}</p>
+                                            </li>
+                                            <li class="list-unstyled mt-2">
+                                                <img class="d-inline"
+                                                    src="{{ url('frontend/assets/ic/calendar.png') }}">
+                                                <p class="d-inline">{{ $event->tanggal }}</p>
+                                            </li>
+                                            <li class="list-unstyled mt-2">
+                                                <img class="d-inline"
+                                                    src="{{ url('frontend/assets/ic/category.png') }}">
+                                                <p class="d-inline">{{ $event->getCategory->name }}</p>
+                                            </li>
+                                        </ul>
+                                        <div class="card-act d-flex justify-content-center mt-3">
+                                            <a href="#" class="btn btn-primary">Gratis/Beli</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- <div class="col-12 col-lg-3 py-3">
                             <div class="card mx-auto scale-up" style="width: 280px;">
                                 <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
                                 <div class="card-body">
@@ -332,7 +393,8 @@
                                         </li>
                                         <li class="list-unstyled mt-2">
                                             <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}>
-                                                                                <p class="              d-inline">Event
+                                                                                    <p class="
+                                                              d-inline">Event
                                             </p>
                                         </li>
                                     </ul>
@@ -341,7 +403,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

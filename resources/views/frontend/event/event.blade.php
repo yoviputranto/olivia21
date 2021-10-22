@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ url('frontend/style/program-webinar-style.css') }}">
 @endpush
 
+@section('title', '- Event')
+
 @section('content')
     <!-- Header -->
     <section class="header">

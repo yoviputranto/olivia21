@@ -1,3 +1,5 @@
+
+
 <?php $__env->startPush('stylePlus'); ?>
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/disscussion-timeline-style.css')); ?>">
 <?php $__env->stopPush(); ?>
@@ -126,17 +128,46 @@
                                         <div class="like-comment mt-3 d-flex">
                                             <div class="like d-inline align-self-center">
                                                 <span>7</span>
-                                                <span>Jawaban</span>
-                                                <img class="me-0"
-                                                    src="<?php echo e(url('frontend/assets/ic/answer-svg.svg')); ?>" width="20px">
-                                            </div>
-                                            <div class="comment d-inline mx-3 align-self-center">
-                                                <span><?php echo e($pertanyaan->getCategory->name); ?></span>
+                                        <a style="text-decoration: none;color: #000;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            Jawaban
+                                          </a>
+                                          <img class="me-0"
+                                          src="<?php echo e(url('frontend/assets/ic/answer-svg.svg')); ?>" width="20px">
+                                          <div class="comment d-inline mx-3 align-self-center">
+                                            <span><?php echo e($pertanyaan->getCategory->name); ?></span>
+                                        </div>
+                                            <div class="collapse" id="collapseExample">
+                                                <div class="container">
+                                                    <?php $__currentLoopData = $jawabans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jawaban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if($pertanyaan->id == $jawaban->getPertanyaan->id): ?>
+                                                            <div class="d-inline-flex mt-5">
+                                                                <img src="<?php echo e(url('frontend/assets/ic/person-comment.png')); ?>"
+                                                                    alt="profile-img" width="48px">
+                                                                <div class="d-block">
+                                                                    <span class="d-block fw-bold"><?php echo e($jawaban->getUser->name); ?></span>
+                                                                    <span class="d-block">Waktu komentar (Mis: 20 jam yang lalu, 1
+                                                                        hari
+                                                                        yang
+                                                                        lalu,
+                                                                        dst)</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="comment-text mt-0">
+                                                                <span class="d-block fw-bold my-3"><?php echo e($jawaban->jawaban); ?></span>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php endif; ?>
+                                <?php endif; ?>
+                                <div class="mt-3">
+                                    <?php echo $pertanyaans->links(); ?>
+
+                                </div>
                         </div>
                     </div>
                 </div>

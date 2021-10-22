@@ -1,8 +1,8 @@
-
-
 <?php $__env->startPush('stylePlus'); ?>
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/upload-event-style.css')); ?>">
 <?php $__env->stopPush(); ?>
+
+<?php $__env->startSection('title', '- Detail Event'); ?>
 
 <?php $__env->startSection('content'); ?>
     <!-- Header -->

@@ -2,6 +2,8 @@
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/article-read-style.css')); ?>">
 <?php $__env->stopPush(); ?>
 
+<?php $__env->startSection('title', '- Detail Artikel'); ?>
+
 <?php $__env->startSection('content'); ?>
 
     <!-- Header -->

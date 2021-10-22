@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ url('frontend/style/user-contact.css') }}">
 @endpush
 
+@section('title', '- Kontak')
+
 @section('content')
 
     <!-- Header -->

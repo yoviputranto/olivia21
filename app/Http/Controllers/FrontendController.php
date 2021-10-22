@@ -10,7 +10,9 @@ class FrontendController extends Controller
 {
     public function index(){
         $articles = Article::all();
-        return view('frontend.index',compact('articles'));
+        $popEvent = Event::orderBy('created_at','ASC')->get();
+        $rekomEvent = Event::orderBy('created_at','DESC')->get();
+        return view('frontend.index',compact(['articles','popEvent','rekomEvent']));
     }
 
     public function article(){

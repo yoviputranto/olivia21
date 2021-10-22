@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ url('frontend/style/article-style.css') }}">
 @endpush
 
+@section('title', '- Artikel')
+
 @section('content')
 
     <!-- Header -->

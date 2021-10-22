@@ -81,7 +81,7 @@ body {
 .search {
   font-size: 18px;
 
-  
+
   margin-left: 5px;
   border: none;
   background-color: transparent;
@@ -275,10 +275,11 @@ img {
   background-color: #fff;
   border-radius: 10px;
   border: none;
+  width: 100%;
 }
 
 .event-upload .container .upload-card .date-picker {
-  max-width: 120px;
+  max-width: 200px;
 }
 
 .event-upload .container .upload-card .form-input-textarea {
@@ -307,7 +308,7 @@ img {
 }
 
 .date .form-control {
-  width: 116px; 
+  width: 116px;
   margin: 0;
   border: none;
 }
@@ -402,7 +403,7 @@ footer h4 {
   font-size: 22px;
   font-weight: 400;
   line-height: 33px;
-  
+
 }
 
 footer .footer-text {
@@ -418,7 +419,7 @@ footer .footer-text p {
   text-justify: inter-word;
 }
 
-   
+
 
 footer .social-item {
   margin: 0 0 10px 0;

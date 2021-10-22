@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ url('frontend/style/article-read-style.css') }}">
 @endpush
 
+@section('title', '- Detail Artikel')
+
 @section('content')
 
     <!-- Header -->

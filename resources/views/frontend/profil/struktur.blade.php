@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{{ url('frontend/style/profile-style.css') }}">
 @endpush
 
+@section('title', '- Struktur Organisasi')
+
 @section('content')
     <!-- Header -->
     <section class="header">

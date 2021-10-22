@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\Admin\KomentarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\EventController as UserEventController;
 use App\Http\Controllers\user\JawabanSayaController;
 use App\Http\Controllers\User\TimelineController;
 use App\Http\Controllers\User\UserPertanyaanController;
@@ -85,7 +87,6 @@ Route::get('/program/webinar',[FrontendController::class,'webinar'])->name('webi
 Route::get('/diskusi',[FrontendController::class,'diskusi'])->name('timeline');
 Route::get('/search',[FrontendController::class,'search'])->name('search');
 
-Route::get('/user/dashboard',function(){
-    return view('user.index');
-})->name('user.dashboard');
-Route::view('/user/upload-event', 'user.upload');
+//dashboard
+Route::get('/user/dashboard',[DashboardController::class,'index'])->name('user.index');
+Route::get('/user/upload-event',[UserEventController::class,'index'])->name('user.upload');

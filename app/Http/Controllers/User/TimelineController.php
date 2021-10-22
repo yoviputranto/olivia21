@@ -15,7 +15,7 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        $pertanyaans    = Pertanyaan::paginate(5);
+        $pertanyaans    = Pertanyaan::orderBy('id', 'DESC')->paginate(5);
         return view('user.diskusi.timeline.index', compact('pertanyaans'));
     }
 

@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ url('frontend/style/profile-sejarah-style.css') }}">
 @endpush
 
+@section('title', '- Sejarah')
+
 @section('content')
 
     <section class="header">

@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ url('frontend/style/upload-event-style.css') }}">
 @endpush
 
+@section('title', '- Detail Event')
+
 @section('content')
     <!-- Header -->
     <section class="header">

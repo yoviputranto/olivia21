@@ -2,6 +2,8 @@
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/program-webinar-style.css')); ?>">
 <?php $__env->stopPush(); ?>
 
+<?php $__env->startSection('title', '- Event'); ?>
+
 <?php $__env->startSection('content'); ?>
     <!-- Header -->
     <section class="header">
