@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Jawaban;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JawabanSayaController extends Controller
 {
@@ -15,7 +16,7 @@ class JawabanSayaController extends Controller
      */
     public function index()
     {
-        $jawabans   = Jawaban::all();
+        $jawabans       = Jawaban::where('user_id', Auth::user()->id)->get();
         return view('user.diskusi.jawabanSaya.index', compact('jawabans'));
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\Article;
 use App\Models\Admin\Event;
+use App\Models\Admin\EventCategory;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -47,7 +48,9 @@ class FrontendController extends Controller
     }
 
     public function webinar(){
-        return view('frontend.event.webinar');
+        $webinars = Event::where('id_jenis',1)->with('getCategory')->get();
+        $categories = EventCategory::with('getEvent')->get();
+        return view('frontend.event.webinar',compact('webinars','categories'));
     }
 
     public function search(Request $request){

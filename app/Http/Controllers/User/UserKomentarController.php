@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\User\JawabKomentar;
+use App\Models\Admin\Komentar;
 use Illuminate\Http\Request;
 
-class JawabKomentarController extends Controller
+class UserKomentarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class JawabKomentarController extends Controller
      */
     public function index()
     {
-        $jawabKomentar  = JawabKomentar::all();
-        return view('user.diskusi.PertanyaanUser.index', compact('jawabKomentar'));
+        $komentars  = Komentar::all();
+        return view('user.diskusi.timeline.index', compact('komentars'));
     }
 
     /**
@@ -37,10 +37,7 @@ class JawabKomentarController extends Controller
      */
     public function store(Request $request)
     {
-        $data   = $request->all();
-        $data['jawaban_id'] = 1;
-        JawabKomentar::create($data);
-        return redirect()->route('jawab-komentar.index');
+        //
     }
 
     /**

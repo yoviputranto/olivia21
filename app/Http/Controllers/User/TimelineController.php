@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Jawaban;
+use App\Models\Admin\Komentar;
 use App\Models\Admin\Pertanyaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,10 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        $pertanyaans    = Pertanyaan::orderBy('id', 'DESC')->paginate(5);
-        $jawabans       = Jawaban::all();
-        return view('user.diskusi.timeline.index', compact('pertanyaans', 'jawabans'));
+        // $pertanyaans    = Pertanyaan::orderBy('id', 'DESC')->get();
+        $jawabans       = Jawaban::orderBy('id', 'DESC')->get();
+        $komentars      = Komentar::all();
+        return view('user.diskusi.timeline.index', compact('jawabans', 'komentars'));
     }
 
     /**

@@ -280,4 +280,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Yovi\Kuliah\Lomba\olivia\Final\edumind\resources\views/user/diskusi/PertanyaanUser/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Yovi\Kuliah\Lomba\olivia\Final\edumind\resources\views/user/diskusi/pertanyaanUser/index.blade.php ENDPATH**/ ?>

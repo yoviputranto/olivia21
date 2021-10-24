@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\ArticleCategory;
+use App\Models\Admin\Jawaban;
+use App\Models\Admin\Pertanyaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 
 class UserPertanyaanController extends Controller
 {
@@ -14,17 +20,10 @@ class UserPertanyaanController extends Controller
      */
     public function index()
     {
-        return view('user.diskusi.pertanyaan.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $pertanyaans    = Pertanyaan::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(3);
+        $categories     = ArticleCategory::all();
+        $jawabans       = Jawaban::all();
+        return view('user.diskusi.pertanyaan.index', compact('pertanyaans', 'categories', 'jawabans'));
     }
 
     /**
@@ -35,7 +34,12 @@ class UserPertanyaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data                   = $request->all();
+        $data['slug']           = Str::slug($request->pertanyaan);
+        $data['user_id']        = Auth::user()->id;
+        // $data['category_id']    = 1;
+        Pertanyaan::create($data);
+        return Redirect::route('pertanyaan-saya.index');
     }
 
     /**
@@ -46,30 +50,9 @@ class UserPertanyaanController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $pertanyaans    = Pertanyaan::with('getUser')->findOrFail($id);
+        $jawabans       = Jawaban::all();
+        return view('user.diskusi.PertanyaanUser.show', compact('pertanyaans', 'jawabans'));
     }
 
     /**
@@ -80,6 +63,8 @@ class UserPertanyaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pertanyaans    = Pertanyaan::findOrFail($id);
+        $pertanyaans->delete();
+        return Redirect::route('pertanyaan-saya.index');
     }
 }

@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/profile-style.css')); ?>">
 <?php $__env->stopPush(); ?>
 
+<?php $__env->startSection('title', '- Infografis'); ?>
+
 <?php $__env->startSection('content'); ?>
     <!-- Header -->
     <section class="header">

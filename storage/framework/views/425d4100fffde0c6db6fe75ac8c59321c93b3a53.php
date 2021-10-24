@@ -2,6 +2,8 @@
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/user-contact.css')); ?>">
 <?php $__env->stopPush(); ?>
 
+<?php $__env->startSection('title', '- Kontak'); ?>
+
 <?php $__env->startSection('content'); ?>
 
     <!-- Header -->

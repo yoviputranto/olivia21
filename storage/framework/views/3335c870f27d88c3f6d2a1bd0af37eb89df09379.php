@@ -1,8 +1,8 @@
-
-
 <?php $__env->startPush('stylePlus'); ?>
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/profile-sejarah-style.css')); ?>">
 <?php $__env->stopPush(); ?>
+
+<?php $__env->startSection('title', '- Sejarah'); ?>
 
 <?php $__env->startSection('content'); ?>
 

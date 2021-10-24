@@ -270,7 +270,7 @@ img {
 
 .event-upload .container .upload-card .btn-dropdown,
 .event-upload .container .upload-card .form-input-box {
-  padding: 0 10px;
+  padding: 0 7px;
   min-height: 36px;
   background-color: #fff;
   border-radius: 10px;
@@ -279,7 +279,7 @@ img {
 }
 
 .event-upload .container .upload-card .date-picker {
-  max-width: 200px;
+  max-width: 150px;
 }
 
 .event-upload .container .upload-card .form-input-textarea {

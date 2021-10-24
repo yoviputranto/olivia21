@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePertanyaanSayasTable extends Migration
+class AddUserToJawabKomentarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreatePertanyaanSayasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pertanyaan_sayas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('jawab_komentars', function (Blueprint $table) {
+            $table->foreignId('user_id');
         });
     }
 
@@ -26,6 +25,8 @@ class CreatePertanyaanSayasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pertanyaan_sayas');
+        Schema::table('jawab_komentars', function (Blueprint $table) {
+            //
+        });
     }
 }

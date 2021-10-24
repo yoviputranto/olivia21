@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\EventCategoryController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventJenisController;
 use App\Http\Controllers\Admin\JawabanController;
-use App\Http\Controllers\user\JawabKomentarController;
+use App\Http\Controllers\admin\JawabKomentarController;
 use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\Admin\KomentarController;
 use App\Http\Controllers\Auth\LoginController;
@@ -19,7 +19,8 @@ use App\Http\Controllers\user\JawabanSayaController;
 use App\Http\Controllers\User\TimelineController;
 use App\Http\Controllers\User\UserPertanyaanController;
 use App\Http\Controllers\User\UserPertanyaanSayaController;
-
+use App\Models\Admin\Event;
+use App\Models\Admin\EventCategory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,7 +60,7 @@ Route::prefix('admin')
         //Komentar
         Route::resource('komentar', KomentarController::class);
         //Jawab Komentar
-        Route::resource('jawab-komentar', JawabKomentarController::class);
+        Route::resource('jawab-komentar',JawabKomentarController::class);
     });
 
 // Users
@@ -67,7 +68,6 @@ Route::resource('pertanyaan', UserPertanyaanController::class);
 Route::resource('pertanyaan-saya', UserPertanyaanSayaController::class);
 Route::resource('timeline', TimelineController::class);
 Route::resource('jawaban-saya', JawabanSayaController::class);
-Route::resource('jawab-komentar', JawabKomentarController::class);
 
     Route::get('auth/google/redirect', [LoginController::class,'redirectToGoogle'])->name('login.google');
     Route::get('auth/google/callback', [LoginController::class,'handleGoogleCallback']);
@@ -88,7 +88,13 @@ Route::get('/event/{id}',[FrontendController::class,'detailevent'])->name('detai
 Route::get('/program/webinar',[FrontendController::class,'webinar'])->name('webinar');
 Route::get('/diskusi',[FrontendController::class,'diskusi'])->name('timeline');
 Route::get('/search',[FrontendController::class,'search'])->name('search');
+Route::get('/event/webinar',function(){
+    $webinars = Event::where('id_jenis',1)->with('getCategory')->get();
+        $categories = EventCategory::with('getEvent')->get();
+        return view('frontend.event.webinar',compact('webinars','categories'));
+});
 
 //dashboard
 Route::get('/user/dashboard',[DashboardController::class,'index'])->name('user.index');
 Route::get('/user/upload-event',[UserEventController::class,'index'])->name('user.upload');
+Route::post('/user/dashboard',[UserEventController::class,'store'])->name('user.upload.store');

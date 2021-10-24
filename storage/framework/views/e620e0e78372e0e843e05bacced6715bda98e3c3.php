@@ -48,42 +48,85 @@
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
                         <div class="article-comment mt-4">
-                            <!-- article-comment-box -->
-                            <div class="article-comment-box mb-5">
-                                <h5 class="py-1">Ajukan Pertanyaan</h5>
-                                <form action="<?php echo e(route('pertanyaan.store')); ?>" method="post"
-                                    enctype="multipart/form-data">
-                                    <?php echo csrf_field(); ?>
-                                    <div class="form-floating">
-                                        <textarea class="form-control" id="floatingTextarea" name="pertanyaan"></textarea>
-                                        <label for="floatingTextarea">Nanyanya yg sopan ya adick-adick</label>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex">
-                                            <!-- <div class="input-group my-3 me-2">
-                                                                                                                                                                                                    <select class="btn-dropdown custom-select py-1 px-3">
-                                                                                                                                                                                                        <option value="1" id="public">Public</option>
-                                                                                                                                                                                                        <option value="2" id="private">Private</option>
-                                                                                                                                                                                                    </select>
-                                                                                                                                                                                                </div> -->
-                                            <div class="input-group my-3">
-                                                <select class="btn-dropdown custom-select py-1 px-3" name="category_id">
-                                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <option value="<?php echo e($category->id); ?>" id="category">
-                                                            <?php echo e($category->name); ?></option>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </select>
+                            <!-- article-comment-display -->
+                            <div class="article-heading mx-auto text-center mb-5">
+                                <h2>Pertanyaan Saya</h2>
+                            </div>
+                            <?php
+                                $no = 1;
+                            ?>
+                            <?php if(Auth::user() && Auth::user()->name): ?>
+                                <div class="article-comment-display mt-5 mb-3">
+                                    <div class="comment-info d-flex justify-content-between">
+                                        <div class="d-inline-flex">
+                                            <img src="<?php echo e(url('frontend/assets/ic/person-comment.png')); ?>"
+                                                alt="profile-img" width="48px">
+                                            <div class="d-block">
+                                                <span class="d-block fw-bold"><?php echo e($pertanyaans->getUser->name); ?></span>
+                                                <span class="d-block">Waktu komentar (Mis: 20 jam yang lalu, 1
+                                                    hari
+                                                    yang
+                                                    lalu,
+                                                    dst)</span>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center">
-                                            <button type="submit" class="btn p-1 ms-auto">
-                                                Tanyakan <span><img class="m-0"
-                                                        src="<?php echo e(url('frontend/assets/ic/send.png')); ?>"
-                                                        width="20px"></span>
+                                        <form action="<?php echo e(route('pertanyaan-saya.destroy', $pertanyaans->id)); ?>"
+                                            method="post">
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo method_field('delete'); ?>
+                                            <button type="submit" style="background:none;border:none;">
+                                                <img class=""
+                                                    src="<?php echo e(url('frontend/assets/ic/delete-svg.svg')); ?>" alt="report-img"
+                                                    width="24px">
+                                        </form>
+                                        </button>
+                                    </div>
+                                    <div class="comment-text">
+                                        <span class="d-block fw-bold my-3"><?php echo e($pertanyaans->pertanyaan); ?></span>
+                                    </div>
+                                    <div class="like-comment mt-3 d-flex">
+                                        <div class="like d-inline align-self-center">
+                                            <span>7</span>
+
+                                            <button style="background:none;color:#000;border:none;" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                                aria-expanded="false" aria-controls="collapseExample">
+                                                Jawab
                                             </button>
+                                            <img class="me-0"
+                                                src="<?php echo e(url('frontend/assets/ic/answer-svg.svg')); ?>" width="20px">
+                                            <div class="comment d-inline mx-3 align-self-center">
+                                                <span><?php echo e($pertanyaans->getCategory->name); ?></span>
+                                            </div>
+                                            <div class="collapse" id="collapseExample">
+                                                <?php $__currentLoopData = $jawabans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jawaban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php if($pertanyaans->id == $jawaban->getPertanyaan->id): ?>
+                                                        <div class="container">
+                                                            <div class="d-inline-flex mt-5">
+                                                                <img src="<?php echo e(url('frontend/assets/ic/person-comment.png')); ?>"
+                                                                    alt="profile-img" width="48px">
+                                                                <div class="d-block">
+                                                                    <span
+                                                                        class="d-block fw-bold"><?php echo e($jawaban->getUser->name); ?></span>
+                                                                    <span
+                                                                        class="d-block"><?php echo e($jawaban->created_at); ?></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="comment-text mt-0">
+                                                                <span
+                                                                    class="d-block my-3"><?php echo e($jawaban->jawaban); ?></span>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </div>
+
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                            <?php endif; ?>
+                            <div class="mt-3">
+
                             </div>
                         </div>
                     </div>
@@ -175,4 +218,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Yovi\Kuliah\Lomba\olivia\Final\edumind\resources\views/user/diskusi/pertanyaan/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Yovi\Kuliah\Lomba\olivia\Final\edumind\resources\views/user/diskusi/PertanyaanUser/show.blade.php ENDPATH**/ ?>

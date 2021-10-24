@@ -241,16 +241,17 @@ img {
     background-color: transparent;
 }
 
-.webinar .container .webinar-categories .btn-category-active {
+.webinar .container .webinar-categories .btn-category.active {
     background-color: #747dab !important;
 }
 
-.webinar .container .webinar-categories .category-item a {
+.webinar .container .webinar-categories .category-item a,
+.webinar .container .webinar-categories .category-item button {
     background-color: #a6b1e1;
-    padding: 8px 48px;
+    padding: 8px 36px;
     margin: 0 0 10px 0;
     border-radius: 12px;
-    width: 160px;
+    max-width: 250px;
 }
 
 .prev-arrow-category {

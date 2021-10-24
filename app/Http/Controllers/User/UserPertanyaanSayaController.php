@@ -36,11 +36,24 @@ class UserPertanyaanSayaController extends Controller
     public function store(Request $request)
     {
         $data                   = $request->all();
-        $data['slug']           = Str::slug($request->slug);
+        $data['slug']           = Str::slug($request->pertanyaan);
         $data['user_id']        = Auth::user()->id;
         // $data['category_id']    = 1;
         Pertanyaan::create($data);
         return Redirect::route('pertanyaan-saya.index');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $pertanyaans    = Pertanyaan::with('getUser')->findOrFail($id);
+        $jawabans       = Jawaban::all();
+        return view('user.diskusi.PertanyaanUser.show', compact('pertanyaans', 'jawabans'));
     }
 
     /**

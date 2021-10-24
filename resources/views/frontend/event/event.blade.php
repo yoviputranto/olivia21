@@ -84,7 +84,7 @@
 
             <!-- Webinar list section -->
             <div class="webinar-heading mx-auto text-center mb-4">
-                <a class="text-decoration-none" href="event-webinar-category-list.html">
+                <a class="text-decoration-none" href="{{ route('webinar') }}">
                     <h1>Webinar</h1>
                 </a>
             </div>
@@ -121,57 +121,9 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <div class="card-act d-flex justify-content-center mt-3">
-                                    <a href="{{ route('detailevent') }}" class="btn btn-primary-none">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
 
-                    <div class="col-12 col-lg-3 py-3">
-                        <div class="card mx-auto scale-up" style="width: 280px;">
-                            <img src="{{ url('frontend/assets/ic/blank-4x5.png') }}" class="card-img-top">
-                            <div class="card-body">
-                                <ul class="card-info card-webinar-info">
-                                    <li class="list-unstyled">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/title.png') }}">
-                                        <p class="d-inline">Judul</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/calendar.png') }}">
-                                        <p class="d-inline">Tanggal</p>
-                                    </li>
-                                    <li class="list-unstyled mt-2">
-                                        <img class="d-inline" src="{{ url('frontend/assets/ic/category.png') }}">
-                                        <p class="d-inline">Event</p>
-                                    </li>
-                                </ul>
-                                <hr widt>
-                                <div class="card-act d-flex justify-content-between mt-3">
-                                    <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
-                                    <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
             </div>
         </div>

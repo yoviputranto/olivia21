@@ -1,9 +1,9 @@
-
-
 <?php $__env->startPush('stylePlus'); ?>
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/profile-sejarah-style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(url('frontend/style/profile-style.css')); ?>">
 <?php $__env->stopPush(); ?>
+
+<?php $__env->startSection('title', '- Tugas dan Fungsi'); ?>
 
 <?php $__env->startSection('content'); ?>
     <!-- Header -->
