@@ -384,6 +384,15 @@ img {
   text-align: center;
 }
 
+@media (max-width: 767px) {
+    .tagline .container h3 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+      }
+  }
+
 .tagline .container h3 a {
   font-size: 22px;
   font-weight: 500;
@@ -392,6 +401,16 @@ img {
   text-decoration: underline;
   color: #DCD6F7;
 }
+@media (max-width: 767px) {
+    .tagline .container h3 a {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+        text-decoration: underline;
+        color: #DCD6F7;
+      }
+  }
 /* End of Tagline */
 
 /* Footer */

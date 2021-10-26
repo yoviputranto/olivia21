@@ -82,7 +82,7 @@ body {
 .search {
   font-size: 18px;
 
-  
+
   margin-left: 5px;
   border: none;
   background-color: transparent;
@@ -156,7 +156,7 @@ img {
   font-weight: 600;
   line-height: 144px;
 
-  
+
 }
 
 .header .header-text .text h4 {
@@ -166,7 +166,7 @@ img {
   font-weight: 600;
   line-height: 86px;
 
-  
+
 }
 
 .header .header-text .text img {
@@ -175,9 +175,9 @@ img {
 
 
 .header .header-text .text p {
-   
+
   font-size: 16px;
-  
+
   font-weight: 600;
   line-height: 30px;
 
@@ -203,8 +203,8 @@ img {
     font-size: 35px;
     font-weight: 600;
     line-height: 86px;
-  
-    
+
+
   }
 }
 /* End of Header */
@@ -239,11 +239,12 @@ img {
   background-color: transparent;
 }
 
-.article .container .article-categories .btn-category-active {
+.article .container .article-categories .btn-category.active {
   background-color: #747DAB !important;
 }
 
-.article .container .article-categories .category-item a {
+.article .container .article-categories .category-item a,
+.article .container .article-categories .category-item button {
   background-color: #A6B1E1;
   padding: 8px 48px;
   margin: 0 0 10px 0;
@@ -336,9 +337,9 @@ img {
 }
 
 .tagline .container h3 {
-   
+
   font-size: 22px;
-  
+
   font-weight: 500;
   line-height: 54px;
 
@@ -346,9 +347,9 @@ img {
 }
 
 .tagline .container h3 a {
-   
+
   font-size: 22px;
-  
+
   font-weight: 500;
   line-height: 54px;
 
@@ -383,7 +384,7 @@ footer .footer-text p {
   text-justify: inter-word;
 }
 
-   
+
 
 footer .social-item {
   margin: 0 0 10px 0;

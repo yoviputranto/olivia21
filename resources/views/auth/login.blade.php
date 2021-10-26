@@ -59,33 +59,16 @@
                                     <a class="text-decoration-none" href="{{ route('password.request') }}">Lupa
                                         Password?</a>
                                 </div>
-                                <div class="action-btn text-center">
+                                <div class="action-btn text-center mb-2">
                                     <button type="submit" class="btn btn-login">
                                         Login
                                     </button>
                                 </div>
-                                <div class="action-label text-center">
-                                    <label class="form-check-label align-self-center">or login with</label>
-                                </div>
+
                                 <div class="alt-action-btn text-center">
-                                    <a href="{{ route('login.facebook') }}" class="btn btn-facebook">
-                                        <div class="">
-                                            <img class=" img-fluid d-inline-block"
-                                                src="{{ asset('frontend/assets/ic/facebook-login.png') }}" alt=""
-                                                width="20px">
-                                            <p class="d-inline-block m-0">Facebook</p>
-                                        </div>
-                                    </a>
-                                    <a href="{{ route('login.google') }}" class="btn btn-google">
-                                        <div class="">
-                                            <img class=" img-fluid d-inline-block"
-                                                src="{{ asset('frontend/assets/ic/google.png') }}" alt=""
-                                                width="20px">
-                                            <p class="d-inline-block m-0">Google</p>
-                                        </div>
-                                    </a>
+
                                 </div>
-                                <div class="action-label text-center">
+                                <div class="action-label text-center mb-2">
                                     <label class="form-check-label align-self-center">Belum punya akun? <span><a
                                                 type="submit" href="{{ route('register') }}">
                                                 Daftar

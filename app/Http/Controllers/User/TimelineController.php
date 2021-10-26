@@ -4,8 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Jawaban;
+use App\Models\Admin\JawabKomentar;
 use App\Models\Admin\Komentar;
 use App\Models\Admin\Pertanyaan;
+use App\Models\LikeJawaban;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,10 +20,12 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        // $pertanyaans    = Pertanyaan::orderBy('id', 'DESC')->get();
+        $pertanyaans    = Pertanyaan::all();
         $jawabans       = Jawaban::orderBy('id', 'DESC')->get();
-        $komentars      = Komentar::all();
-        return view('user.diskusi.timeline.index', compact('jawabans', 'komentars'));
+        $newKomentar    = Komentar::with('getJawaban')->get();
+        $jkomentars     = JawabKomentar::all();
+        $likeJawaban    = LikeJawaban::with('getJawaban')->where('user_id', Auth::id())->count();
+        return view('user.diskusi.timeline.index', compact('pertanyaans', 'jawabans', 'jkomentars', 'likeJawaban', 'newKomentar'));
     }
 
     /**

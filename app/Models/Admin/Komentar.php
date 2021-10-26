@@ -24,4 +24,9 @@ class Komentar extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function getJawabKomentar()
+    {
+        return $this->hasMany(JawabKomentar::class, 'komentar_id', 'id');
+    }
 }

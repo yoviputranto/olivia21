@@ -5,30 +5,15 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Komentar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class UserKomentarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $komentars  = Komentar::all();
-        return view('user.diskusi.timeline.index', compact('komentars'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +22,10 @@ class UserKomentarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data   = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Komentar::create($data);
+        return Redirect::route('timeline.index');
     }
 
     /**

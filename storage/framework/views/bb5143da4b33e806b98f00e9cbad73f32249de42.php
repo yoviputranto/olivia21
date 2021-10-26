@@ -35,8 +35,7 @@
             <nav class="breadcrumb my-2" aria-label="breadcrumb">
                 <ol class="list-group list-group-horizontal">
                     <li class="breadcrumb-item"><a href="Link">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="Link">Profie</a></li>
-                    <li class="breadcrumb-item"><a href="Link">Sejarah</a></li>
+                    <li class="breadcrumb-item"><a href="Link">Artikel</a></li>
                 </ol>
             </nav>
         </div>
@@ -47,62 +46,94 @@
     <section class="article">
         <div class="container mt-3">
             <div class="article-categories mt-5">
-                <div class="row slider">
-                    <div class="category-item d-flex justify-content-center">
-                        <a type="submit" href="#" class="btn btn-category-active text-white">
-                            Semua
-                        </a>
-                    </div>
-                    <div class="category-item d-flex justify-content-center">
-                        <a type="submit" href="#" class="btn btn-category text-white">
-                            Kategori
-                        </a>
-                    </div>
-                    <div class="category-item d-flex justify-content-center">
-                        <a type="submit" href="#" class="btn btn-category text-white">
-                            Kategori
-                        </a>
-                    </div>
-                    <div class="category-item d-flex justify-content-center">
-                        <a type="submit" href="#" class="btn btn-category text-white">
-                            Kategori
-                        </a>
-                    </div>
-                    <div class="category-item d-flex justify-content-center">
-                        <a type="submit" href="#" class="btn btn-category text-white">
-                            Kategori
-                        </a>
-                    </div>
-                    <div class="category-item d-flex justify-content-center">
-                        <a type="submit" href="#" class="btn btn-category text-white">
-                            Kategori
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="article-cards mt-5" data-aos="fade-up" data-aos-duration="2000">
-                <div class="row">
-                    <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-12 col-lg-4 py-3">
-                            <div class="card mx-auto scale-up" style="width: 20rem;">
-                                <img src="<?php echo e(Storage::url($article->image)); ?>" class="card-img-top" alt="illustration">
-                                <div class="card-body">
-                                    <p class="card-date"><?php echo e($article->created_at); ?>, <?php echo e($article->author); ?>
+                
+                <div class="d-flex">
+                    <ul class="nav nav-pills mb-3 mx-auto" id="pills-tab" role="tablist">
+                        <li class="nav-item category-item d-flex justify-content-center" role="presentation">
+                            <button class="nav-link btn btn-category active text-white" id="pills-semua-tab"
+                                data-bs-toggle="pill" data-bs-target="#pills-semua" type="button" role="tab"
+                                aria-controls="pills-semua" aria-selected="true">Semua</button>
+                        </li>
+                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li class="nav-item category-item d-flex justify-content-center" role="presentation">
+                                <button class="nav-link btn btn-category text-white" id="pills-<?php echo e($category->id); ?>-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-<?php echo e($category->id); ?>" type="button"
+                                    role="tab" aria-controls="pills-<?php echo e($category->id); ?>"
+                                    aria-selected="false"><?php echo e($category->name); ?></button>
+                            </li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                    </p>
-                                    <h5 class="card-title"><?php echo e($article->title); ?></h5>
-                                    <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="<?php echo e(route('detailarticle', $article->slug)); ?>"
-                                            class="btn btn-primary">Selengkapnya</a>
-                                        <h5 class="card-date"><?php echo e($article->getCategory->name); ?></h5>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-semua" role="tabpanel"
+                        aria-labelledby="pills-semua-tab">
+                        <div class="article-cards mt-5">
+                            <div class="row">
+                                <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div class="col-12 col-lg-4 py-3">
+                                        <div class="card mx-auto scale-up" style="width: 20rem;">
+                                            <img src="<?php echo e(Storage::url($article->image)); ?>" class="card-img-top"
+                                                alt="illustration">
+                                            <div class="card-body">
+                                                <p class="card-date"><?php echo e($article->created_at); ?>,
+                                                    <?php echo e($article->author); ?>
+
+                                                </p>
+                                                <h5 class="card-title"><?php echo e($article->title); ?></h5>
+                                                <div class="card-act d-flex justify-content-between mt-3">
+                                                    <a href="<?php echo e(route('detailarticle', $article->slug)); ?>"
+                                                        class="btn btn-primary">Selengkapnya</a>
+                                                    <h5 class="card-date"><?php echo e($article->getCategory->name); ?></h5>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                            </div>
+                        </div>
+                    </div>
+                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="tab-pane fade" id="pills-<?php echo e($category->id); ?>" role="tabpanel"
+                            aria-labelledby="pills-<?php echo e($category->id); ?>-tab">
+                            <div class="article-cards mt-5">
+                                <div class="row">
+                                    <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($category->name == $article->getCategory->name): ?>
+                                            <div class="col-12 col-lg-4 py-3">
+                                                <div class="card mx-auto scale-up" style="width: 20rem;">
+                                                    <img src="<?php echo e(Storage::url($article->image)); ?>" class="card-img-top"
+                                                        alt="illustration">
+                                                    <div class="card-body">
+                                                        <p class="card-date"><?php echo e($article->created_at); ?>,
+                                                            <?php echo e($article->author); ?>
+
+                                                        </p>
+                                                        <h5 class="card-title"><?php echo e($article->title); ?></h5>
+                                                        <div class="card-act d-flex justify-content-between mt-3">
+                                                            <a href="<?php echo e(route('detailarticle', $article->slug)); ?>"
+                                                                class="btn btn-primary">Selengkapnya</a>
+                                                            <h5 class="card-date"><?php echo e($article->getCategory->name); ?>
+
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                                 </div>
                             </div>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    
+
                 </div>
             </div>
+            
         </div>
     </section>
     <!-- End of Article -->

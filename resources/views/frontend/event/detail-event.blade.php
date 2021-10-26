@@ -18,7 +18,7 @@
                     <div class="text">
                         <img class="img-fluid mb-5 ms-1" src="{{ url('frontend/assets/ic/edumind-header-alt.png') }}"
                             alt="logo" width="460px">
-                        <h4>Webinar</h4>
+                        <h4>{{ $event->getJenis->name }}</h4>
                     </div>
                 </div>
                 <div class="header-img col-6 d-none d-lg-flex align-self-end">
@@ -48,8 +48,8 @@
     <section class="event-detail">
         <div class="container mt-3">
             <div class="event-detail-heading mx-auto text-center mb-4">
-                <a class="text-decoration-none" href="#">
-                    <h1>Detail Webinar</h1>
+                <a class="text-decoration-none" href="">
+                    <h1>Detail {{ $event->getJenis->name }}</h1>
                 </a>
             </div>
             <div class="event-detail-body">
@@ -135,26 +135,94 @@
                     </div>
                 </div>
             </div>
-            <a href="#" type="submit" class="btn btn-upload d-inline mt-4">
-                <div class="row">
-                    <div class="col-7 d-flex justify-content-end pe-5">
-                        Upload
-                    </div>
-                    <div class="col-5 d-flex justify-content-end">
-                        <img class="pt-1" src="{{ url('frontend/assets/ic/register-svg.svg') }}" width="20px">
-                    </div>
-                </div>
-            </a>
-            <a href="#" type="submit" class="btn btn-uploaded d-inline mt-4">
-                <div class="row">
-                    <div class="col-7 d-flex justify-content-end pe-2">
-                        Sudah Terdaftar
-                    </div>
-                    <div class="col-5 d-flex justify-content-end">
-                        <img class="pt-1" src="{{ url('frontend/assets/ic/register-svg.svg') }}" width="20px">
-                    </div>
-                </div>
-            </a>
+            @if (Auth::user())
+                @if (count($devent) == 0)
+                    <form action="{{ route('user.devent.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name="event_id" value="{{ $event->id }}" hidden>
+
+                        @if ($event->harga == 0)
+                            <button href="#" type="submit" class="btn btn-uploaded d-inline mt-4">
+                                <div class="row">
+                                    <div class="col-7 d-flex justify-content-end pe-2">
+                                        Daftar {{ $event->getJenis->name }}
+                                    </div>
+                                    <div class="col-5 d-flex justify-content-end">
+                                        <img class="pt-1"
+                                            src="{{ url('frontend/assets/ic/register-svg.svg') }}" width="20px">
+                                    </div>
+                                </div>
+                            </button>
+                        @else
+                            <button href="#" type="button" class="btn btn-uploaded d-inline mt-4" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                <div class="row">
+                                    <div class="col-7 d-flex justify-content-end pe-2">
+                                        Daftar {{ $event->getJenis->name }}
+                                    </div>
+                                    <div class="col-5 d-flex justify-content-end">
+                                        <img class="pt-1"
+                                            src="{{ url('frontend/assets/ic/register-svg.svg') }}" width="20px">
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="file" name="bukti" class="form-control" required>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Kirim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </form>
+                @else
+                    <button href="#" type="button" class="btn btn-uploaded d-inline mt-4" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        <div class="row">
+                            <div class="col-7 d-flex justify-content-end pe-2">
+                                Akses {{ $event->getJenis->name }}
+                            </div>
+                            <div class="col-5 d-flex justify-content-end">
+                                <img class="pt-1" src="{{ url('frontend/assets/ic/register-svg.svg') }}"
+                                    width="20px">
+                            </div>
+                        </div>
+                    </button>
+                @endif
+            @else
+                <form action="{{ route('user.devent.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" name="event_id" value="{{ $event->id }}" hidden>
+
+
+                    <button href="" type="submit" class="btn btn-uploaded d-inline mt-4">
+                        <div class="row">
+                            <div class="col-7 d-flex justify-content-end pe-2">
+                                Daftar {{ $event->getJenis->name }}
+                            </div>
+                            <div class="col-5 d-flex justify-content-end">
+                                <img class="pt-1" src="{{ url('frontend/assets/ic/register-svg.svg') }}"
+                                    width="20px">
+                            </div>
+                        </div>
+                    </button>
+
+                </form>
+            @endif
+
+
+
             <a href="#" type="submit" class="btn btn-upload d-inline mt-4">
                 <div class="row">
                     <div class="col-7 d-flex justify-content-end" style="padding-right: 38px;">

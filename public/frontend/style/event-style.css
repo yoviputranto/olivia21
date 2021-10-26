@@ -82,7 +82,7 @@ body {
 .search {
   font-size: 18px;
 
-  
+
   margin-left: 5px;
   border: none;
   background-color: transparent;
@@ -155,7 +155,7 @@ img {
   font-weight: 600;
   line-height: 144px;
 
-  
+
 }
 
 .header .header-text .text h4 {
@@ -165,7 +165,7 @@ img {
   font-weight: 600;
   line-height: 86px;
 
-  
+
 }
 
 .header .header-text .text img {
@@ -174,9 +174,9 @@ img {
 
 
 .header .header-text .text p {
-   
+
   font-size: 16px;
-  
+
   font-weight: 600;
   line-height: 30px;
 
@@ -202,8 +202,8 @@ img {
     font-size: 35px;
     font-weight: 600;
     line-height: 86px;
-  
-    
+
+
   }
 }
 /* End of Header */
@@ -318,7 +318,7 @@ img {
 }
 
 .webinar .container .webinar-cards .card .card-info  {
-  border-bottom: #424874 3px solid; 
+  border-bottom: #424874 3px solid;
   padding: 0 0 10px 10px;
 }
 
@@ -403,6 +403,15 @@ img {
   text-align: center;
 }
 
+@media (max-width: 767px) {
+    .tagline .container h3 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+      }
+  }
+
 .tagline .container h3 a {
   font-size: 22px;
   font-weight: 500;
@@ -411,6 +420,16 @@ img {
   text-decoration: underline;
   color: #DCD6F7;
 }
+@media (max-width: 767px) {
+    .tagline .container h3 a {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+        text-decoration: underline;
+        color: #DCD6F7;
+      }
+  }
 /* End of Tagline */
 
 /* Event detail */

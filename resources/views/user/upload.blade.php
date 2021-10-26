@@ -35,7 +35,7 @@
             <nav class="breadcrumb my-2" aria-label="breadcrumb">
                 <ol class="list-group list-group-horizontal">
                     <li class="breadcrumb-item"><a href="Link">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="Link">Event</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('event')}}">Event</a></li>
                     <li class="breadcrumb-item"><a href="Link">Upload</a></li>
                 </ol>
             </nav>

@@ -121,27 +121,19 @@
                             </li>
                         <?php endif; ?>
                     </ul>
-                    <div class="box-container">
-                        <table class="element-container">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <form action="<?php echo e(route('search')); ?>" method="GET">
-                                            <input type="text" name="search" placeholder="Cari.."
-                                                class="search">
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <a href="#">
-                                            <img class="search-img"
-                                                src="<?php echo e(url('frontend/assets/ic/search-white.png')); ?>" width="14px"
-                                                alt="search">
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    
+                    <form class="d-flex" action="<?php echo e(route('search')); ?>" method="GET">
+                        <div class="form-group d-flex">
+                            <input name="search"
+                                class="form-control form-control-sm me-2 border-white bg-transparent text-white rounded-pill"
+                                style="color: white; height: 50%" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-success rounded-circle btn-sm" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
             <?php elseif(Auth::user()): ?>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -187,7 +179,8 @@
                                 <li><a class="dropdown-item text-black"
                                         href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
                                 </li>
-                                <li><a class="dropdown-item text-black" href="#">Jawaban</a></li>
+                                <li><a class="dropdown-item text-black"
+                                        href="<?php echo e(route('jawaban-user.index')); ?>">Jawaban</a></li>
                                 <li><a class="dropdown-item text-black"
                                         href="<?php echo e(route('pertanyaan.index')); ?>">Pertanyaan</a></li>
                                 <li>
@@ -233,27 +226,19 @@
                             </li>
                         <?php endif; ?>
                     </ul>
-                    <div class="box-container">
-                        <table class="element-container">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <form action="<?php echo e(route('search')); ?>" method="GET">
-                                            <input type="text" name="search" placeholder="Cari.."
-                                                class="search">
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <a href="#">
-                                            <img class="search-img"
-                                                src="<?php echo e(url('frontend/assets/ic/search-white.png')); ?>" width="14px"
-                                                alt="search">
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    
+                    <form class="d-flex" action="<?php echo e(route('search')); ?>" method="GET">
+                        <div class="form-group d-flex">
+                            <input name="search"
+                                class="form-control form-control-sm me-2 border-white bg-transparent text-white rounded-pill"
+                                style="color: white; height: 50%" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-success rounded-circle btn-sm" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
             <?php endif; ?>
         </div>
@@ -268,7 +253,8 @@
     <!-- Tagline buttom -->
     <section class="tagline mt-5">
         <div class="container d-flex justify-content-center text-white">
-            <h3 class="m-0">Ingin berpartisipasi dalam suatu event atau diskusi? <span><a href="#">Daftar
+            <h3 class="m-0">Ingin berpartisipasi dalam suatu event atau diskusi? <span><a
+                        href="<?php echo e(route('register')); ?>">Daftar
                         Sekarang</a></span></h3>
         </div>
     </section>

@@ -142,22 +142,28 @@
             <div class="profile-body">
                 <div class="row">
                     <div class="col-12 col-lg-6 px-5">
-                        <form action="">
+                        <?php if(Session::has('message_sent')): ?>
+                            
+                            <?php echo e(Alert::success('Pesan Terkirim', 'Terima kasih, mohon tunggu balasan dari kami')); ?>
+
+                        <?php endif; ?>
+                        <form action="<?php echo e(route('contact.send')); ?>" method="POST" enctype="multipart/form-data">
+                            <?php echo csrf_field(); ?>
                             <div class="name mb-3">
                                 <h6 class="form-heading m-0">Nama</h6>
-                                <input type="text" placeholder="Type here..." class="form-control form-input-box"
-                                    id="input">
+                                <input type="text" placeholder="Type here..." class="form-control form-input-box" id="input"
+                                    name="name">
                             </div>
                             <div class="email mb-3">
                                 <h6 class="form-heading m-0">Email</h6>
-                                <input type="text" placeholder="Type here..." class="form-control form-input-box"
-                                    id="input">
+                                <input type="email" placeholder="Type here..." class="form-control form-input-box"
+                                    id="input" name="email">
                             </div>
                             <div class="message mb-3">
                                 <h6 class="form-heading m-0">Pesan</h6>
                                 <div class="form-floating">
                                     <textarea class="form-control form-input-textarea" placeholder="Leave a comment here"
-                                        id="floatingTextarea"></textarea>
+                                        id="floatingTextarea" name="pesan"></textarea>
                                     <label for="floatingTextarea">Type here...</label>
                                 </div>
                             </div>
@@ -238,6 +244,7 @@
             ]
         });
     </script>
+    <?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php $__env->stopPush(); ?>
 

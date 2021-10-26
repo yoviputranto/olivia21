@@ -121,10 +121,24 @@
                             </li>
                         @endif
                     </ul>
-                    <div class="box-container">
+                    {{-- <div class="box-container">
                         <table class="element-container">
                             <tbody>
                                 <tr>
+                                    <td>
+                                        <form class="d-flex" action="{{ route('search') }}" method="GET">
+                                            <div class="form-group d-flex">
+                                                <input name="search"
+                                                    class="form-control form-control-sm me-2 border-white bg-transparent text-white rounded-pill"
+                                                    style="color: white; height: 50%" type="search" placeholder="Search"
+                                                    aria-label="Search">
+                                                <button class="btn btn-success rounded-circle btn-sm" type="submit">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+
+                                        </form>
+                                    </td>
                                     <td>
                                         <form action="{{ route('search') }}" method="GET">
                                             <input type="text" name="search" placeholder="Cari.."
@@ -141,7 +155,19 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </div> --}}
+                    <form class="d-flex" action="{{ route('search') }}" method="GET">
+                        <div class="form-group d-flex">
+                            <input name="search"
+                                class="form-control form-control-sm me-2 border-white bg-transparent text-white rounded-pill"
+                                style="color: white; height: 50%" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-success rounded-circle btn-sm" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
             @elseif (Auth::user())
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -187,7 +213,8 @@
                                 <li><a class="dropdown-item text-black"
                                         href="{{ route('timeline.index') }}">Timeline</a>
                                 </li>
-                                <li><a class="dropdown-item text-black" href="#">Jawaban</a></li>
+                                <li><a class="dropdown-item text-black"
+                                        href="{{ route('jawaban-user.index') }}">Jawaban</a></li>
                                 <li><a class="dropdown-item text-black"
                                         href="{{ route('pertanyaan.index') }}">Pertanyaan</a></li>
                                 <li>
@@ -233,7 +260,7 @@
                             </li>
                         @endif
                     </ul>
-                    <div class="box-container">
+                    {{-- <div class="box-container">
                         <table class="element-container">
                             <tbody>
                                 <tr>
@@ -253,7 +280,19 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </div> --}}
+                    <form class="d-flex" action="{{ route('search') }}" method="GET">
+                        <div class="form-group d-flex">
+                            <input name="search"
+                                class="form-control form-control-sm me-2 border-white bg-transparent text-white rounded-pill"
+                                style="color: white; height: 50%" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-success rounded-circle btn-sm" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
             @endif
         </div>
@@ -268,7 +307,8 @@
     <!-- Tagline buttom -->
     <section class="tagline mt-5">
         <div class="container d-flex justify-content-center text-white">
-            <h3 class="m-0">Ingin berpartisipasi dalam suatu event atau diskusi? <span><a href="#">Daftar
+            <h3 class="m-0">Ingin berpartisipasi dalam suatu event atau diskusi? <span><a
+                        href="{{ route('register') }}">Daftar
                         Sekarang</a></span></h3>
         </div>
     </section>

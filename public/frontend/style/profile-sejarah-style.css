@@ -55,6 +55,13 @@ body {
     border-bottom: #fff 2px solid;
 }
 
+.nav-item:not(:last-child) a:hover {
+    color: #fff;
+    font-size: 14px;
+    border-bottom: #fff 2px solid;
+    /* border-top: #fff 2px solid; */
+}
+
 .log-in a {
     border-radius: 10px;
 }

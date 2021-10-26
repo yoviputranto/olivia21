@@ -30,8 +30,14 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <div class="container">
-            <h5 class="text-white text-center">Beranda > Program > webinar </h5>
+        <div class="container d-flex justify-content-center">
+            <nav class="breadcrumb my-2" aria-label="breadcrumb">
+                <ol class="list-group list-group-horizontal">
+                    <li class="breadcrumb-item"><a href="Link">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('event') }}">Event</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('webinar') }}">Webinar</a></li>
+                </ol>
+            </nav>
         </div>
     </section>
     <!-- End of Breadcrumb -->
@@ -72,22 +78,24 @@
                         </a>
                     </div>
                 </div> --}}
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item category-item d-flex justify-content-center" role="presentation">
-                        <button class="nav-link btn btn-category active text-white" id="pills-semua-tab"
-                            data-bs-toggle="pill" data-bs-target="#pills-semua" type="button" role="tab"
-                            aria-controls="pills-semua" aria-selected="true">Semua</button>
-                    </li>
-                    @foreach ($categories as $category)
+                <div class="d-flex">
+                    <ul class="nav nav-pills mb-3 mx-auto" id="pills-tab" role="tablist">
                         <li class="nav-item category-item d-flex justify-content-center" role="presentation">
-                            <button class="nav-link btn btn-category text-white" id="pills-{{ $category->id }}-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
-                                aria-controls="pills-{{ $category->id }}"
-                                aria-selected="false">{{ $category->name }}</button>
+                            <button class="nav-link btn btn-category active text-white" id="pills-semua-tab"
+                                data-bs-toggle="pill" data-bs-target="#pills-semua" type="button" role="tab"
+                                aria-controls="pills-semua" aria-selected="true">Semua</button>
                         </li>
-                    @endforeach
+                        @foreach ($categories as $category)
+                            <li class="nav-item category-item d-flex justify-content-center" role="presentation">
+                                <button class="nav-link btn btn-category text-white" id="pills-{{ $category->id }}-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-{{ $category->id }}" type="button"
+                                    role="tab" aria-controls="pills-{{ $category->id }}"
+                                    aria-selected="false">{{ $category->name }}</button>
+                            </li>
+                        @endforeach
 
-                </ul>
+                    </ul>
+                </div>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-semua" role="tabpanel"
                         aria-labelledby="pills-semua-tab">

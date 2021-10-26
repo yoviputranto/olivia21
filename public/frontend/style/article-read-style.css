@@ -83,7 +83,7 @@ body {
 .search {
   font-size: 18px;
 
-  
+
   margin-left: 5px;
   border: none;
   background-color: transparent;
@@ -157,7 +157,7 @@ img {
   font-weight: 600;
   line-height: 144px;
 
-  
+
 }
 
 .header .header-text .text h4 {
@@ -167,7 +167,7 @@ img {
   font-weight: 600;
   line-height: 86px;
 
-  
+
 }
 
 .header .header-text .text img {
@@ -390,6 +390,15 @@ img {
   text-align: center;
 }
 
+@media (max-width: 767px) {
+    .tagline .container h3 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+      }
+  }
+
 .tagline .container h3 a {
   font-size: 22px;
   font-weight: 500;
@@ -398,6 +407,16 @@ img {
   text-decoration: underline;
   color: #DCD6F7;
 }
+@media (max-width: 767px) {
+    .tagline .container h3 a {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+        text-decoration: underline;
+        color: #DCD6F7;
+      }
+  }
 /* End of Tagline */
 
 /* Footer */

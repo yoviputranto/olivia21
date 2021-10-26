@@ -51,11 +51,11 @@
             <div class="row">
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
-                        <div class="article-text-title">
+                        <div class="article-text-title mt-5">
                             <h1>{{ $article->title }}</h1>
                         </div>
-                        <div class="article-text-info d-flex justify-content-between">
-                            <h5>{{ $article->author }}</h5>
+                        <div class="article-text-info d-flex justify-content-between mb-2">
+                            <h5>Oleh {{ $article->author }}</h5>
                             <h5>{{ $article->created_at }}</h5>
                         </div>
                         <div class="article-text-img">
@@ -206,7 +206,12 @@
                                     </div>
                                     <div class="col-6">
                                         <p>{{ $article->created_at }}, {{ $article->author }}</p>
-                                        <h4>{{ Str::words($article->title, 5, '') }}</h4>
+                                        <a href="{{ route('detailarticle', $article->slug) }}"
+                                            class="text-decoration-none text-black">
+                                            <h4>{{ Str::words($article->title, 5, '') }}</h4>
+                                        </a>
+
+
                                     </div>
                                 </div>
                             @endforeach

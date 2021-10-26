@@ -36,8 +36,7 @@
             <nav class="breadcrumb my-2" aria-label="breadcrumb">
                 <ol class="list-group list-group-horizontal">
                     <li class="breadcrumb-item"><a href="Link">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="Link">Event</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('event/upload') }}">Upload</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('event') }}">Event</a></li>
                 </ol>
             </nav>
         </div>
@@ -113,7 +112,8 @@
                                     </ul>
                                     <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
+                                        <a href="#"
+                                            class="btn btn-webinar-price">{{ $webinar->harga == 0 ? 'Gratis' : 'Rp' . $webinar->harga }}</a>
                                         <a href="{{ route('detailevent', $webinar->id) }}"
                                             class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
@@ -135,7 +135,7 @@
         <div class="container mt-3">
             <!-- Webinar list section -->
             <div class="webinar-heading mx-auto text-center mb-4">
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="{{ route('workshop') }}">
                     <h1>Workshop</h1>
                 </a>
             </div>
@@ -164,8 +164,10 @@
                                     </ul>
                                     <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
-                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
+                                        <a href="#"
+                                            class="btn btn-webinar-price">{{ $workshop->harga == 0 ? 'Gratis' : 'Rp' . $workshop->harga }}</a>
+                                        <a href="{{ route('detailevent', $workshop->id) }}"
+                                            class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +186,7 @@
         <div class="container mt-3">
             <!-- Webinar list section -->
             <div class="webinar-heading mx-auto text-center mb-4">
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="{{ route('kursus') }}">
                     <h1>Kursus</h1>
                 </a>
             </div>
@@ -213,8 +215,10 @@
                                     </ul>
                                     <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
-                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
+                                        <a href="#"
+                                            class="btn btn-webinar-price">{{ $kursus->harga == 0 ? 'Gratis' : 'Rp' . $kursus->harga }}</a>
+                                        <a href="{{ route('detailevent', $kursus->id) }}"
+                                            class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
                                 </div>
                             </div>

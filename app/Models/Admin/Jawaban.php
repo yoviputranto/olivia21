@@ -25,4 +25,9 @@ class Jawaban extends Model
         return $this->belongsTo(Pertanyaan::class, 'pertanyaan_id', 'id');
     }
 
+    public function getKomentar()
+    {
+        return $this->hasMany(Komentar::class, 'jawaban_id  ', 'id');
+    }
+
 }

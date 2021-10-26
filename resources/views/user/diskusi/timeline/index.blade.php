@@ -47,6 +47,7 @@
     <section class="article-body">
         <div class="container">
             <div class="row">
+
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
                         <div class="article-comment mt-4" data-aos="fade-up">
@@ -77,21 +78,25 @@
                                     </div>
                                     <div class="like-comment mt-3 d-flex">
                                         <div class="like d-inline align-self-center">
-                                            <span>19.721</span>
-                                            <img class="me-0" src="{{ url('frontend/assets/ic/like.png') }}"
-                                                alt="" width="24px">
+
+                                            <span>{{ $likeJawaban }}</span>
+                                            <a href="{{ route('likes', $jawaban->id) }}">
+                                                <img class="me-0"
+                                                    src="{{ url('frontend/assets/ic/like.png') }}" alt="" width="24px">
+                                            </a>
+
                                         </div>
+                                        <button style="background:none;border:none;" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseExample{{ $jawaban->id }}" aria-expanded="false"
+                                            aria-controls="collapseExample">
+                                            <span>31</span>
+                                            <img class="me-0"
+                                                src="{{ url('frontend/assets/ic/commment.png') }}" alt="">
+                                        </button>
                                         <div class="comment d-inline mx-3 align-self-center">
-                                            <form method="post" action="">
-                                                <input type="hidden" name="jawaban_id" value="jawaban_id">
-                                                <button style="background:none;border:none;" type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseExample{{ $jawaban->id }}"
-                                                    aria-expanded="false" aria-controls="collapseExample">
-                                                    <span>31</span>
-                                                    <img class="me-0"
-                                                        src="{{ url('frontend/assets/ic/commment.png') }}" alt="">
-                                                </button>
+                                            <form method="post" action="{{ route('user-komentar.store') }}">
+                                                <input type="hidden" name="jawaban_id" value="{{ $jawaban->id }}" hidden>
+
                                             </form>
                                         </div>
                                         <div class="comment d-inline mx-3 align-self-center">
@@ -105,8 +110,34 @@
                                         </div>
                                     </div>
                                     <div class="collapse" id="collapseExample{{ $jawaban->id }}">
-
-                                        @foreach ($komentars as $komentar)
+                                        <!-- article-comment-box -->
+                                        <div class="article-comment-box mt-3">
+                                            <h5 class="py-1">Ajukan Pertanyaan</h5>
+                                            <form action="{{ route('user-komentar.store') }}" method="post"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="jawaban_id" value="{{ $jawaban->id }}" hidden>
+                                                <div class="form-floating">
+                                                    <textarea class="form-control" id="floatingTextarea"
+                                                        name="komentar"></textarea>
+                                                    <label for="floatingTextarea">Nanyanya yg sopan ya adick-adick</label>
+                                                </div>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="d-flex">
+                                                        <div class="input-group my-3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="submit" class="btn p-1 ms-auto">
+                                                            Tanyakan <span><img class="m-0"
+                                                                    src="{{ url('frontend/assets/ic/send.png') }}"
+                                                                    width="20px"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        @foreach ($newKomentar as $komentar)
                                             @if ($komentar->getJawaban->id == $jawaban->id)
                                                 <div class="container">
                                                     <div class="d-inline-flex mt-5">
@@ -121,8 +152,76 @@
                                                     </div>
                                                     <div class="comment-text mt-0">
                                                         <span
-                                                            class="d-block fw-reguler mb-3">{{ $komentar->komentar }}</span>
+                                                            class="d-block fw-reguler mb-1">{{ $komentar->komentar }}</span>
+                                                    </div>
+                                                    <div class="like d-inline align-self-center">
+                                                        <div class="text-primary">
+                                                            <a href="#"></a>
+                                                            <span>19.721</span>
+                                                            <i class="far fa-thumbs-up"></i>
+                                                            <button style="background:none;border:none;"
+                                                                class="mt-3" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseKomentar{{ $komentar->id }}"
+                                                                role="button" aria-expanded="false"
+                                                                aria-controls="collapseKomentar">
+                                                                <span>21</span>
+                                                                <img class="me-0"
+                                                                    src="{{ url('frontend/assets/ic/commment.png') }}"
+                                                                    alt="">
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="collapse" id="collapseKomentar{{ $komentar->id }}">
+                                                        <div class="article-comment-box mt-3">
+                                                            <h5 class="py-1">Balas Komentar</h5>
+                                                            <form action="{{ route('reply.store') }}" method="post"
+                                                                enctype="multipart/form-data">
+                                                                @csrf
+                                                                <input type="hidden" name="komentar_id"
+                                                                    value="{{ $komentar->id }}">
+                                                                <div class="form-floating">
+                                                                    <textarea class="form-control" id="floatingTextarea"
+                                                                        name="jawab_komentar"></textarea>
+                                                                    <label for="floatingTextarea">Nanyanya yg sopan ya
+                                                                        adick-adick</label>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="input-group my-3">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <button type="submit" class="btn p-1 ms-auto">
+                                                                            Tanyakan <span><img class="m-0"
+                                                                                    src="{{ url('frontend/assets/ic/send.png') }}"
+                                                                                    width="20px"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        @foreach ($newKomentar as $komentar)
+                                                            @if ($komentar->getKomentar->id == $komentar->id)
+                                                                <div class="container">
+                                                                    <div class="d-inline-flex mt-5">
+                                                                        <img src="{{ url('frontend/assets/ic/person-comment.png') }}"
+                                                                            alt="profile-img" width="48px">
+                                                                        <div class="d-block">
+                                                                            <span
+                                                                                class="d-block fw-bold">{{ $jkomentar->getUser->name }}</span>
+                                                                            <span class="d-block">Waktu komentar
+                                                                                {{ $jkomentar->created_at }} yang
+                                                                                lalu</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="comment-text mt-0">
+                                                                        <span
+                                                                            class="d-block fw-reguler mb-1">{{ $jkomentar->jawab_komentar }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
 
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             @endif
@@ -160,6 +259,7 @@
             </div>
         </div>
     </section>
+
     <!-- End of Article Body -->
 
 

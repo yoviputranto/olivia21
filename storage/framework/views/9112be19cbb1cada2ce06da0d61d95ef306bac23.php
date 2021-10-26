@@ -46,7 +46,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>100</h3>
                                 <h6>Akun Terdaftar</h6>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>20</h3>
                                 <h6>Event Terdaftar</h6>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>173</h3>
                                 <h6>Pengunjung Situs</h6>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>16</h3>
                                 <h6>Partnerships</h6>
                             </div>
                         </div>
@@ -126,11 +126,14 @@
                                 <div class="card mx-auto scale-up" style="width: 280px;">
                                     <img src="<?php echo e(Storage::url($event->gambar)); ?>" class="card-img-top">
                                     <div class="card-body">
-                                        <ul class="card-info">
+                                        <ul class="card-info card-webinar-info">
                                             <li class="list-unstyled">
                                                 <img class="d-inline"
                                                     src="<?php echo e(url('frontend/assets/ic/title.png')); ?>">
-                                                <p class="d-inline"><?php echo e(Str::words($event->judul, 3, '')); ?></p>
+                                                <p class="d-inline">
+                                                    <?php echo e(Str::words($event->judul, 3, '')); ?>
+
+                                                </p>
                                             </li>
                                             <li class="list-unstyled mt-2">
                                                 <img class="d-inline"
@@ -143,14 +146,17 @@
                                                 <p class="d-inline"><?php echo e($event->getCategory->name); ?></p>
                                             </li>
                                         </ul>
-                                        <div class="card-act d-flex justify-content-center mt-3">
-                                            <a href="#" class="btn btn-primary">Gratis/Beli</a>
+                                        <hr widt>
+                                        <div class="card-act d-flex justify-content-between mt-3">
+                                            <a href="#"
+                                                class="btn btn-webinar-price"><?php echo e($event->harga == 0 ? 'Gratis' : 'Rp' . $event->harga); ?></a>
+                                            <a href="<?php echo e(route('detailevent', $event->id)); ?>"
+                                                class="btn btn-primary-none btn-webinar-action">Detail</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        
                     </div>
                 </div>
             </div>
@@ -170,11 +176,14 @@
                                 <div class="card mx-auto scale-up" style="width: 280px;">
                                     <img src="<?php echo e(Storage::url($event->gambar)); ?>" class="card-img-top">
                                     <div class="card-body">
-                                        <ul class="card-info">
+                                        <ul class="card-info card-webinar-info">
                                             <li class="list-unstyled">
                                                 <img class="d-inline"
                                                     src="<?php echo e(url('frontend/assets/ic/title.png')); ?>">
-                                                <p class="d-inline"><?php echo e(Str::words($event->judul, 3, '')); ?></p>
+                                                <p class="d-inline">
+                                                    <?php echo e(Str::words($event->judul, 3, '')); ?>
+
+                                                </p>
                                             </li>
                                             <li class="list-unstyled mt-2">
                                                 <img class="d-inline"
@@ -187,14 +196,17 @@
                                                 <p class="d-inline"><?php echo e($event->getCategory->name); ?></p>
                                             </li>
                                         </ul>
-                                        <div class="card-act d-flex justify-content-center mt-3">
-                                            <a href="#" class="btn btn-primary">Gratis/Beli</a>
+                                        <hr widt>
+                                        <div class="card-act d-flex justify-content-between mt-3">
+                                            <a href="#"
+                                                class="btn btn-webinar-price"><?php echo e($event->harga == 0 ? 'Gratis' : 'Rp' . $event->harga); ?></a>
+                                            <a href="<?php echo e(route('detailevent', $event->id)); ?>"
+                                                class="btn btn-primary-none btn-webinar-action">Detail</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        
                     </div>
                 </div>
             </div>
@@ -235,8 +247,7 @@
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        
-                        
+
                     </div>
                 </div>
             </div>
@@ -258,7 +269,8 @@
                                 ataupun
                                 kursus
                                 dan juga terdapat ruang untuk diskusi.</p>
-                            <button type="button" class="btn text-white fw-bold">Daftar Akun</button>
+                            <a href="<?php echo e(route('register')); ?>" type="button" class="btn text-white fw-bold">Daftar
+                                Akun</a>
                         </div>
                     </div>
                     <div class="header-img col-12 col-lg-6 d-none d-lg-flex align-items-end">
@@ -271,7 +283,7 @@
         <!-- End of Header -->
 
         <!-- Statistic -->
-        <section class="statistic mt-0" data-aos="fade-up">
+        <section class="statistic" data-aos="fade-up">
             <div class="container">
                 <div class="row statistic-row">
                     <div class="col-12 col-lg-3 my-3 mb-lg-2 my-lg-0">
@@ -281,7 +293,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>100</h3>
                                 <h6>Akun Terdaftar</h6>
                             </div>
                         </div>
@@ -293,7 +305,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>20</h3>
                                 <h6>Event Terdaftar</h6>
                             </div>
                         </div>
@@ -305,7 +317,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>173</h3>
                                 <h6>Pengunjung Situs</h6>
                             </div>
                         </div>
@@ -317,7 +329,7 @@
                                     width="60px">
                             </div>
                             <div class="col-7 text-column text-white">
-                                <h3>310.901</h3>
+                                <h3>16</h3>
                                 <h6>Partnerships</h6>
                             </div>
                         </div>
@@ -383,27 +395,9 @@
                                         topik tertentu.</p>
                                     <div class="float-end">
                                         <!-- Button trigger modal -->
-                                        <a type="button" class="btn" data-bs-toggle="modal"
-                                            data-bs-target="#ForumModal">Selengkapnya <span><img
-                                                    src="<?php echo e(url('frontend/assets/ic/arrow-mini-right.png')); ?>"></span></a>
+                                        
                                         <!-- Modal -->
-                                        <div class="modal fade" id="ForumModal" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header d-block justify-content-center">
-                                                        <h5 class="text-center">Forum Diskusi</h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-                                                        consequuntur repudiandae, unde pariatur est nam.
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary"
-                                                            data-bs-dismiss="modal">OK</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -418,27 +412,7 @@
                                         isu terkini</p>
                                     <div class="float-end">
                                         <!-- Button trigger modal -->
-                                        <a type="button" class="btn" data-bs-toggle="modal"
-                                            data-bs-target="#WebinarModal">Selengkapnya <span><img
-                                                    src="<?php echo e(url('frontend/assets/ic/arrow-mini-right.png')); ?>"></span></a>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="WebinarModal" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header d-block justify-content-center">
-                                                        <h5 class="text-center">Webinar</h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-                                                        consequuntur repudiandae, unde pariatur est nam.
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary"
-                                                            data-bs-dismiss="modal">OK</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -452,28 +426,7 @@
                                     <p class="card-text">Menyediakan pelatihan untuk menambah pengetahuan dalam suatu
                                         bidang</p>
                                     <div class="float-end">
-                                        <!-- Button trigger modal -->
-                                        <a type="button" class="btn" data-bs-toggle="modal"
-                                            data-bs-target="#WorkshopModal">Selengkapnya <span><img
-                                                    src="<?php echo e(url('frontend/assets/ic/arrow-mini-right.png')); ?>"></span></a>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="WorkshopModal" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header d-block justify-content-center">
-                                                        <h5 class="text-center">Workshop</h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-                                                        consequuntur repudiandae, unde pariatur est nam.
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary"
-                                                            data-bs-dismiss="modal">OK</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -488,27 +441,7 @@
                                         pengalaman</p>
                                     <div class="float-end">
                                         <!-- Button trigger modal -->
-                                        <a type="button" class="btn" data-bs-toggle="modal"
-                                            data-bs-target="#KursusModal">Selengkapnya <span><img
-                                                    src="<?php echo e(url('frontend/assets/ic/arrow-mini-right.png')); ?>"></span></a>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="KursusModal" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header d-block justify-content-center">
-                                                        <h5 class="text-center">Kursus</h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-                                                        consequuntur repudiandae, unde pariatur est nam.
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary"
-                                                            data-bs-dismiss="modal">OK</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -544,8 +477,10 @@
                                         </h2>
                                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                                             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit, sed do eiusmod</div>
+                                            <div class="accordion-body">Anda harus melakukan daftar akun atau masuk ke
+                                                dalam sistem Edumind. Setelah itu anda dapat memilih event yang diinginkan
+                                                lalu klik daftar event.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
@@ -558,8 +493,9 @@
                                         </h2>
                                         <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                             aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit, sed do eiusmod</div>
+                                            <div class="accordion-body">Anda dapat menekan tombol masuk atau daftar akun.
+                                                Selain itu, anda bisa klik <a href="<?php echo e(route('register')); ?>">ini</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
@@ -572,8 +508,9 @@
                                         </h2>
                                         <div id="flush-collapseThree" class="accordion-collapse collapse"
                                             aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit, sed do eiusmod</div>
+                                            <div class="accordion-body">Akun anda harus terverifikasi terlebih dahulu, lalu
+                                                anda dapat menuju <a
+                                                    href="<?php echo e(route('user.upload')); ?>">user/upload-event</a> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -588,7 +525,7 @@
         <!-- Tagline -->
         <section class="tagline">
             <div class="container d-flex justify-content-center text-white">
-                <h3 class="m-0">Tagline</h3>
+                <h3 class="m-0">Build . Explore . Deepen</h3>
             </div>
         </section>
         <!-- ENnd of Tagline -->

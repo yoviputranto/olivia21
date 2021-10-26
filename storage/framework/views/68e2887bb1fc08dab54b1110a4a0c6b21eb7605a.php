@@ -45,6 +45,7 @@
     <section class="article-body">
         <div class="container">
             <div class="row">
+
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
                         <div class="article-comment mt-4" data-aos="fade-up">
@@ -77,21 +78,25 @@
                                     </div>
                                     <div class="like-comment mt-3 d-flex">
                                         <div class="like d-inline align-self-center">
-                                            <span>19.721</span>
-                                            <img class="me-0" src="<?php echo e(url('frontend/assets/ic/like.png')); ?>"
-                                                alt="" width="24px">
+
+                                            <span><?php echo e($likeJawaban); ?></span>
+                                            <a href="<?php echo e(route('likes', $jawaban->id)); ?>">
+                                                <img class="me-0"
+                                                    src="<?php echo e(url('frontend/assets/ic/like.png')); ?>" alt="" width="24px">
+                                            </a>
+
                                         </div>
+                                        <button style="background:none;border:none;" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseExample<?php echo e($jawaban->id); ?>" aria-expanded="false"
+                                            aria-controls="collapseExample">
+                                            <span>31</span>
+                                            <img class="me-0"
+                                                src="<?php echo e(url('frontend/assets/ic/commment.png')); ?>" alt="">
+                                        </button>
                                         <div class="comment d-inline mx-3 align-self-center">
-                                            <form method="post" action="">
-                                                <input type="hidden" name="jawaban_id" value="jawaban_id">
-                                                <button style="background:none;border:none;" type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseExample<?php echo e($jawaban->id); ?>"
-                                                    aria-expanded="false" aria-controls="collapseExample">
-                                                    <span>31</span>
-                                                    <img class="me-0"
-                                                        src="<?php echo e(url('frontend/assets/ic/commment.png')); ?>" alt="">
-                                                </button>
+                                            <form method="post" action="<?php echo e(route('user-komentar.store')); ?>">
+                                                <input type="hidden" name="jawaban_id" value="<?php echo e($jawaban->id); ?>" hidden>
+
                                             </form>
                                         </div>
                                         <div class="comment d-inline mx-3 align-self-center">
@@ -105,8 +110,34 @@
                                         </div>
                                     </div>
                                     <div class="collapse" id="collapseExample<?php echo e($jawaban->id); ?>">
-
-                                        <?php $__currentLoopData = $komentars; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $komentar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <!-- article-comment-box -->
+                                        <div class="article-comment-box mt-3">
+                                            <h5 class="py-1">Ajukan Pertanyaan</h5>
+                                            <form action="<?php echo e(route('user-komentar.store')); ?>" method="post"
+                                                enctype="multipart/form-data">
+                                                <?php echo csrf_field(); ?>
+                                                <input type="hidden" name="jawaban_id" value="<?php echo e($jawaban->id); ?>" hidden>
+                                                <div class="form-floating">
+                                                    <textarea class="form-control" id="floatingTextarea"
+                                                        name="komentar"></textarea>
+                                                    <label for="floatingTextarea">Nanyanya yg sopan ya adick-adick</label>
+                                                </div>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="d-flex">
+                                                        <div class="input-group my-3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="submit" class="btn p-1 ms-auto">
+                                                            Tanyakan <span><img class="m-0"
+                                                                    src="<?php echo e(url('frontend/assets/ic/send.png')); ?>"
+                                                                    width="20px"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <?php $__currentLoopData = $newKomentar; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $komentar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <?php if($komentar->getJawaban->id == $jawaban->id): ?>
                                                 <div class="container">
                                                     <div class="d-inline-flex mt-5">
@@ -121,8 +152,76 @@
                                                     </div>
                                                     <div class="comment-text mt-0">
                                                         <span
-                                                            class="d-block fw-reguler mb-3"><?php echo e($komentar->komentar); ?></span>
+                                                            class="d-block fw-reguler mb-1"><?php echo e($komentar->komentar); ?></span>
+                                                    </div>
+                                                    <div class="like d-inline align-self-center">
+                                                        <div class="text-primary">
+                                                            <a href="#"></a>
+                                                            <span>19.721</span>
+                                                            <i class="far fa-thumbs-up"></i>
+                                                            <button style="background:none;border:none;"
+                                                                class="mt-3" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseKomentar<?php echo e($komentar->id); ?>"
+                                                                role="button" aria-expanded="false"
+                                                                aria-controls="collapseKomentar">
+                                                                <span>21</span>
+                                                                <img class="me-0"
+                                                                    src="<?php echo e(url('frontend/assets/ic/commment.png')); ?>"
+                                                                    alt="">
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="collapse" id="collapseKomentar<?php echo e($komentar->id); ?>">
+                                                        <div class="article-comment-box mt-3">
+                                                            <h5 class="py-1">Balas Komentar</h5>
+                                                            <form action="<?php echo e(route('reply.store')); ?>" method="post"
+                                                                enctype="multipart/form-data">
+                                                                <?php echo csrf_field(); ?>
+                                                                <input type="hidden" name="komentar_id"
+                                                                    value="<?php echo e($komentar->id); ?>">
+                                                                <div class="form-floating">
+                                                                    <textarea class="form-control" id="floatingTextarea"
+                                                                        name="jawab_komentar"></textarea>
+                                                                    <label for="floatingTextarea">Nanyanya yg sopan ya
+                                                                        adick-adick</label>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="input-group my-3">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <button type="submit" class="btn p-1 ms-auto">
+                                                                            Tanyakan <span><img class="m-0"
+                                                                                    src="<?php echo e(url('frontend/assets/ic/send.png')); ?>"
+                                                                                    width="20px"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <?php $__currentLoopData = $newKomentar; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $komentar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php if($komentar->getKomentar->id == $komentar->id): ?>
+                                                                <div class="container">
+                                                                    <div class="d-inline-flex mt-5">
+                                                                        <img src="<?php echo e(url('frontend/assets/ic/person-comment.png')); ?>"
+                                                                            alt="profile-img" width="48px">
+                                                                        <div class="d-block">
+                                                                            <span
+                                                                                class="d-block fw-bold"><?php echo e($jkomentar->getUser->name); ?></span>
+                                                                            <span class="d-block">Waktu komentar
+                                                                                <?php echo e($jkomentar->created_at); ?> yang
+                                                                                lalu</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="comment-text mt-0">
+                                                                        <span
+                                                                            class="d-block fw-reguler mb-1"><?php echo e($jkomentar->jawab_komentar); ?></span>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endif; ?>
 
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </div>
                                                 </div>
                                             <?php endif; ?>
@@ -160,6 +259,7 @@
             </div>
         </div>
     </section>
+
     <!-- End of Article Body -->
 
 

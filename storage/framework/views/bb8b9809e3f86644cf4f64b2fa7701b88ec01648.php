@@ -3,68 +3,53 @@
     <main class="content dashboard-wrapper">
         <div class="container dashboard-card">
             <section class="rounded bg-white py-4 px-4">
-                <h2 class="fw-bold">Welcome, Abdul Baris!</h2>
+                <h2 class="fw-bold">Welcome, <?php echo e(Auth::user()->name); ?>!</h2>
                 <p>Siap jangkau 1.000.000.000 anak muda yang dapat berpartisipasi dalam event yang kamu adakan</p>
                 <a href="<?php echo e(route('user.upload')); ?>" class="btn bg-purple px-4"
-                    style="font-size:small;letter-spacing:2px">UPLOAD EVENT SEKARANG</a>
+                    style="font-size:medium;letter-spacing:2px">Upload Event</a>
             </section>
-            <section class="my-4">
+            <section class="my-4 mx-3">
                 <h3><i class="fas fa-chart-bar text-purple me-2"></i> Overview</h3>
                 <div class="row my-3">
-                    <div class="col-lg-4 mb-3">
+                    <div class="col-lg-3 mb-3">
                         <div class="card">
                             <div class="card-body d-flex flex-column align-items-end">
                                 <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-purple me-1"><i
-                                            class="fas fa-calendar-week"></i></span> Event Aktif</p>
+                                            class="fas fa-calendar-week"></i></span> Event yang diikuti</p>
                                 <p class="py-0 fs-4 fw-bold">0</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card">
-                            <div class="card-body d-flex flex-column align-items-end">
-                                <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-orange me-1"><i
-                                            class="fas fa-calendar-week"></i></span> Event Draf</p>
-                                <p class="py-0 fs-4 fw-bold">0</p>
+                    <?php if(count($event) > 0): ?>
+                        <div class="col-lg-3 mb-3">
+                            <div class="card">
+                                <div class="card-body d-flex flex-column align-items-end">
+                                    <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-orange me-1"><i
+                                                class="fas fa-calendar-week"></i></span> Event yang diupload</p>
+                                    <p class="py-0 fs-4 fw-bold">0</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card">
-                            <div class="card-body d-flex flex-column align-items-end">
-                                <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-seablue me-1"><i
-                                            class="fas fa-calendar-week"></i></span> Event Riwayat</p>
-                                <p class="py-0 fs-4 fw-bold">0</p>
+                        <div class="col-lg-3 mb-3">
+                            <div class="card">
+                                <div class="card-body d-flex flex-column align-items-end">
+                                    <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-green me-1"><i
+                                                class="fas fa-users"></i></span> Peserta Semua Events</p>
+                                    <p class="py-0 fs-4 fw-bold">555</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card">
-                            <div class="card-body d-flex flex-column align-items-end">
-                                <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-green me-1"><i
-                                            class="fas fa-users"></i></span> Peserta Semua Events</p>
-                                <p class="py-0 fs-4 fw-bold">555</p>
+                        <div class="col-lg-3 mb-3">
+                            <div class="card">
+                                <div class="card-body d-flex flex-column align-items-end">
+                                    <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-yellow me-1"><i
+                                                class="fas fa-money-bill"></i></span> Total Penjualan</p>
+                                    <p class="py-0 fs-4 fw-bold">Rp1.000.000,00</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card">
-                            <div class="card-body d-flex flex-column align-items-end">
-                                <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-tomato me-1"><i
-                                            class="fas fa-ticket-alt"></i></span> Semua Tiket Terjual</p>
-                                <p class="py-0 fs-4 fw-bold">555</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card">
-                            <div class="card-body d-flex flex-column align-items-end">
-                                <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-yellow me-1"><i
-                                            class="fas fa-money-bill"></i></span> Total Penjualan</p>
-                                <p class="py-0 fs-4 fw-bold">Rp1.000.000,00</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
+
                 </div>
             </section>
         </div>

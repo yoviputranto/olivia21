@@ -165,7 +165,7 @@ body {
   font-size: 26px;
   font-weight: 600;
   line-height: 50px;
-  
+
 }
 
 .header .header-text .text img {
@@ -229,7 +229,7 @@ body {
 }
 
 .search-result .container .webinar-cards .card .card-info  {
-  border-bottom: #424874 3px solid; 
+  border-bottom: #424874 3px solid;
   padding: 0 0 10px 10px;
 }
 
@@ -329,6 +329,15 @@ body {
   text-align: center;
 }
 
+@media (max-width: 767px) {
+    .tagline .container h3 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+      }
+  }
+
 .tagline .container h3 a {
   font-size: 22px;
   font-weight: 500;
@@ -337,6 +346,16 @@ body {
   text-decoration: underline;
   color: #DCD6F7;
 }
+@media (max-width: 767px) {
+    .tagline .container h3 a {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+        text-decoration: underline;
+        color: #DCD6F7;
+      }
+  }
 /* End of Tagline */
 
 /* Footer */

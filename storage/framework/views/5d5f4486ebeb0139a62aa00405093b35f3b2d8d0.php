@@ -49,11 +49,11 @@
             <div class="row">
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
-                        <div class="article-text-title">
+                        <div class="article-text-title mt-5">
                             <h1><?php echo e($article->title); ?></h1>
                         </div>
-                        <div class="article-text-info d-flex justify-content-between">
-                            <h5><?php echo e($article->author); ?></h5>
+                        <div class="article-text-info d-flex justify-content-between mb-2">
+                            <h5>Oleh <?php echo e($article->author); ?></h5>
                             <h5><?php echo e($article->created_at); ?></h5>
                         </div>
                         <div class="article-text-img">
@@ -204,7 +204,12 @@
                                     </div>
                                     <div class="col-6">
                                         <p><?php echo e($article->created_at); ?>, <?php echo e($article->author); ?></p>
-                                        <h4><?php echo e(Str::words($article->title, 5, '')); ?></h4>
+                                        <a href="<?php echo e(route('detailarticle', $article->slug)); ?>"
+                                            class="text-decoration-none text-black">
+                                            <h4><?php echo e(Str::words($article->title, 5, '')); ?></h4>
+                                        </a>
+
+
                                     </div>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

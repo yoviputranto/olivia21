@@ -8,17 +8,22 @@ use App\Http\Controllers\Admin\EventCategoryController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventJenisController;
 use App\Http\Controllers\Admin\JawabanController;
-use App\Http\Controllers\admin\JawabKomentarController;
 use App\Http\Controllers\Admin\PertanyaanController;
 use App\Http\Controllers\Admin\KomentarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\DEventController;
 use App\Http\Controllers\User\EventController as UserEventController;
-use App\Http\Controllers\user\JawabanSayaController;
+use App\Http\Controllers\User\JawabanSayaController;
+use App\Http\Controllers\User\JawabanUser;
+use App\Http\Controllers\User\LikeJawabanController;
 use App\Http\Controllers\User\TimelineController;
+use App\Http\Controllers\User\UserJawabKomentarController;
+use App\Http\Controllers\User\UserKomentarController;
 use App\Http\Controllers\User\UserPertanyaanController;
 use App\Http\Controllers\User\UserPertanyaanSayaController;
+use App\Http\Controllers\UserReplyController;
 use App\Models\Admin\Event;
 use App\Models\Admin\EventCategory;
 use Illuminate\Support\Facades\Route;
@@ -60,14 +65,19 @@ Route::prefix('admin')
         //Komentar
         Route::resource('komentar', KomentarController::class);
         //Jawab Komentar
-        Route::resource('jawab-komentar',JawabKomentarController::class);
     });
 
 // Users
 Route::resource('pertanyaan', UserPertanyaanController::class);
 Route::resource('pertanyaan-saya', UserPertanyaanSayaController::class);
 Route::resource('timeline', TimelineController::class);
+Route::get('timeline/like/{id}', [LikeJawabanController::class, 'like'])->name('likes');
+Route::get('timeline/unlike/{id}', [LikeJawabanController::class, 'like'])->name('unlikes');
+Route::resource('jawaban-user', JawabanUser::class);
 Route::resource('jawaban-saya', JawabanSayaController::class);
+Route::resource('jawab-komentar', UserJawabKomentarController::class);
+Route::resource('reply', UserReplyController::class);
+Route::resource('user-komentar', UserKomentarController::class);
 
     Route::get('auth/google/redirect', [LoginController::class,'redirectToGoogle'])->name('login.google');
     Route::get('auth/google/callback', [LoginController::class,'handleGoogleCallback']);
@@ -85,16 +95,27 @@ Route::view('/profil/struktur','frontend.profil.struktur')->name('struktur');
 Route::view('/profil/kontak','frontend.profil.contact')->name('kontak');
 Route::get('/event',[FrontendController::class,'event'])->name('event');
 Route::get('/event/{id}',[FrontendController::class,'detailevent'])->name('detailevent');
-Route::get('/program/webinar',[FrontendController::class,'webinar'])->name('webinar');
+Route::get('/webinar',[FrontendController::class,'webinar'])->name('webinar');
+Route::get('/workshop',[FrontendController::class,'workshop'])->name('workshop');
+Route::get('/kursus',[FrontendController::class,'kursus'])->name('kursus');
 Route::get('/diskusi',[FrontendController::class,'diskusi'])->name('timeline');
 Route::get('/search',[FrontendController::class,'search'])->name('search');
-Route::get('/event/webinar',function(){
-    $webinars = Event::where('id_jenis',1)->with('getCategory')->get();
-        $categories = EventCategory::with('getEvent')->get();
-        return view('frontend.event.webinar',compact('webinars','categories'));
-});
+Route::post('/kirim-pesan',[FrontendController::class,'sendEmail'])->name('contact.send');
+// Route::get('/event/webinar',function(){
+//     $webinars = Event::where('id_jenis',1)->with('getCategory')->get();
+//         $categories = EventCategory::with('getEvent')->get();
+//         return view('frontend.event.webinar',compact('webinars','categories'));
+// });
 
 //dashboard
-Route::get('/user/dashboard',[DashboardController::class,'index'])->name('user.index');
-Route::get('/user/upload-event',[UserEventController::class,'index'])->name('user.upload');
-Route::post('/user/dashboard',[UserEventController::class,'store'])->name('user.upload.store');
+Route::middleware(['auth'])->prefix('user')->group(function(){
+    Route::get('/dashboard',[DashboardController::class,'index'])->name('user.index');
+    Route::get('/upload-event',[UserEventController::class,'index'])->name('user.upload');
+    Route::post('/dashboard',[UserEventController::class,'store'])->name('user.upload.store');
+    Route::get('/event-diikuti',[DashboardController::class,'ikutEvent'])->name('user.ikutevent');
+    Route::get('/event-diikuti/detail/{slug}',[DashboardController::class,'detailIkutEvent'])->name('user.detail.ikutevent');
+});
+
+Route::post('/event',[DEventController::class,'store'])->middleware(['auth','user'])->name('user.devent.store');
+
+Route::post('/user-komentar',[UserKomentarController::class,'store'])->name('user-komentar.store')->middleware(['auth','user']);

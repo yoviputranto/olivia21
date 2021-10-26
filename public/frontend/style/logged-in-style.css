@@ -179,14 +179,15 @@ img {
 
   font-size: 16px;
 
-  font-weight: 600;
+  font-weight: 500;
   line-height: 30px;
 
   text-align: justify;
   text-justify: inter-word;
 }
 
-.header .header-text .text button {
+.header .header-text .text button,
+.header .header-text .text a {
   padding: 8px 12px;
   background-color: #424874;
   border-radius: 30px;
@@ -271,6 +272,24 @@ img {
   text-align: center;
 }
 
+@media (max-width: 767px) {
+    .tagline .container h3 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+      }
+  }
+
+@media (max-width: 767px) {
+    .tagline .container h3 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+      }
+  }
+
 .tagline .container h3 a {
   font-size: 22px;
   font-weight: 500;
@@ -279,6 +298,26 @@ img {
   text-decoration: underline;
   color: #DCD6F7;
 }
+@media (max-width: 767px) {
+    .tagline .container h3 a {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+        text-decoration: underline;
+        color: #DCD6F7;
+      }
+  }
+@media (max-width: 767px) {
+    .tagline .container h3 a {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 48px;
+        text-align: center;
+        text-decoration: underline;
+        color: #DCD6F7;
+      }
+  }
 /* End of Tagline */
 
 /* Event */
@@ -302,7 +341,6 @@ img {
 .event .container .event-cards .card .card-body .card-info {
   background-color: transparent;
   padding: 10px 0 10px 0;
-  border-bottom: solid #424874;
 }
 
 .event .container .event-cards .card .card-body .card-info p {
@@ -534,6 +572,32 @@ footer .sitemap-item a {
 }
 /* End of Copyright */
 
+.webinar .container .webinar-cards .card .card-body .card-act a {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    background-color: #747dab;
+}
+
+.btn-webinar-price {
+    color: #747dab;
+    background-color: transparent !important;
+}
+
+hr {
+    position: relative;
+    border: none;
+    height: 12px;
+    background: #424874;
+    border-top: 4px solid #424874;
+}
+
+.btn-webinar-action {
+    color: white;
+    background-color: #747dab !important;
+}
 
 
 

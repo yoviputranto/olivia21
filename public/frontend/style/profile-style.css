@@ -63,6 +63,13 @@ body {
   border-radius: 10px;
 }
 
+.nav-item:not(:last-child) a:hover {
+    color: #fff;
+    font-size: 14px;
+    border-bottom: #fff 2px solid;
+    /* border-top: #fff 2px solid; */
+}
+
 .box-container {
   margin-top: 0px;
   position: relative;

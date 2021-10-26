@@ -82,32 +82,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="action-btn text-center">
+                                <div class="action-btn text-center mb-2">
                                     <button type="submit" class="btn btn-signup">
                                         Sign Up
                                     </button>
                                 </div>
-                                <div class="action-label text-center">
-                                    <label class="form-check-label align-self-center">or login with</label>
-                                </div>
+
                                 <div class="alt-action-btn text-center">
-                                    <a href="<?php echo e(route('login.facebook')); ?>" class="btn btn-facebook">
-                                        <div class="">
-                                            <img class=" img-fluid d-inline-block"
-                                                src="<?php echo e(asset('frontend/assets/ic/facebook-login.png')); ?>" alt=""
-                                                width="20px">
-                                            <p class="d-inline-block m-0">Facebook</p>
-                                        </div>
-                                    </a>
-                                    <a href="<?php echo e(route('login.google')); ?>" class="btn btn-google">
-                                        <div class="">
-                                            <img class=" img-fluid d-inline-block"
-                                                src="<?php echo e(asset('frontend/assets/ic/google.png')); ?>" alt=""
-                                                width="20px">
-                                            <p class="d-inline-block m-0">Google</p>
-                                        </div>
-                                    </a>
-                                    <div class="action-label text-center">
+
+                                    <div class="action-label text-center mb-3">
                                         <label class="form-check-label align-self-center">Sudah punya akun? <span><a
                                                     type="submit" href="<?php echo e(route('login')); ?>">
                                                     Masuk

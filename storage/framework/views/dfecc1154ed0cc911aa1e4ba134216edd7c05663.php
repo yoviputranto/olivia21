@@ -32,7 +32,7 @@
             <nav class="breadcrumb my-2" aria-label="breadcrumb">
                 <ol class="list-group list-group-horizontal">
                     <li class="breadcrumb-item"><a href="Link">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="Link">Event</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('event')}}">Event</a></li>
                     <li class="breadcrumb-item"><a href="<?php echo e(url('event/upload')); ?>">Upload</a></li>
                 </ol>
             </nav>
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    
+
 
                     <div class="col-12 col-lg-3 py-3">
                         <div class="card mx-auto scale-up" style="width: 280px;">

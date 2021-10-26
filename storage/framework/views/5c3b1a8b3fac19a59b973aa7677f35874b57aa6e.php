@@ -34,8 +34,7 @@
             <nav class="breadcrumb my-2" aria-label="breadcrumb">
                 <ol class="list-group list-group-horizontal">
                     <li class="breadcrumb-item"><a href="Link">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="Link">Event</a></li>
-                    <li class="breadcrumb-item"><a href="<?php echo e(url('event/upload')); ?>">Upload</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo e(route('event')); ?>">Event</a></li>
                 </ol>
             </nav>
         </div>
@@ -111,7 +110,8 @@
                                     </ul>
                                     <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
+                                        <a href="#"
+                                            class="btn btn-webinar-price"><?php echo e($webinar->harga == 0 ? 'Gratis' : 'Rp' . $webinar->harga); ?></a>
                                         <a href="<?php echo e(route('detailevent', $webinar->id)); ?>"
                                             class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
@@ -133,7 +133,7 @@
         <div class="container mt-3">
             <!-- Webinar list section -->
             <div class="webinar-heading mx-auto text-center mb-4">
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="<?php echo e(route('workshop')); ?>">
                     <h1>Workshop</h1>
                 </a>
             </div>
@@ -162,8 +162,10 @@
                                     </ul>
                                     <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
-                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
+                                        <a href="#"
+                                            class="btn btn-webinar-price"><?php echo e($workshop->harga == 0 ? 'Gratis' : 'Rp' . $workshop->harga); ?></a>
+                                        <a href="<?php echo e(route('detailevent', $workshop->id)); ?>"
+                                            class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +184,7 @@
         <div class="container mt-3">
             <!-- Webinar list section -->
             <div class="webinar-heading mx-auto text-center mb-4">
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="<?php echo e(route('kursus')); ?>">
                     <h1>Kursus</h1>
                 </a>
             </div>
@@ -211,8 +213,10 @@
                                     </ul>
                                     <hr widt>
                                     <div class="card-act d-flex justify-content-between mt-3">
-                                        <a href="#" class="btn btn-webinar-price">Rp100.000,-</a>
-                                        <a href="#" class="btn btn-primary-none btn-webinar-action">Detail</a>
+                                        <a href="#"
+                                            class="btn btn-webinar-price"><?php echo e($kursus->harga == 0 ? 'Gratis' : 'Rp' . $kursus->harga); ?></a>
+                                        <a href="<?php echo e(route('detailevent', $kursus->id)); ?>"
+                                            class="btn btn-primary-none btn-webinar-action">Detail</a>
                                     </div>
                                 </div>
                             </div>
