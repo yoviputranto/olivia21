@@ -4171,6 +4171,7 @@ fieldset:disabled .btn {
 
 .nav-pills .nav-link {
     background: #efefef;
+    background-color: #fff;
     border: 0;
     font-weight: 600;
     display: inline-block;

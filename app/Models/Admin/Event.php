@@ -12,7 +12,7 @@ class Event extends Model
     protected $primaryKey   = 'id';
     protected $table        = 'events';
     protected $fillable     = [
-        'judul', 'gambar', 'deskripsi', 'waktu', 'tanggal', 'registrasi', 'deadline', 'link_zoom', 'link_event', 'event_organizer', 'email', 'instagram', 'whatsapp', 'benefit', 'eligible', 'status', 'id_jenis', 'id_category','harga','slug'
+        'judul', 'gambar', 'deskripsi', 'waktu', 'tanggal', 'registrasi', 'deadline', 'link_zoom', 'link_event', 'event_organizer', 'email', 'instagram', 'whatsapp', 'benefit', 'eligible', 'status', 'id_jenis', 'id_category','harga','slug', 'user_id'
     ];
 
     public function getJenis()

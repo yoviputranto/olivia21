@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ asset('frontend/assets/ic/Logo-Edumind.ico') }}" type="image/png">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -213,52 +214,46 @@
                                 <li><a class="dropdown-item text-black"
                                         href="{{ route('timeline.index') }}">Timeline</a>
                                 </li>
+                                <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-black"
+                                href="{{ route('pertanyaan-saya.index') }}">Pertanyaan saya</a></li>
+                        <li><a class="dropdown-item text-black" href="{{ route('jawaban-saya.index') }}">Jawaban
+                                saya</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'article' ? 'active' : '' }}"
+                            href="{{ url('/artikel') }}">Artikel</a>
+                    </li>
+                    @if (Auth::user())
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="img-fluid m-0"
+                                    src="{{ asset('frontend') }}/assets/ic/logged-in-profile.png" alt=""
+                                    width="30px">
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item text-black"
-                                        href="{{ route('jawaban-user.index') }}">Jawaban</a></li>
-                                <li><a class="dropdown-item text-black"
-                                        href="{{ route('pertanyaan.index') }}">Pertanyaan</a></li>
+                                        href="{{ route('user.index') }}">Dashboard</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item text-black"
-                                        href="{{ route('pertanyaan-saya.index') }}">Pertanyaan saya</a></li>
-                                <li><a class="dropdown-item text-black"
-                                        href="{{ route('jawaban-saya.index') }}">Jawaban saya</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item text-black">Logout</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Route::currentRouteName() == 'article' ? 'active' : '' }}"
-                                href="{{ url('/artikel') }}">Artikel</a>
+                    @else
+                        <li class="nav-item log-in">
+                            <a class="nav-link text-center text-black fw-bold" href="{{ route('login') }}">Masuk</a>
                         </li>
-                        @if (Auth::user())
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img class="img-fluid m-0"
-                                        src="{{ asset('frontend') }}/assets/ic/logged-in-profile.png" alt=""
-                                        width="30px">
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-black"
-                                            href="{{ route('user.index') }}">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <form action="{{ route('logout') }}" method="post">
-                                            @csrf
-                                            <button type="submit" class="dropdown-item text-black">Logout</button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @else
-                            <li class="nav-item log-in">
-                                <a class="nav-link text-center text-black fw-bold"
-                                    href="{{ route('login') }}">Masuk</a>
-                            </li>
-                        @endif
+                    @endif
                     </ul>
                     {{-- <div class="box-container">
                         <table class="element-container">

@@ -53,7 +53,7 @@
                     <div class="col-6 col-lg-3">
                         <a href="" class=" text-decoration-none">
                             <div class="contact-item text-center">
-                                <img class="my-2" src="{{ url('frontend/assets/ic/instagram-svg.svg') }}"
+                                <img class="my-2" src="{{ url('frontend/assets/ic/instagram-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Instagram</h5>
                                 <p>@edumind.idn</p>
@@ -66,6 +66,16 @@
                                 <img class="my-2" src="{{ url('frontend/assets/ic/facebook-purple-svg.svg') }}"
                                     width="100px">
                                 <h5>Facebook</h5>
+                                <p>@edumind.idn</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <a href="" class=" text-decoration-none">
+                            <div class="contact-item text-center">
+                                <img class="my-2" src="{{ url('frontend/assets/ic/twitter-purple-svg.svg') }}"
+                                    width="100px">
+                                <h5>Twitter</h5>
                                 <p>@edumind.idn</p>
                             </div>
                         </a>
@@ -120,16 +130,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-6 col-lg-3">
-                        <a href="" class=" text-decoration-none">
-                            <div class="contact-item text-center">
-                                <img class="my-2"
-                                    src="{{ url('frontend/assets/ic/instagram-purple-svg.svg') }}" width="100px">
-                                <h5>Instagram</h5>
-                                <p>@edumind.idn</p>
-                            </div>
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </div>

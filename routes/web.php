@@ -18,6 +18,7 @@ use App\Http\Controllers\User\EventController as UserEventController;
 use App\Http\Controllers\User\JawabanSayaController;
 use App\Http\Controllers\User\JawabanUser;
 use App\Http\Controllers\User\LikeJawabanController;
+use App\Http\Controllers\User\LikePertanyaanController;
 use App\Http\Controllers\User\TimelineController;
 use App\Http\Controllers\User\UserJawabKomentarController;
 use App\Http\Controllers\User\UserKomentarController;
@@ -71,8 +72,8 @@ Route::prefix('admin')
 Route::resource('pertanyaan', UserPertanyaanController::class);
 Route::resource('pertanyaan-saya', UserPertanyaanSayaController::class);
 Route::resource('timeline', TimelineController::class);
-Route::get('timeline/like/{id}', [LikeJawabanController::class, 'like'])->name('likes');
-Route::get('timeline/unlike/{id}', [LikeJawabanController::class, 'like'])->name('unlikes');
+Route::get('timeline/likejawaban/{id}', [LikeJawabanController::class, 'like'])->name('likejawaban');
+Route::get('timeline/likepertanyaan/{id}', [LikePertanyaanController::class, 'like_pertanyaan'])->name('likepertanyaan');
 Route::resource('jawaban-user', JawabanUser::class);
 Route::resource('jawaban-saya', JawabanSayaController::class);
 Route::resource('jawab-komentar', UserJawabKomentarController::class);
@@ -114,6 +115,8 @@ Route::middleware(['auth'])->prefix('user')->group(function(){
     Route::post('/dashboard',[UserEventController::class,'store'])->name('user.upload.store');
     Route::get('/event-diikuti',[DashboardController::class,'ikutEvent'])->name('user.ikutevent');
     Route::get('/event-diikuti/detail/{slug}',[DashboardController::class,'detailIkutEvent'])->name('user.detail.ikutevent');
+    Route::get('/event-diupload',[DashboardController::class,'uploadEvent'])->name(('user.uploadevent'));
+    Route::get('/event-diupload/detail/{slug}',[DashboardController::class,'detailUploadEvent'])->name('user.detail.uploadevent');
 });
 
 Route::post('/event',[DEventController::class,'store'])->middleware(['auth','user'])->name('user.devent.store');

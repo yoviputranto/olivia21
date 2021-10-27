@@ -26,7 +26,7 @@
                                 <div class="card-body d-flex flex-column align-items-end">
                                     <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-orange me-1"><i
                                                 class="fas fa-calendar-week"></i></span> Event yang diupload</p>
-                                    <p class="py-0 fs-4 fw-bold">0</p>
+                                    <p class="py-0 fs-4 fw-bold"><?php echo e(count($event)); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <div class="card-body d-flex flex-column align-items-end">
                                     <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-green me-1"><i
                                                 class="fas fa-users"></i></span> Peserta Semua Events</p>
-                                    <p class="py-0 fs-4 fw-bold">555</p>
+                                    <p class="py-0 fs-4 fw-bold"><?php echo e(count($devents)); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <div class="card-body d-flex flex-column align-items-end">
                                     <p class="py-0 my-0 fs-6 fw-normal"><span class="icon icon-yellow me-1"><i
                                                 class="fas fa-money-bill"></i></span> Total Penjualan</p>
-                                    <p class="py-0 fs-4 fw-bold">Rp1.000.000,00</p>
+                                    <p class="py-0 fs-4 fw-bold">Rp.0</p>
                                 </div>
                             </div>
                         </div>

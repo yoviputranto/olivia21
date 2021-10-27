@@ -54,7 +54,7 @@
             </div>
             <div id="eventShow" class="collapse navbar-collapse">
                 <a href="<?php echo e(route('user.ikutevent')); ?>" class="text-purple sub-item">Diikuti</a>
-                <a href="<?php echo e(url('user/riwayat')); ?>" class="text-purple sub-item">DiUpload</a>
+                <a href="<?php echo e(route('user.uploadevent')); ?>" class="text-purple sub-item">DiUpload</a>
                 <a href="<?php echo e(url('user/riwayat')); ?>" class="text-purple sub-item">Pendaftar</a>
             </div>
             <div class="rounded sidebar-item">
@@ -75,6 +75,12 @@
             tombolBuka.addEventListener('click', function() {
                 sidebar.classList.toggle('show')
             })
+        </script>
+        <script src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#myTable').DataTable();
+            });
         </script>
 
     </body>

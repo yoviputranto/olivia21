@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduMind @section('title')</title>
+        <link rel="shortcut icon" href="{{ asset('frontend/assets/ic/Logo-Edumind.ico') }}" type="image/png">
         <link rel="stylesheet" href="{{ url('backend/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ url('backend/css/main.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -54,7 +55,7 @@
             </div>
             <div id="eventShow" class="collapse navbar-collapse">
                 <a href="{{ route('user.ikutevent') }}" class="text-purple sub-item">Diikuti</a>
-                <a href="{{ url('user/riwayat') }}" class="text-purple sub-item">DiUpload</a>
+                <a href="{{ route('user.uploadevent') }}" class="text-purple sub-item">DiUpload</a>
                 <a href="{{ url('user/riwayat') }}" class="text-purple sub-item">Pendaftar</a>
             </div>
             <div class="rounded sidebar-item">
@@ -75,6 +76,12 @@
             tombolBuka.addEventListener('click', function() {
                 sidebar.classList.toggle('show')
             })
+        </script>
+        <script src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#myTable').DataTable();
+            });
         </script>
 
     </body>

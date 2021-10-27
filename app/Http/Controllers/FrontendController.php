@@ -94,9 +94,9 @@ class FrontendController extends Controller
         ];
 
         Mail::to('edumindindonesia@gmail.com')->send(new ContactMail($details));
-        // Alert::success('Pesan Terkirim', 'Terima kasih, mohon tunggu balasan dari kami');
-        // return redirect()->route('kontak');
-        return back()->with('message_sent');
+        Alert::success('Pesan Terkirim', 'Terima kasih, mohon tunggu balasan dari kami');
+        return redirect()->route('kontak');
+        // return back()->with('message_sent');
 
     }
 }

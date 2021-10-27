@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?php echo e(asset('frontend/assets/ic/Logo-Edumind.ico')); ?>" type="image/png">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -179,52 +180,46 @@
                                 <li><a class="dropdown-item text-black"
                                         href="<?php echo e(route('timeline.index')); ?>">Timeline</a>
                                 </li>
+                                <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-black"
+                                href="<?php echo e(route('pertanyaan-saya.index')); ?>">Pertanyaan saya</a></li>
+                        <li><a class="dropdown-item text-black" href="<?php echo e(route('jawaban-saya.index')); ?>">Jawaban
+                                saya</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo e(Route::currentRouteName() == 'article' ? 'active' : ''); ?>"
+                            href="<?php echo e(url('/artikel')); ?>">Artikel</a>
+                    </li>
+                    <?php if(Auth::user()): ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="img-fluid m-0"
+                                    src="<?php echo e(asset('frontend')); ?>/assets/ic/logged-in-profile.png" alt=""
+                                    width="30px">
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item text-black"
-                                        href="<?php echo e(route('jawaban-user.index')); ?>">Jawaban</a></li>
-                                <li><a class="dropdown-item text-black"
-                                        href="<?php echo e(route('pertanyaan.index')); ?>">Pertanyaan</a></li>
+                                        href="<?php echo e(route('user.index')); ?>">Dashboard</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item text-black"
-                                        href="<?php echo e(route('pertanyaan-saya.index')); ?>">Pertanyaan saya</a></li>
-                                <li><a class="dropdown-item text-black"
-                                        href="<?php echo e(route('jawaban-saya.index')); ?>">Jawaban saya</a></li>
+                                <li>
+                                    <form action="<?php echo e(route('logout')); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <button type="submit" class="dropdown-item text-black">Logout</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php echo e(Route::currentRouteName() == 'article' ? 'active' : ''); ?>"
-                                href="<?php echo e(url('/artikel')); ?>">Artikel</a>
+                    <?php else: ?>
+                        <li class="nav-item log-in">
+                            <a class="nav-link text-center text-black fw-bold" href="<?php echo e(route('login')); ?>">Masuk</a>
                         </li>
-                        <?php if(Auth::user()): ?>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle pt-1" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img class="img-fluid m-0"
-                                        src="<?php echo e(asset('frontend')); ?>/assets/ic/logged-in-profile.png" alt=""
-                                        width="30px">
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-black"
-                                            href="<?php echo e(route('user.index')); ?>">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <form action="<?php echo e(route('logout')); ?>" method="post">
-                                            <?php echo csrf_field(); ?>
-                                            <button type="submit" class="dropdown-item text-black">Logout</button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        <?php else: ?>
-                            <li class="nav-item log-in">
-                                <a class="nav-link text-center text-black fw-bold"
-                                    href="<?php echo e(route('login')); ?>">Masuk</a>
-                            </li>
-                        <?php endif; ?>
+                    <?php endif; ?>
                     </ul>
                     
                     <form class="d-flex" action="<?php echo e(route('search')); ?>" method="GET">

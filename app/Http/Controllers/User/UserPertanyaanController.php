@@ -39,7 +39,7 @@ class UserPertanyaanController extends Controller
         $data['user_id']        = Auth::user()->id;
         // $data['category_id']    = 1;
         Pertanyaan::create($data);
-        return Redirect::route('pertanyaan-saya.index');
+        return Redirect::route('timeline.index');
     }
 
     /**

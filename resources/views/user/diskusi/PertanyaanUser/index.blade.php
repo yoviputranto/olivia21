@@ -50,147 +50,101 @@
                 <div class="col-12 col-lg-9">
                     <div class="article-text">
                         <div class="article-comment mt-4">
-                            <div class="article-heading mx-auto text-center mb-5">
-                                <h2>Pertanyaan Saya</h2>
-                            </div>
-                            @php
-                                $no = 1;
-                            @endphp
-                            @if (Auth::user() && Auth::user()->name)
-                                @foreach ($pertanyaans as $pertanyaan)
-                                    <div class="article-comment-display mt-5 mb-3">
+                            @foreach ($pertanyaans as $pertanyaan)
+                                @if (Auth::user() && Auth::user()->id)
+                                    <div class="article-comment-display my-5">
                                         <div class="comment-info d-flex justify-content-between">
                                             <div class="d-inline-flex">
                                                 <img src="{{ url('frontend/assets/ic/person-comment.png') }}"
                                                     alt="profile-img" width="48px">
                                                 <div class="d-block">
                                                     <span class="d-block fw-bold">{{ $pertanyaan->getUser->name }}</span>
-                                                    <span class="d-block">Waktu komentar (Mis: 20 jam yang lalu, 1
-                                                        hari
-                                                        yang
-                                                        lalu,
-                                                        dst)</span>
+                                                    <span class="d-block">{{ $pertanyaan->created_at }}</span>
                                                 </div>
                                             </div>
-                                            <form action="{{ route('pertanyaan-saya.destroy', $pertanyaan->id) }}"
-                                                method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" style="background:none;border:none;">
-                                                    <img class=""
-                                                        src="{{ url('frontend/assets/ic/delete-svg.svg') }}"
-                                                        alt="report-img" width="24px">
-                                            </form>
-                                            </button>
                                         </div>
                                         <div class="comment-text">
-                                            <a href="{{ route('pertanyaan-saya.show', $pertanyaan->id) }}"
-                                                class="d-block fw-bold my-3">{{ $pertanyaan->pertanyaan }}</a>
+                                            <span class="d-block fw-bold my-3">{{ $pertanyaan->pertanyaan }}</span>
                                         </div>
                                         <div class="like-comment mt-3 d-flex">
                                             <div class="like d-inline align-self-center">
-                                                <span>7</span>
-
-                                                <a style="text-decoration: none;color: #000;" data-bs-toggle="collapse"
-                                                    href="#collapseExample" role="button" aria-expanded="false"
-                                                    aria-controls="collapseExample">
-                                                    Jawaban
+                                                <a style="color:#000;text-decoration:none;" data-bs-toggle="collapse"
+                                                    href="#collapseExample{{ $pertanyaan->id }}" role="button"
+                                                    aria-expanded="false" aria-controls="collapseExample">
+                                                    <span>7</span>
+                                                    <span>Jawaban</span>
+                                                    <img class="me-0"
+                                                        src="{{ url('frontend/assets/ic/answer-svg.svg') }}"
+                                                        width="20px">
                                                 </a>
-                                                <img class="me-0"
-                                                    src="{{ url('frontend/assets/ic/answer-svg.svg') }}" width="20px">
-                                                <div class="comment d-inline mx-3 align-self-center">
-                                                    <span>{{ $pertanyaan->getCategory->name }}</span>
-                                                </div>
-                                                <div class="collapse" id="collapseExample">
-
-                                                    <div class="container">
-                                                        @foreach ($jawabans as $jawaban)
-                                                            @if ($pertanyaan->id == $jawaban->getPertanyaan->id)
-                                                                <div class="d-inline-flex mt-5">
-                                                                    <img src="{{ url('frontend/assets/ic/person-comment.png') }}"
-                                                                        alt="profile-img" width="48px">
-                                                                    <div class="d-block">
-                                                                        <span
-                                                                            class="d-block fw-bold">{{ $jawaban->getUser->name }}</span>
-                                                                        <span class="d-block">Waktu komentar (Mis: 20
-                                                                            jam yang lalu, 1
-                                                                            hari
-                                                                            yang
-                                                                            lalu,
-                                                                            dst)</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="comment-text mt-0">
-                                                                    <span
-                                                                        class="d-block fw-bold my-3">{{ $jawaban->jawaban }}</span>
-                                                                    <button style="background:none;border:none;"
-                                                                        type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#collapseExample{{ $jawaban->id }}"
-                                                                        aria-expanded="false"
-                                                                        aria-controls="collapseExample">
-                                                                        Reply
-                                                                    </button>
-
-                                                                    <div class="collapse"
-                                                                        id="collapseExample{{ $jawaban->id }}">
-                                                                        <div class="article-comment-box mb-5">
-                                                                            <h5 class="py-1">Ajukan Pertanyaan
-                                                                            </h5>
-                                                                            <form
-                                                                                action="{{ route('jawab-komentar.store') }}"
-                                                                                method="post" enctype="multipart/form-data">
-                                                                                @csrf
-                                                                                <input type="hidden" name="jawaban_id"
-                                                                                    value="{{ $jawaban->id }}">
-                                                                                <div class="form-floating">
-                                                                                    <textarea class="form-control"
-                                                                                        id="floatingTextarea"
-                                                                                        name="pertanyaan"></textarea>
-                                                                                    <label for="floatingTextarea">Nanyanya
-                                                                                        yg sopan ya adick-adick</label>
-                                                                                </div>
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="d-flex">
-                                                                                        <!-- <div class="input-group my-3 me-2">
-                                                                                                                                                                                                                                                <select class="btn-dropdown custom-select py-1 px-3">
-                                                                                                                                                                                                                                                    <option value="1" id="public">Public</option>
-                                                                                                                                                                                                                                                    <option value="2" id="private">Private</option>
-                                                                                                                                                                                                                                                </select>
-                                                                                                                                                                                                                                            </div> -->
-                                                                                        <div class="input-group my-3">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="d-flex align-items-center">
-                                                                                        <button type="submit"
-                                                                                            class="btn p-1 ms-auto">
-                                                                                            Jawab <span><img
-                                                                                                    class="m-0"
-                                                                                                    src="{{ url('frontend/assets/ic/send.png') }}"
-                                                                                                    width="20px"></span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                        <p>Lorem ipsum dolor sit, amet consectetur
-                                                                            adipisicing elit. Eveniet inventore harum totam
-                                                                            quia dolorem architecto accusamus adipisci omnis
-                                                                            vitae, autem ab similique unde error voluptates
-                                                                            nostrum sequi ut assumenda obcaecati.</p>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                </div>
+                                            </div>
+                                            <div class="comment d-inline mx-3 align-self-center">
+                                                <span>Kategori</span>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <button type="submit" class="btn">Jawab<span><img
+                                                            class="ms-2"
+                                                            src="{{ url('frontend/assets/ic/answer-svg.svg') }}"
+                                                            width="20px"></span></button>
                                             </div>
                                         </div>
+                                        <div class="collapse" id="collapseExample{{ $pertanyaan->id }}">
+                                            <div class="article-comment-box mt-3">
+                                                <h5 class="py-1">Ajukan Pertanyaan</h5>
+                                                <form action="{{ route('jawaban-user.store') }}" method="post"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    @foreach ($jawabans as $jawaban)
+                                                        <input type="hidden" name="pertanyaan_id"
+                                                            value="{{ $pertanyaan->id }}">
+                                                    @endforeach
+                                                    <div class="form-floating">
+                                                        <textarea class="form-control" id="floatingTextarea"
+                                                            name="jawaban"></textarea>
+                                                        <label for="floatingTextarea">Nanyanya yg sopan ya
+                                                            adick-adick</label>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex align-items-center">
+                                                            <button type="submit" class="btn p-1 ms-auto">
+                                                                Kirim <span><img class="m-0"
+                                                                        src="{{ url('frontend/assets/ic/send.png') }}"
+                                                                        width="20px"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            @foreach ($jawabans as $jawaban)
+                                                @if ($pertanyaan->id == $jawaban->getPertanyaan->id)
+                                                    <div class="article-comment-display my-5">
+                                                        <div class="comment-info d-flex justify-content-between">
+                                                            <div class="d-inline-flex">
+                                                                <img src="{{ url('frontend/assets/ic/person-comment.png') }}"
+                                                                    alt="profile-img" width="48px">
+                                                                <div class="d-block">
+                                                                    <span
+                                                                        class="d-block fw-bold">{{ $jawaban->getUser->name }}</span>
+                                                                    <span
+                                                                        class="d-block">{{ $jawaban->created_at }}</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="">
+                                                                <img class=""
+                                                                    src="{{ url('frontend/assets/ic/delete-svg.svg') }}"
+                                                                    alt="report-img" width="24px">
+                                                            </a>
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            <span class="d-block my-3">{{ $jawaban->jawaban }}</span>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     </div>
-                                @endforeach
-                            @endif
-                            <div class="mt-3">
-                                {!! $pertanyaans->links() !!}
-                            </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

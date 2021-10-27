@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Jawaban;
+use App\Models\Admin\Pertanyaan;
 use App\Models\LikeJawaban;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ class LikeJawabanController extends Controller
 {
     public function like($id)
     {
-        $likes   = LikeJawaban::findOrFail($id);
+        $likes   = LikeJawaban::where('pertanyaan_id', $id)->where('user_id', Auth::user()->id)->first();
 
         if ($likes) {
             $likes->delete();

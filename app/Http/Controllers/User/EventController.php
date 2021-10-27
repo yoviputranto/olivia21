@@ -7,6 +7,7 @@ use App\Models\Admin\Event;
 use App\Models\Admin\EventCategory;
 use App\Models\Admin\EventJenis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
@@ -27,6 +28,7 @@ class EventController extends Controller
             'assets/gallery',
             'public'
         );
+        $data['user_id'] = Auth::user()->id;
         $data['status'] = 'proses';
         if($request->harga==null){
             $data['harga']= 0;
